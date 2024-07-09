@@ -72,8 +72,85 @@ const CardForm = () => {
           />
         </div>
       </fieldset>
-      <Divider />
-      <input type="submit" />
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="furigana" isRequired />
+        <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
+          <Input
+            name="firstNameKana"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="input your first name"
+          />
+          <Input
+            name="lastNameKana"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="input your last name"
+          />
+        </div>
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="tel" isRequired />
+        <Input
+          name="tel"
+          register={register}
+          errors={errors}
+          classes="w-full"
+          placeholder="input your phone number"
+        />
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="email" isRequired />
+        <Input
+          name="email"
+          register={register}
+          errors={errors}
+          classes="w-full"
+          placeholder="input your email address"
+        />
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="zipCode" isRequired />
+        <Input
+          name="zipCode"
+          register={register}
+          errors={errors}
+          classes="w-full"
+          placeholder="1230012"
+        />
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="address" isRequired />
+        <div className="grid gap-2">
+          <Input
+            name="address1"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="meguro-ku nakameguro x-x-x, tokyo"
+          />
+          <Input
+            name="address2"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="exam nakameguro xxx"
+          />
+        </div>
+      </fieldset>
+      <Divider classes="mx-4" />
     </form>
   );
 };
