@@ -3,6 +3,7 @@ import Divider from '@/components/Divider';
 import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
+import TextArea from '@/components/TextArea';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
 import { kanaNameSchema, noneEmptyStringSchema, unionSchema } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -191,6 +192,11 @@ const CardForm = () => {
         </div>
       </fieldset>
       <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="アレルギー" isRequired />
+        <TextArea name="memo" classes="w-full" errors={errors} register={register} />
+      </fieldset>
 
       <button type="submit">submit</button>
     </form>
