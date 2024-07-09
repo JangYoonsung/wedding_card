@@ -61,6 +61,7 @@ const CardForm = () => {
           errors={errors}
         />
       </fieldset>
+      <Divider classes="mx-4" />
 
       <fieldset className="p-4">
         <Label text="name" isRequired />
