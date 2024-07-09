@@ -1,0 +1,12 @@
+.root {
+  background-color: gray;
+}
+
+.root[data-direction='horizontal'] {
+  height: var(--thickness);
+}
+
+.root[data-direction='vertical'] {
+  width: var(--thickness);
+  height: 100%;
+}

@@ -1,4 +1,5 @@
 import { ORIENTATION } from '@/constants/Divider';
+import '@/style/divider.css';
 
 const Divider = ({
   orientation = 'horizontal',
