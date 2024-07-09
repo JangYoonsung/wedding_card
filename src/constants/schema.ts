@@ -11,11 +11,12 @@ export const noneEmptyErrorMap: z.ZodErrorMap = (issue, _ctx) => {
 
 export const noneEmptyStringSchema = z
   .string({ errorMap: noneEmptyErrorMap })
-  .min(1, { message: 'required' });
+  .min(1, { message: '必ず入力してください。' });
 
-export const kanaNameSchema = z
-  .string({ errorMap: noneEmptyErrorMap })
-  .regex(/^([\u30A0-\u30FF]*|[\u30A0-\u30FF]+[ 　][\u30A0-\u30FF]+)$/, { message: 'invalid' });
+export const kanaNameSchema = noneEmptyStringSchema.regex(
+  /^([\u30A0-\u30FF]*|[\u30A0-\u30FF]+[ 　][\u30A0-\u30FF]+)$/,
+  { message: 'カタカナで入力してください' },
+);
 
 export const unionSchema = <T extends z.Primitive>(literals: readonly T[]) => {
   type Union = [z.ZodLiteral<T>, z.ZodLiteral<T>, ...z.ZodLiteral<T>[]];

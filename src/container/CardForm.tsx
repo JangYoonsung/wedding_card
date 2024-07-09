@@ -4,12 +4,7 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
-import {
-  kanaNameSchema,
-  noneEmptyErrorMap,
-  noneEmptyStringSchema,
-  unionSchema,
-} from '@/constants/schema';
+import { kanaNameSchema, noneEmptyStringSchema, unionSchema } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -26,16 +21,15 @@ const schema = z.object({
   lastName: noneEmptyStringSchema,
   firstNameKana: kanaNameSchema,
   lastNameKana: kanaNameSchema,
-  email: z.string({ errorMap: noneEmptyErrorMap }).email(),
-  tel: z
-    .string({ errorMap: noneEmptyErrorMap })
-    .regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, { message: 'invalid' }),
-  zipCode: z
-    .string({ errorMap: noneEmptyErrorMap })
-    .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: 'invalid' })
+  email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
+  tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
+    message: '有効な電話番号を入力してください。',
+  }),
+  zipCode: noneEmptyStringSchema
+    .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
     .nullish(),
   address1: noneEmptyStringSchema.nullish(),
-  address2: noneEmptyStringSchema.nullish(),
+  address2: z.string().nullish(),
   memo: noneEmptyStringSchema.nullish(),
 });
 
@@ -57,10 +51,10 @@ const CardForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <fieldset className="p-4">
-        <Label text="attendanceStatus" isRequired />
+        <Label text="ご出欠" isRequired />
         <Radio
           values={attendanceStatuses}
-          labels={{ [ATTENDANCE_STATUS.PRESENT]: 'PRESENT', [ATTENDANCE_STATUS.ABSENT]: 'ABSENT' }}
+          labels={{ [ATTENDANCE_STATUS.PRESENT]: 'ご出席', [ATTENDANCE_STATUS.ABSENT]: 'ご欠席' }}
           register={register}
           name="attendanceStatus"
           errors={errors}
@@ -69,52 +63,52 @@ const CardForm = () => {
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="name" isRequired />
+        <Label text="お名前" isRequired />
         <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
           <Input
             name="firstName"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="input your first name"
+            placeholder="山田"
           />
           <Input
             name="lastName"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="input your last name"
+            placeholder="太郎"
           />
         </div>
       </fieldset>
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="furigana" isRequired />
+        <Label text="フリガナ" isRequired />
         <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
           <Input
             name="firstNameKana"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="input your first name"
+            placeholder="ヤマダ"
           />
           <Input
             name="lastNameKana"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="input your last name"
+            placeholder="タロウ"
           />
         </div>
       </fieldset>
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="genders" isRequired />
+        <Label text="性別" isRequired />
         <Radio
           values={genders}
-          labels={{ [GENDER.MALE]: 'male', [GENDER.FEMALE]: 'female', [GENDER.NO_ANSWER]: 'other' }}
+          labels={{ [GENDER.MALE]: '男性', [GENDER.FEMALE]: '情勢', [GENDER.NO_ANSWER]: 'その他' }}
           register={register}
           name="gender"
           errors={errors}
@@ -123,10 +117,13 @@ const CardForm = () => {
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="whichSide" isRequired />
+        <Label text="ゲスト様" isRequired />
         <Radio
           values={whichGuests}
-          labels={{ [WHICH_GUEST.GROOM_SIDE]: 'groom', [WHICH_GUEST.BRIDE_SIDE]: 'bride' }}
+          labels={{
+            [WHICH_GUEST.GROOM_SIDE]: '新郎ゲスト',
+            [WHICH_GUEST.BRIDE_SIDE]: '新婦ゲスト',
+          }}
           register={register}
           name="whichGuest"
           errors={errors}
@@ -135,31 +132,31 @@ const CardForm = () => {
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="tel" isRequired />
+        <Label text="電話番号" isRequired />
         <Input
           name="tel"
           register={register}
           errors={errors}
           classes="w-full"
-          placeholder="input your phone number"
+          placeholder="09012341234"
         />
       </fieldset>
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="email" isRequired />
+        <Label text="メールアドレス" isRequired />
         <Input
           name="email"
           register={register}
           errors={errors}
           classes="w-full"
-          placeholder="input your email address"
+          placeholder="thankyou@gmail.com"
         />
       </fieldset>
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="zipCode" isRequired />
+        <Label text="郵便番号" isRequired />
         <Input
           name="zipCode"
           register={register}
@@ -171,21 +168,21 @@ const CardForm = () => {
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="address" isRequired />
+        <Label text="ご住所" isRequired />
         <div className="grid gap-2">
           <Input
             name="address1"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="meguro-ku nakameguro x-x-x, tokyo"
+            placeholder="東京都目黒区中目黒x-x-x"
           />
           <Input
             name="address2"
             register={register}
             errors={errors}
             classes="w-full"
-            placeholder="exam nakameguro xxx"
+            placeholder="目黒のどこかの建物"
           />
         </div>
       </fieldset>
