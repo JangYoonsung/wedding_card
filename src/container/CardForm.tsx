@@ -31,7 +31,7 @@ const schema = z.object({
     .nullish(),
   address1: noneEmptyStringSchema.nullish(),
   address2: z.string().nullish(),
-  memo: noneEmptyStringSchema.nullish(),
+  memo: z.string().nullish(),
 });
 
 export type TSchema = z.infer<typeof schema>;
