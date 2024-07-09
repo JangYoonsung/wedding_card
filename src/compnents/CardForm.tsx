@@ -1,12 +1,25 @@
 'use client';
+import { kanaNameSchema, noneEmptyErrorMap, noneEmptyStringSchema } from '@/constants/schema';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-export const schema = z.object({
-  firstName: z.string().min(1, { message: 'required' }),
-  lastName: z.string().min(1, { message: 'required' }),
-  firstNameKana: z.string().min(1, { message: 'required' }),
-  lastNameKana: z.string().min(1, { message: 'required' }),
+const schema = z.object({
+  firstName: noneEmptyStringSchema,
+  lastName: noneEmptyStringSchema,
+  firstNameKana: kanaNameSchema,
+  lastNameKana: kanaNameSchema,
+  email: z.string({ errorMap: noneEmptyErrorMap }).email(),
+  tel: z
+    .string({ errorMap: noneEmptyErrorMap })
+    .regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, { message: 'invalid' }),
+  zipCode: z
+    .string({ errorMap: noneEmptyErrorMap })
+    .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: 'invalid' })
+    .nullish(),
+  address1: noneEmptyStringSchema.nullish(),
+  address2: noneEmptyStringSchema.nullish(),
+  memo: noneEmptyStringSchema.nullish(),
 });
 
 export type TSchema = z.infer<typeof schema>;
@@ -14,6 +27,7 @@ export type TSchema = z.infer<typeof schema>;
 const CardForm = () => {
   const { register, handleSubmit } = useForm<TSchema>({
     defaultValues: {},
+    resolver: zodResolver(schema),
   });
 
   const onSubmit = (data: TSchema) => {
