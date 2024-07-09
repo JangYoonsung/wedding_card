@@ -59,7 +59,7 @@ const CardForm = () => {
       <fieldset className="p-4">
         <Label text="attendanceStatus" isRequired />
         <Radio
-          values={[ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT]}
+          values={attendanceStatuses}
           labels={{ [ATTENDANCE_STATUS.PRESENT]: 'PRESENT', [ATTENDANCE_STATUS.ABSENT]: 'ABSENT' }}
           register={register}
           name="attendanceStatus"
@@ -107,6 +107,30 @@ const CardForm = () => {
             placeholder="input your last name"
           />
         </div>
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="genders" isRequired />
+        <Radio
+          values={genders}
+          labels={{ [GENDER.MALE]: 'male', [GENDER.FEMALE]: 'female', [GENDER.NO_ANSWER]: 'other' }}
+          register={register}
+          name="gender"
+          errors={errors}
+        />
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="whichSide" isRequired />
+        <Radio
+          values={whichGuests}
+          labels={{ [WHICH_GUEST.GROOM_SIDE]: 'groom', [WHICH_GUEST.BRIDE_SIDE]: 'bride' }}
+          register={register}
+          name="whichGuest"
+          errors={errors}
+        />
       </fieldset>
       <Divider classes="mx-4" />
 
