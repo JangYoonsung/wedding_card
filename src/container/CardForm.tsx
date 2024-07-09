@@ -43,6 +43,7 @@ const CardForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<TSchema>({
+    defaultValues: { attendanceStatus: ATTENDANCE_STATUS.PRESENT },
     resolver: zodResolver(schema),
   });
 
