@@ -14,10 +14,14 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+const attendanceStatuses = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];
+const whichGuests = [WHICH_GUEST.GROOM_SIDE, WHICH_GUEST.BRIDE_SIDE];
+const genders = [GENDER.MALE, GENDER.FEMALE, GENDER.NO_ANSWER];
+
 const schema = z.object({
-  attendanceStatus: unionSchema([ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT]),
-  whichGuest: unionSchema([WHICH_GUEST.GROOM_SIDE, WHICH_GUEST.BRIDE_SIDE]),
-  gender: unionSchema([GENDER.MALE, GENDER.FEMALE, GENDER.NO_ANSWER]),
+  attendanceStatus: unionSchema(attendanceStatuses),
+  whichGuest: unionSchema(whichGuests),
+  gender: unionSchema(genders),
   firstName: noneEmptyStringSchema,
   lastName: noneEmptyStringSchema,
   firstNameKana: kanaNameSchema,
