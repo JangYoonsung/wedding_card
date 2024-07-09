@@ -1,5 +1,5 @@
 .root {
-  background-color: gray;
+  background-color: var(--color);
 }
 
 .root[data-orientation='horizontal'] {
