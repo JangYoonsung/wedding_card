@@ -9,6 +9,7 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import Input from './common/Input';
 
 const schema = z.object({
   attendanceStatus: unionSchema([ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT]),
@@ -34,7 +35,11 @@ const schema = z.object({
 export type TSchema = z.infer<typeof schema>;
 
 const CardForm = () => {
-  const { register, handleSubmit } = useForm<TSchema>({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TSchema>({
     defaultValues: {},
     resolver: zodResolver(schema),
   });
@@ -42,13 +47,20 @@ const CardForm = () => {
   const onSubmit = (data: TSchema) => {
     console.log(data);
   };
+  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register('firstName')} />
+      <Input
+        name="firstName"
+        register={register}
+        errors={errors}
+        placeholder="input your first name"
+      />
       <input type="text" {...register('lastName')} />
       <input type="text" {...register('firstNameKana')} />
       <input type="text" {...register('lastNameKana')} />
+      <input type="submit" />
     </form>
   );
 };
