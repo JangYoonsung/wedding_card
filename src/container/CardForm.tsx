@@ -1,4 +1,5 @@
 'use client';
+import Input from '@/components/Input';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
 import {
   kanaNameSchema,
@@ -9,7 +10,6 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import Input from './common/Input';
 
 const schema = z.object({
   attendanceStatus: unionSchema([ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT]),

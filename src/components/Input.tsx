@@ -1,6 +1,6 @@
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
-import { TSchema } from '../CardForm';
 import { HTMLInputTypeAttribute } from 'react';
+import { TSchema } from '@/container/CardForm';
 
 const Input = ({
   name,

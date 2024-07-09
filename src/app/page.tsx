@@ -1,4 +1,4 @@
-import CardForm from '@/components/CardForm';
+import CardForm from '@/container/CardForm';
 
 const Home = () => {
   return (
