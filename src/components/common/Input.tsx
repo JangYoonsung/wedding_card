@@ -25,9 +25,11 @@ const Input = ({
         placeholder={placeholder}
         {...register(name)}
       />
-      <div className="pt-1">
-        {errors?.[name]?.message && <p className="text-red-600">{errors?.[name].message}</p>}
-      </div>
+      {errors?.[name]?.message && (
+        <div className="pt-1">
+          <p className="text-red-600">{errors?.[name].message}</p>
+        </div>
+      )}
     </div>
   );
 };
