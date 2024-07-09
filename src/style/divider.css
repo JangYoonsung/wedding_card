@@ -2,11 +2,11 @@
   background-color: gray;
 }
 
-.root[data-direction='horizontal'] {
+.root[data-orientation='horizontal'] {
   height: var(--thickness);
 }
 
-.root[data-direction='vertical'] {
+.root[data-orientation='vertical'] {
   width: var(--thickness);
   height: 100%;
 }

@@ -1,4 +1,5 @@
 'use client';
+import Divider from '@/components/Divider';
 import Input from '@/components/Input';
 import Label from '@/components/Label';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
@@ -71,6 +72,7 @@ const CardForm = () => {
           />
         </div>
       </fieldset>
+      <Divider />
       <input type="submit" />
     </form>
   );
