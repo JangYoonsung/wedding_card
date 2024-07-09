@@ -53,7 +53,7 @@ const CardForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <fieldset className="p-4">
-        <Label labelName="name" isRequired />
+        <Label text="name" isRequired />
         <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
           <Input
             name="firstName"
