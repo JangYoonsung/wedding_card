@@ -18,9 +18,9 @@ const Input = ({
   classes?: string;
 }) => {
   return (
-    <div className="text-sm">
+    <div className="text-xs">
       <input
-        className={`border border-gray rounded px-4 py-2 focus:outline-none ${classes}`}
+        className={`border border-gray rounded p-2 focus:outline-none ${classes}`}
         type={type}
         placeholder={placeholder}
         {...register(name)}

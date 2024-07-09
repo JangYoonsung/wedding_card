@@ -50,16 +50,29 @@ const CardForm = () => {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        name="firstName"
-        register={register}
-        errors={errors}
-        placeholder="input your first name"
-      />
-      <input type="text" {...register('lastName')} />
-      <input type="text" {...register('firstNameKana')} />
-      <input type="text" {...register('lastNameKana')} />
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <fieldset className="p-4">
+        <div className="flex gap-2 pb-2">
+          <label>name</label>
+          <span className="bg-red-600 text-white rounded p-1 text-xs">required</span>
+        </div>
+        <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
+          <Input
+            name="firstName"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="input your first name"
+          />
+          <Input
+            name="lastName"
+            register={register}
+            errors={errors}
+            classes="w-full"
+            placeholder="input your last name"
+          />
+        </div>
+      </fieldset>
       <input type="submit" />
     </form>
   );
