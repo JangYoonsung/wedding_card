@@ -3,7 +3,7 @@ import '@/style/divider.css';
 import { CSSProperties } from 'react';
 
 const Divider = ({
-  orientation = 'horizontal',
+  orientation = ORIENTATION.HORIZONTAL,
   thickness = '1px',
   color = 'lightGray',
   classes,
