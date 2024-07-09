@@ -1,5 +1,6 @@
 'use client';
 import Input from '@/components/Input';
+import Label from '@/components/Label';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
 import {
   kanaNameSchema,
@@ -52,10 +53,7 @@ const CardForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <fieldset className="p-4">
-        <div className="flex gap-2 pb-2">
-          <label>name</label>
-          <span className="bg-red-600 text-white rounded p-1 text-xs">required</span>
-        </div>
+        <Label labelName="name" isRequired />
         <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
           <Input
             name="firstName"
