@@ -1,10 +1,17 @@
 'use client';
+import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
 import { kanaNameSchema, noneEmptyErrorMap, noneEmptyStringSchema } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const schema = z.object({
+  attendanceStatus: z.union([
+    z.literal(ATTENDANCE_STATUS.PRESENT),
+    z.literal(ATTENDANCE_STATUS.ABSENT),
+  ]),
+  whichGuest: z.union([z.literal(WHICH_GUEST.GROOM_SIDE), z.literal(WHICH_GUEST.BRIDE_SIDE)]),
+  gender: z.union([z.literal(GENDER.MALE), z.literal(GENDER.FEMALE), z.literal(GENDER.NO_ANSWER)]),
   firstName: noneEmptyStringSchema,
   lastName: noneEmptyStringSchema,
   firstNameKana: kanaNameSchema,
