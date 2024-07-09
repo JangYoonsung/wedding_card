@@ -2,6 +2,7 @@
 import Divider from '@/components/Divider';
 import Input from '@/components/Input';
 import Label from '@/components/Label';
+import Radio from '@/components/Radio';
 import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
 import {
   kanaNameSchema,
@@ -10,7 +11,7 @@ import {
   unionSchema,
 } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -42,17 +43,25 @@ const CardForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<TSchema>({
-    defaultValues: {},
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: TSchema) => {
-    console.log(data);
-  };
+  const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
   console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+      <fieldset className="p-4">
+        <Label text="attendanceStatus" isRequired />
+        <Radio
+          values={[ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT]}
+          labels={{ [ATTENDANCE_STATUS.PRESENT]: 'PRESENT', [ATTENDANCE_STATUS.ABSENT]: 'ABSENT' }}
+          register={register}
+          name="attendanceStatus"
+          errors={errors}
+        />
+      </fieldset>
+
       <fieldset className="p-4">
         <Label text="name" isRequired />
         <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
@@ -151,6 +160,8 @@ const CardForm = () => {
         </div>
       </fieldset>
       <Divider classes="mx-4" />
+
+      <button type="submit">submit</button>
     </form>
   );
 };
