@@ -1,10 +1,12 @@
---size: 1.25rem;
---before-size: 0.75rem;
+:root {
+  --size: 1rem;
+  --before-size: 0.5rem;
+}
 
 .radio {
   appearance: none;
-  width: var(--size)
-  height: var(--size)
+  width: var(--size);
+  height: var(--size);
   border-radius: 50%;
   border: 2px solid hsl(0, 0%, 60%);
   display: flex;
