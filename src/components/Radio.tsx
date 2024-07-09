@@ -20,7 +20,7 @@ const Radio = <T extends string>({
 }) => {
   return (
     <>
-      <div role="radioGroup" className={`flex gap-2 text-sm ${classes}`}>
+      <div role="radioGroup" className={`flex gap-2 relative text-sm ${classes}`}>
         {values.map((value, index) => {
           return (
             <Fragment key={index}>

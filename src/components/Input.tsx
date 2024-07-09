@@ -1,6 +1,6 @@
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
-import { HTMLInputTypeAttribute } from 'react';
 import { TSchema } from '@/container/CardForm';
+import { HTMLInputTypeAttribute } from 'react';
+import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 
 const Input = ({
   name,
@@ -20,7 +20,7 @@ const Input = ({
   return (
     <div className="text-xs">
       <input
-        className={`border border-gray rounded p-2 focus:outline-none ${classes}`}
+        className={`border border-gray rounded p-2 relative focus:outline-none ${classes}`}
         type={type}
         placeholder={placeholder}
         {...register(name)}
