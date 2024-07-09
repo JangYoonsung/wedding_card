@@ -22,11 +22,16 @@ const Radio = <T extends string>({
     <>
       <div role="radioGroup" className={`flex gap-2 text-sm ${classes}`}>
         {values.map((value, index) => {
-          const id = `${value}-${index}`;
           return (
             <Fragment key={index}>
-              <label htmlFor={id} className="flex items-center gap-1">
-                <input id={id} className="radio" type="radio" value={value} {...register(name)} />
+              <label htmlFor={value} className="flex items-center gap-1">
+                <input
+                  id={value}
+                  className="radio"
+                  type="radio"
+                  value={value}
+                  {...register(name)}
+                />
                 {labels?.[value] ?? value}
               </label>
             </Fragment>
