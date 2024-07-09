@@ -1,4 +1,4 @@
-const Label = ({ text, isRequired }: { text: string; isRequired: boolean }) => {
+const Label = ({ text, isRequired }: { text: string; isRequired?: boolean }) => {
   return (
     <div className="flex gap-2 pb-2">
       <label htmlFor="">{text}</label>

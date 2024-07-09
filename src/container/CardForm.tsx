@@ -194,7 +194,7 @@ const CardForm = () => {
       <Divider classes="mx-4" />
 
       <fieldset className="p-4">
-        <Label text="アレルギー" isRequired />
+        <Label text="アレルギー" />
         <TextArea name="memo" classes="w-full" errors={errors} register={register} />
       </fieldset>
 
