@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'web招待状',
   description: 'ユンソン・じゅあんの結婚式に招待します。',
+  icons: {
+    icon: '/image/icon.png',
+  },
 };
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
