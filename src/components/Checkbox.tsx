@@ -26,8 +26,8 @@ const Checkbox = ({
         {children}
       </label>
       {errors?.[name]?.message && (
-        <div>
-          <p>{errors[name].message}</p>
+        <div className="pt-1">
+          <p className="text-error">{errors[name].message}</p>
         </div>
       )}
     </>
