@@ -5,7 +5,7 @@ import { CSSProperties } from 'react';
 const Divider = ({
   orientation = ORIENTATION.HORIZONTAL,
   thickness = '1px',
-  color = 'lightGray',
+  color = 'var(--light-gray)',
   classes,
 }: {
   orientation?: (typeof ORIENTATION)[keyof typeof ORIENTATION];
