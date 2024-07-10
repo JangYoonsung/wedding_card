@@ -22,7 +22,7 @@ const Checkbox = ({
         htmlFor={name}
         className={`inline-flex gap-2 relative items-center text-sm cursor-pointer ${classes}`}>
         <input type="checkbox" className="hidden" id={name} {...register(name)} />
-        <span className="checkbox" />
+        <span className="rounded relative inline-block checkbox" />
         {children}
       </label>
       {errors?.[name]?.message && (

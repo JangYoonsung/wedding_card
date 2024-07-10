@@ -1,15 +1,26 @@
 :root {
+  --max-percent: 100%;
   --size: 1rem;
   --before-size: 0.5rem;
+  --icon-url: url('/icon/check.svg');
 }
 
 .checkbox {
   width: var(--size);
   height: var(--size);
   border: 1px solid #4a5568;
-  border-radius: 4px;
-  display: inline-block;
-  position: relative;
+  transition: all 0.2s;
+}
+
+.checkbox::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--border-size);
+  height: var(--border-size);
+  border-radius: 2px;
+  transform: translate(-50%, -50%) scale(0);
   transition: all 0.2s;
 }
 
@@ -24,13 +35,25 @@
   border-radius: 2px;
   transform: translate(-50%, -50%) scale(0);
   transition: all 0.2s;
+
+  mask: var(--icon-url) no-repeat center;
+  mask-size: contain;
+}
+
+input[type='checkbox']:checked + .checkbox::before {
+  transform: translate(-50%, -50%) scale(1);
+  width: var(--max-percent);
+  height: var(--max-percent);
+  background-color: #3182ce;
 }
 
 input[type='checkbox']:checked + .checkbox::after {
   transform: translate(-50%, -50%) scale(1);
+  width: var(--max-percent);
+  height: var(--max-percent);
+  background-color: #fff;
 }
 
 input[type='checkbox']:checked + .checkbox {
   border-color: #3182ce;
-  background-color: #3182ce;
 }
