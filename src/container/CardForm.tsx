@@ -1,4 +1,5 @@
 'use client';
+import Checkbox from '@/components/Checkbox';
 import Divider from '@/components/Divider';
 import Input from '@/components/Input';
 import Label from '@/components/Label';
@@ -185,6 +186,14 @@ const CardForm = () => {
           errors={errors}
           register={register}
         />
+      </fieldset>
+      <Divider classes="mx-4" />
+
+      <fieldset className="p-4">
+        <Label text="お連れ様有無" />
+        <Checkbox name="isAccompanied" errors={errors} register={register}>
+          お疲れ様を追加する
+        </Checkbox>
       </fieldset>
 
       <button type="submit">submit</button>
