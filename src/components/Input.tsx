@@ -1,4 +1,5 @@
 import { TSchema } from '@/container/CardForm';
+import '@/style/input.css';
 import { HTMLInputTypeAttribute } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 
@@ -17,17 +18,21 @@ const Input = ({
   placeholder?: string;
   classes?: string;
 }) => {
+  const errorMessage = errors?.[name]?.message;
+  const BORDER_COLOR = { PRIMARY: 'primary', ERROR: 'error' } as const;
+
   return (
     <div className="text-xs">
       <input
-        className={`border border-gray rounded p-2 relative focus:outline-none ${classes}`}
+        className={`border rounded p-2 relative focus:outline-none ${classes}`}
+        data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         type={type}
         placeholder={placeholder}
         {...register(name)}
       />
-      {errors?.[name]?.message && (
+      {errorMessage && (
         <div className="pt-1">
-          <p className="text-red-600">{errors?.[name].message}</p>
+          <p className="text-error">{errorMessage}</p>
         </div>
       )}
     </div>
