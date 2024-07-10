@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import { TRUE_OR_FALSE } from './form';
 
 export const noneEmptyErrorMap: z.ZodErrorMap = (issue, _ctx) => {
   if (issue.code === z.ZodIssueCode.invalid_type) {
@@ -24,5 +23,5 @@ export const unionSchema = <T extends z.Primitive>(literals: readonly T[]) => {
   return z.union(literals.map((value) => z.literal(value)) as Union);
 };
 
-export const isAccompaniedSchema = (literal: (typeof TRUE_OR_FALSE)[keyof typeof TRUE_OR_FALSE]) =>
+export const isAccompaniedSchema = (literal: boolean) =>
   z.object({ isAccompanied: z.literal(literal) });

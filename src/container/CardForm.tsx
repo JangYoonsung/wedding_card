@@ -5,7 +5,7 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
-import { ATTENDANCE_STATUS, TRUE_OR_FALSE } from '@/constants/form';
+import { ATTENDANCE_STATUS } from '@/constants/form';
 import {
   isAccompaniedSchema,
   kanaNameSchema,
@@ -42,8 +42,8 @@ const schema = z.intersection(
     })
     .merge(nameSchema),
   z.discriminatedUnion('isAccompanied', [
-    isAccompaniedSchema(TRUE_OR_FALSE.TRUE).merge(nameSchema),
-    isAccompaniedSchema(TRUE_OR_FALSE.FALSE),
+    isAccompaniedSchema(true).merge(nameSchema),
+    isAccompaniedSchema(false),
   ]),
 );
 
@@ -53,6 +53,7 @@ const CardForm = () => {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<TSchema>({
     defaultValues: {
@@ -62,7 +63,7 @@ const CardForm = () => {
   });
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
-  console.log(errors);
+  console.log(errors, getValues());
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
