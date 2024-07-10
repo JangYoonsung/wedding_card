@@ -25,27 +25,28 @@ const nameSchema = z.object({
   lastNameKana: kanaNameSchema,
 });
 
-const schema = z.intersection(
-  z
-    .object({
-      attendanceStatus: unionSchema(attendanceStatuses),
-      email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
-      tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
-        message: '有効な電話番号を入力してください。',
-      }),
-      zipCode: noneEmptyStringSchema
-        .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
-        .nullish(),
-      address1: noneEmptyStringSchema.nullish(),
-      address2: z.string().nullish(),
-      memo: z.string().nullish(),
-    })
-    .merge(nameSchema),
-  z.discriminatedUnion('isAccompanied', [
-    isAccompaniedSchema(true).merge(nameSchema),
-    isAccompaniedSchema(false),
-  ]),
-);
+const baseSchema = z
+  .object({
+    attendanceStatus: unionSchema(attendanceStatuses),
+    email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
+    tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
+      message: '有効な電話番号を入力してください。',
+    }),
+    zipCode: noneEmptyStringSchema
+      .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
+      .nullish(),
+    address1: noneEmptyStringSchema.nullish(),
+    address2: z.string().nullish(),
+    memo: z.string().nullish(),
+  })
+  .merge(nameSchema);
+
+const accompaniedSchema = z.discriminatedUnion('isAccompanied', [
+  isAccompaniedSchema(true).merge(z.object({ companionInfo: z.array(nameSchema) })),
+  isAccompaniedSchema(false),
+]);
+
+const schema = z.intersection(baseSchema, accompaniedSchema);
 
 export type TSchema = z.infer<typeof schema>;
 
