@@ -4,20 +4,16 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
-import { ATTENDANCE_STATUS, GENDER, WHICH_GUEST } from '@/constants/form';
+import { ATTENDANCE_STATUS } from '@/constants/form';
 import { kanaNameSchema, noneEmptyStringSchema, unionSchema } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const attendanceStatuses = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];
-const whichGuests = [WHICH_GUEST.GROOM_SIDE, WHICH_GUEST.BRIDE_SIDE];
-const genders = [GENDER.MALE, GENDER.FEMALE, GENDER.NO_ANSWER];
 
 const schema = z.object({
   attendanceStatus: unionSchema(attendanceStatuses),
-  whichGuest: unionSchema(whichGuests),
-  gender: unionSchema(genders),
   firstName: noneEmptyStringSchema,
   lastName: noneEmptyStringSchema,
   firstNameKana: kanaNameSchema,
@@ -44,8 +40,6 @@ const CardForm = () => {
   } = useForm<TSchema>({
     defaultValues: {
       attendanceStatus: ATTENDANCE_STATUS.PRESENT,
-      gender: GENDER.MALE,
-      whichGuest: WHICH_GUEST.GROOM_SIDE,
     },
     resolver: zodResolver(schema),
   });
@@ -106,33 +100,6 @@ const CardForm = () => {
             placeholder="タロウ"
           />
         </div>
-      </fieldset>
-      <Divider classes="mx-4" />
-
-      <fieldset className="p-4">
-        <Label text="性別" isRequired />
-        <Radio
-          values={genders}
-          labels={{ [GENDER.MALE]: '男性', [GENDER.FEMALE]: '情勢', [GENDER.NO_ANSWER]: 'その他' }}
-          register={register}
-          name="gender"
-          errors={errors}
-        />
-      </fieldset>
-      <Divider classes="mx-4" />
-
-      <fieldset className="p-4">
-        <Label text="ゲスト様" isRequired />
-        <Radio
-          values={whichGuests}
-          labels={{
-            [WHICH_GUEST.GROOM_SIDE]: '新郎ゲスト',
-            [WHICH_GUEST.BRIDE_SIDE]: '新婦ゲスト',
-          }}
-          register={register}
-          name="whichGuest"
-          errors={errors}
-        />
       </fieldset>
       <Divider classes="mx-4" />
 
