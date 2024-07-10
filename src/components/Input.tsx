@@ -1,3 +1,4 @@
+import { BORDER_COLOR } from '@/constants/common';
 import { TSchema } from '@/container/CardForm';
 import '@/style/input.css';
 import { HTMLInputTypeAttribute } from 'react';
@@ -19,7 +20,6 @@ const Input = ({
   classes?: string;
 }) => {
   const errorMessage = errors?.[name]?.message;
-  const BORDER_COLOR = { PRIMARY: 'primary', ERROR: 'error' } as const;
 
   return (
     <div className="text-xs">
