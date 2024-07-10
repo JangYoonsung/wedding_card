@@ -4,31 +4,47 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
-import { ATTENDANCE_STATUS } from '@/constants/form';
-import { kanaNameSchema, noneEmptyStringSchema, unionSchema } from '@/constants/schema';
+import { ATTENDANCE_STATUS, TRUE_OR_FALSE } from '@/constants/form';
+import {
+  isAccompaniedSchema,
+  kanaNameSchema,
+  noneEmptyStringSchema,
+  unionSchema,
+} from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const attendanceStatuses = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];
 
-const schema = z.object({
-  attendanceStatus: unionSchema(attendanceStatuses),
+const nameSchema = z.object({
   firstName: noneEmptyStringSchema,
   lastName: noneEmptyStringSchema,
   firstNameKana: kanaNameSchema,
   lastNameKana: kanaNameSchema,
-  email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
-  tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
-    message: '有効な電話番号を入力してください。',
-  }),
-  zipCode: noneEmptyStringSchema
-    .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
-    .nullish(),
-  address1: noneEmptyStringSchema.nullish(),
-  address2: z.string().nullish(),
-  memo: z.string().nullish(),
 });
+
+const schema = z.intersection(
+  z
+    .object({
+      attendanceStatus: unionSchema(attendanceStatuses),
+      email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
+      tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
+        message: '有効な電話番号を入力してください。',
+      }),
+      zipCode: noneEmptyStringSchema
+        .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
+        .nullish(),
+      address1: noneEmptyStringSchema.nullish(),
+      address2: z.string().nullish(),
+      memo: z.string().nullish(),
+    })
+    .merge(nameSchema),
+  z.discriminatedUnion('isAccompanied', [
+    isAccompaniedSchema(TRUE_OR_FALSE.TRUE).merge(nameSchema),
+    isAccompaniedSchema(TRUE_OR_FALSE.FALSE),
+  ]),
+);
 
 export type TSchema = z.infer<typeof schema>;
 
