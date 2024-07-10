@@ -1,3 +1,4 @@
+import { BORDER_COLOR } from '@/constants/common';
 import { TSchema } from '@/container/CardForm';
 import { useEffect, useRef } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
@@ -15,6 +16,7 @@ const TextArea = ({
   placeholder?: string;
   classes?: string;
 }) => {
+  const errorMessage = errors?.[name]?.message;
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const { ref, ...rest } = register(name);
 
@@ -48,12 +50,13 @@ const TextArea = ({
       <textarea
         ref={setRef}
         className={`box-border whitespace-pre-wrap border p-2 resize-none rounded overflow-hidden ${classes}`}
+        data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         placeholder={placeholder}
         {...rest}
       />
-      {errors?.[name]?.message && (
+      {errorMessage && (
         <div className="pt-1">
-          <p className="text-red-600">{errors[name].message}</p>
+          <p className="text-error">{errorMessage}</p>
         </div>
       )}
     </div>

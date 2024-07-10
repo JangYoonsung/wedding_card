@@ -1,0 +1,15 @@
+input[data-border='primary'] {
+  border-color: var(--light-gray);
+}
+
+input[data-border='error'] {
+  border-color: var(--error);
+}
+
+textarea[data-border='primary'] {
+  border-color: var(--light-gray);
+}
+
+textarea[data-border='error'] {
+  border-color: var(--error);
+}
