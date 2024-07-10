@@ -24,7 +24,7 @@ const Input = ({
   return (
     <div className="text-xs">
       <input
-        className={`border rounded p-2 relative focus:outline-none ${classes}`}
+        className={`border rounded p-2 relative focus:outline-none focus:border-primary ${classes}`}
         data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         type={type}
         placeholder={placeholder}
