@@ -162,7 +162,13 @@ const CardForm = () => {
 
       <fieldset className="p-4">
         <Label text="アレルギー" />
-        <TextArea name="memo" classes="w-full" errors={errors} register={register} />
+        <TextArea
+          name="memo"
+          classes="w-full"
+          placeholder="アレルギー等ございましたらをご記入してください"
+          errors={errors}
+          register={register}
+        />
       </fieldset>
 
       <button type="submit">submit</button>
