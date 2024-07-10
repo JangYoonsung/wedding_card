@@ -40,7 +40,7 @@ const Radio = <T extends string>({
       </div>
       {errors?.[name]?.message && (
         <div className="pt-1 text-xs">
-          <p className="text-red-600">{errors[name].message}</p>
+          <p className="text-error">{errors[name].message}</p>
         </div>
       )}
     </>
