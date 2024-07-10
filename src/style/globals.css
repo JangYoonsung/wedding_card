@@ -7,8 +7,8 @@
   --secondary: #ecd9c6;
   --light-gray: #e6e6e6;
   --gray: #8c8c8c;
-  --attention: #cc0000;
-  --attention-dark: #b30000;
+  --error: #cc0000;
+  --error-dark: #b30000;
 }
 
 @media (prefers-color-scheme: dark) {
