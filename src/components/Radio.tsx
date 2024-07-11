@@ -13,7 +13,7 @@ const Radio = <T extends string>({
 }: {
   values: readonly T[];
   name: Path<TSchema>;
-  errors: FieldErrors<TSchema>;
+  errors: FieldErrors;
   register: UseFormRegister<TSchema>;
   labels?: Record<T, string>;
   classes?: string;
@@ -40,7 +40,7 @@ const Radio = <T extends string>({
       </div>
       {errors?.[name]?.message && (
         <div className="pt-1 text-xs">
-          <p className="text-error">{errors[name].message}</p>
+          <p className="text-error">{errors[name].message.toString()}</p>
         </div>
       )}
     </>

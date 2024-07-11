@@ -14,7 +14,7 @@ const Input = ({
 }: {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
-  errors: FieldErrors<TSchema>;
+  errors: FieldErrors;
   type?: HTMLInputTypeAttribute;
   placeholder?: string;
   classes?: string;
@@ -32,7 +32,7 @@ const Input = ({
       />
       {errorMessage && (
         <div className="pt-1">
-          <p className="text-error">{errorMessage}</p>
+          <p className="text-error">{errorMessage.toString()}</p>
         </div>
       )}
     </div>

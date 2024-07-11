@@ -12,7 +12,7 @@ const Checkbox = ({
 }: {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
-  errors: FieldErrors<TSchema>;
+  errors: FieldErrors;
   children?: React.ReactNode;
   classes?: string;
 }) => {
@@ -27,7 +27,7 @@ const Checkbox = ({
       </label>
       {errors?.[name]?.message && (
         <div className="pt-1">
-          <p className="text-error">{errors[name].message}</p>
+          <p className="text-error">{errors[name].message.toString()}</p>
         </div>
       )}
     </>

@@ -12,7 +12,7 @@ const TextArea = ({
 }: {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
-  errors: FieldErrors<TSchema>;
+  errors: FieldErrors;
   placeholder?: string;
   classes?: string;
 }) => {
@@ -56,7 +56,7 @@ const TextArea = ({
       />
       {errorMessage && (
         <div className="pt-1">
-          <p className="text-error">{errorMessage}</p>
+          <p className="text-error">{errorMessage.toString()}</p>
         </div>
       )}
     </div>

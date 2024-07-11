@@ -42,7 +42,7 @@ const baseSchema = z
   .merge(nameSchema);
 
 const accompaniedSchema = z.discriminatedUnion('isAccompanied', [
-  isAccompaniedSchema(true).merge(z.object({ companionInfo: z.array(nameSchema) })),
+  isAccompaniedSchema(true).merge(z.object({ companionInfo: z.array(nameSchema).min(1) })),
   isAccompaniedSchema(false),
 ]);
 
