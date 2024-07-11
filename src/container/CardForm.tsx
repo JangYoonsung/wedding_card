@@ -1,4 +1,5 @@
 'use client';
+import Button from '@/components/Button';
 import Checkbox from '@/components/Checkbox';
 import Divider from '@/components/Divider';
 import Input from '@/components/Input';
@@ -13,7 +14,7 @@ import {
   unionSchema,
 } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -68,6 +69,7 @@ const CardForm = () => {
   });
 
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
+  const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleOnChecked = (isChecked: boolean): void => {
     if (isChecked) {
@@ -75,6 +77,17 @@ const CardForm = () => {
       return;
     }
     remove();
+  };
+
+  const test = async () => {
+    setLoading(true);
+    const promise = new Promise<void>((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 1000);
+    });
+
+    promise.finally(() => setLoading(false));
   };
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
@@ -263,6 +276,10 @@ const CardForm = () => {
             </fieldset>
           </Fragment>
         ))}
+
+      <Button onClick={test} isLoading={isLoading}>
+        click
+      </Button>
     </form>
   );
 };
