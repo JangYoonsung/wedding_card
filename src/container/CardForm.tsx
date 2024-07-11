@@ -62,6 +62,7 @@ const CardForm = () => {
   } = useForm<TSchema>({
     defaultValues: {
       attendanceStatus: ATTENDANCE_STATUS.PRESENT,
+      isAccompanied: false,
     },
     resolver: zodResolver(schema),
   });
