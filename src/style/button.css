@@ -1,0 +1,30 @@
+button[data-variant='contained'][data-color='primary'] {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+button[data-variant='contained'][data-color='primary']:disabled {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+button[data-variant='outline'][data-color='primary'] {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+button[data-variant='outline'][data-color='primary']:disabled {
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+button[data-variant='text'][data-color='primary'] {
+  color: var(--primary);
+  border: 0;
+}
+
+button[data-variant='text'][data-color='primary']:disabled {
+  color: var(--secondary);
+  border: 0;
+}

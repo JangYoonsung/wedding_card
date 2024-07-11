@@ -263,8 +263,6 @@ const CardForm = () => {
             </fieldset>
           </Fragment>
         ))}
-
-      <button type="submit">submit</button>
     </form>
   );
 };
