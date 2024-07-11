@@ -13,7 +13,7 @@ import {
   unionSchema,
 } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 const attendanceStatuses = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];
@@ -55,6 +55,8 @@ const CardForm = () => {
     register,
     handleSubmit,
     getValues,
+    watch,
+    control,
     formState: { errors },
   } = useForm<TSchema>({
     defaultValues: {
@@ -62,6 +64,16 @@ const CardForm = () => {
     },
     resolver: zodResolver(schema),
   });
+
+  const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
+
+  const handleOnChecked = (isChecked: boolean): void => {
+    if (isChecked) {
+      append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
+      return;
+    }
+    remove();
+  };
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
   console.log(errors, getValues());
@@ -193,7 +205,11 @@ const CardForm = () => {
 
       <fieldset className="p-4">
         <Label text="お連れ様有無" />
-        <Checkbox name="isAccompanied" errors={errors} register={register}>
+        <Checkbox
+          name="isAccompanied"
+          errors={errors}
+          control={control}
+          onChangeHandler={handleOnChecked}>
           お疲れ様を追加する
         </Checkbox>
       </fieldset>

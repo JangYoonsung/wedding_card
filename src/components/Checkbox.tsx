@@ -1,27 +1,45 @@
 import { TSchema } from '@/container/CardForm';
 import '@/style/checkbox.css';
 import React from 'react';
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
+import { Control, Controller, FieldErrors, Path } from 'react-hook-form';
 
 const Checkbox = ({
   name,
-  register,
   errors,
+  control,
   children,
   classes,
+  onChangeHandler = undefined,
 }: {
   name: Path<TSchema>;
-  register: UseFormRegister<TSchema>;
   errors: FieldErrors;
+  control: Control<TSchema>;
   children?: React.ReactNode;
   classes?: string;
+  onChangeHandler?: (isChecked: boolean) => void | undefined;
 }) => {
   return (
     <>
       <label
         htmlFor={name}
         className={`inline-flex gap-2 relative items-center text-sm cursor-pointer ${classes}`}>
-        <input type="checkbox" className="hidden" id={name} {...register(name)} />
+        <Controller
+          control={control}
+          name={name}
+          render={({ field }) => (
+            <input
+              type="checkbox"
+              className="hidden"
+              id={name}
+              {...field}
+              value={String(field.value)}
+              onChange={(event) => {
+                field.onChange(event);
+                onChangeHandler?.(event.target.checked);
+              }}
+            />
+          )}
+        />
         <span className="rounded relative inline-block checkbox" />
         {children}
       </label>
