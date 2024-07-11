@@ -39,6 +39,7 @@ const baseSchema = z
     address1: noneEmptyStringSchema.nullish(),
     address2: z.string().nullish(),
     memo: z.string().nullish(),
+    companionInfo: z.array(nameSchema).nullish(),
   })
   .merge(nameSchema);
 
@@ -55,7 +56,6 @@ const CardForm = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     watch,
     control,
     formState: { errors },
@@ -78,7 +78,7 @@ const CardForm = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
-  console.log(errors);
+  // console.log(errors, getValues());
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">

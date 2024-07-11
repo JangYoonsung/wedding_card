@@ -14,12 +14,15 @@ const Input = ({
 }: {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
-  errors: FieldErrors;
+  errors?: FieldErrors;
   type?: HTMLInputTypeAttribute;
   placeholder?: string;
   classes?: string;
 }) => {
-  const errorMessage = errors?.[name]?.message;
+  const [errorKey, index, _name] = name.split('.');
+  const errorMessage = Array.isArray(errors?.[errorKey])
+    ? errors?.[errorKey]?.[Number(index)]?.[_name]?.message
+    : errors?.[name]?.message;
 
   return (
     <div className="text-xs">
