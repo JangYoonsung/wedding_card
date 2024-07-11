@@ -13,6 +13,7 @@ import {
   unionSchema,
 } from '@/constants/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -76,7 +77,7 @@ const CardForm = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
-  console.log(errors, getValues());
+  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
@@ -213,6 +214,54 @@ const CardForm = () => {
           お疲れ様を追加する
         </Checkbox>
       </fieldset>
+
+      {watch().isAccompanied &&
+        fields.map((field, index) => (
+          <Fragment key={field.id}>
+            {index !== 0 && <Divider classes="mx-4" />}
+
+            <fieldset className="p-4">
+              <Label text="お連れ様のお名前" isRequired />
+              <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
+                <Input
+                  name={`companionInfo.${index}.firstName`}
+                  register={register}
+                  errors={errors}
+                  classes="w-full"
+                  placeholder="山田"
+                />
+                <Input
+                  name={`companionInfo.${index}.lastName`}
+                  register={register}
+                  errors={errors}
+                  classes="w-full"
+                  placeholder="太郎"
+                />
+              </div>
+            </fieldset>
+            <Divider classes="mx-4" />
+
+            <fieldset className="p-4">
+              <Label text="フリガナ" isRequired />
+              <div className="grid grid-flow-col grid-cols-2 justify-between gap-2">
+                <Input
+                  name={`companionInfo.${index}.firstNameKana`}
+                  register={register}
+                  errors={errors}
+                  classes="w-full"
+                  placeholder="山田"
+                />
+                <Input
+                  name={`companionInfo.${index}.lastNameKana`}
+                  register={register}
+                  errors={errors}
+                  classes="w-full"
+                  placeholder="太郎"
+                />
+              </div>
+            </fieldset>
+          </Fragment>
+        ))}
 
       <button type="submit">submit</button>
     </form>
