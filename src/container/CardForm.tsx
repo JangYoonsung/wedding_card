@@ -81,7 +81,7 @@ const CardForm = () => {
   // console.log(errors, getValues());
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+    <form onSubmit={handleSubmit(onSubmit)} className="border my-4 rounded border-light_gray">
       <fieldset className="p-4">
         <Label text="ご出欠" isRequired />
         <Radio
