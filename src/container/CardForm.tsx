@@ -13,8 +13,9 @@ import {
   noneEmptyStringSchema,
   unionSchema,
 } from '@/constants/schema';
+import useLoading from '@/hooks/useLoading';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -69,7 +70,6 @@ const CardForm = () => {
   });
 
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
-  const [isLoading, setLoading] = useState<boolean>(false);
 
   const handleOnChecked = (isChecked: boolean): void => {
     if (isChecked) {
@@ -80,15 +80,14 @@ const CardForm = () => {
   };
 
   const test = async () => {
-    setLoading(true);
-    const promise = new Promise<void>((resolve) => {
+    return await new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
       }, 1000);
     });
-
-    promise.finally(() => setLoading(false));
   };
+
+  const [isLoading, _handleSubmit] = useLoading(test);
 
   const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
   // console.log(errors, getValues());
@@ -277,7 +276,7 @@ const CardForm = () => {
           </Fragment>
         ))}
 
-      <Button onClick={test} isLoading={isLoading}>
+      <Button onClick={_handleSubmit} isLoading={isLoading}>
         click
       </Button>
     </form>
