@@ -16,6 +16,7 @@ const config: Config = {
         gray: 'var(--gray)',
         error: 'var(--error)',
         error_dark: 'var(--error-dark)',
+        error_light: 'var(--error-light)',
       },
     },
   },

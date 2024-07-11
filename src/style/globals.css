@@ -9,6 +9,7 @@
   --gray: #8c8c8c;
   --error: #cc0000;
   --error-dark: #b30000;
+  --error-light: #ff9999;
 }
 
 @media (prefers-color-scheme: dark) {
