@@ -19,7 +19,7 @@ const Button = ({
   disabled?: boolean;
   isLoading?: boolean;
   classes?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 }) => {
   return (
