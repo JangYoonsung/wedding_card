@@ -13,7 +13,6 @@ import {
   noneEmptyStringSchema,
   unionSchema,
 } from '@/constants/schema';
-import useLoading from '@/hooks/useLoading';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
@@ -32,9 +31,11 @@ const baseSchema = z
   .object({
     attendanceStatus: unionSchema(attendanceStatuses),
     email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
-    tel: noneEmptyStringSchema.regex(/^([0-9]+(\([0-9]+\)|-[0-9]+-)?[0-9]+)?$/, {
-      message: '有効な電話番号を入力してください。',
-    }),
+    tel: noneEmptyStringSchema
+      .min(9, '有効な電話番号を入力してください。')
+      .regex(/^(\+81[-.\s]?|0)[1-9]\d{0,3}[-.\s]?\d{1,4}[-.\s]?\d{4}$/, {
+        message: '有効な電話番号を入力してください。',
+      }),
     zipCode: noneEmptyStringSchema
       .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
       .nullish(),
@@ -60,7 +61,7 @@ const CardForm = () => {
     handleSubmit,
     watch,
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<TSchema>({
     defaultValues: {
       attendanceStatus: ATTENDANCE_STATUS.PRESENT,
@@ -87,10 +88,10 @@ const CardForm = () => {
     });
   };
 
-  const [isLoading, _handleSubmit] = useLoading(test);
-
-  const onSubmit: SubmitHandler<TSchema> = (data) => console.log(data);
-  // console.log(errors, getValues());
+  const onSubmit: SubmitHandler<TSchema> = async (data) => {
+    await test();
+    console.log(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="border my-4 rounded border-light_gray">
@@ -156,6 +157,7 @@ const CardForm = () => {
           errors={errors}
           classes="w-full"
           placeholder="09012341234"
+          type="tel"
         />
       </fieldset>
       <Divider classes="mx-4" />
@@ -168,6 +170,7 @@ const CardForm = () => {
           errors={errors}
           classes="w-full"
           placeholder="thankyou@gmail.com"
+          type="email"
         />
       </fieldset>
       <Divider classes="mx-4" />
@@ -276,8 +279,8 @@ const CardForm = () => {
           </Fragment>
         ))}
 
-      <Button onClick={_handleSubmit} isLoading={isLoading}>
-        click
+      <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>
+        回答を送信する
       </Button>
     </form>
   );
