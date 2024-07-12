@@ -24,7 +24,7 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`w-full root ${classes}`}
+      className={`w-full button-root ${classes}`}
       type={type}
       data-color={color}
       data-variant={variant}

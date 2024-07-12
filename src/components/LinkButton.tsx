@@ -23,7 +23,7 @@ const LinkButton = ({
 }) => {
   return (
     <Link
-      className={`w-full root ${classes}`}
+      className={`w-full button-root  ${classes}`}
       href={href}
       aria-disabled={disabled || isLoading}
       data-color={color}
