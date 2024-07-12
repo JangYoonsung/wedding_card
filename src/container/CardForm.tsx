@@ -89,8 +89,14 @@ const CardForm = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
-    await test();
-    console.log(data);
+    return await fetch('/api/guest', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'applicatioin/json',
+      },
+      mode: 'cors',
+      body: JSON.stringify(data),
+    });
   };
 
   return (
