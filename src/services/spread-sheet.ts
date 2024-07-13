@@ -8,10 +8,10 @@ export const loadSheet = async (): Promise<GoogleSpreadsheet> => {
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  const sheet = new GoogleSpreadsheet(String(process.env.SPREAD_SHEET_ID), auth);
-  await sheet.loadInfo();
+  const doc = new GoogleSpreadsheet(String(process.env.SPREAD_SHEET_ID), auth);
+  await doc.loadInfo();
 
-  return sheet;
+  return doc;
 };
 
 export const addRows = async (doc: GoogleSpreadsheet) => {
