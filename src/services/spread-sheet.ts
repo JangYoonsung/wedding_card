@@ -1,3 +1,4 @@
+import { TSchema } from '@/container/CardForm';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 
@@ -14,13 +15,28 @@ export const loadSheet = async (): Promise<GoogleSpreadsheet> => {
   return doc;
 };
 
-export const addRows = async (doc: GoogleSpreadsheet) => {
+export const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   const sheet = doc.sheetsById[0];
   const rows = await sheet.getRows();
-  const isRegistered = rows.some((row) => row.get('email') === '');
+  const isRegistered = rows.some((row) => row.get('email') === body.email);
 
   if (isRegistered) throw new Error('this email already exist');
 
   const now = new Date();
-  return await sheet.addRow({});
+  return await sheet.addRow({
+    attendanceStatus: body.attendanceStatus === 'attendance' ? '出席' : '欠席',
+    name: body.firstName + body.lastName,
+    kanaName: body.firstNameKana + body.lastNameKana,
+    tel: body.tel,
+    email: body.email,
+    zipCode: body?.zipCode ?? '',
+    address: body?.address1 ?? '' + body?.address2 ?? '',
+    memo: body.memo ?? '',
+    isAccompanied: body.isAccompanied ? 'あり' : 'なし',
+    companionInfo:
+      body.companionInfo
+        ?.map((v) => `[${v.firstName + v.lastName}, ${v.firstNameKana + v.lastNameKana}]`)
+        .join(', ') ?? '',
+    createdAt: now.toLocaleDateString(),
+  });
 };

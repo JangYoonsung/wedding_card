@@ -1,3 +1,4 @@
+import { TSchema } from '@/container/CardForm';
 import { addRows, loadSheet } from '@/services/spread-sheet';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -6,9 +7,9 @@ export const GET = (req: NextRequest) => {
 };
 
 export const POST = async (req: NextRequest) => {
-  const body = await req.json();
+  const body: TSchema = await req.json();
   const docs = await loadSheet();
-  const sheet = await addRows(docs);
+  const sheet = await addRows(docs, body);
   console.log(sheet);
   return NextResponse.json({});
 };
