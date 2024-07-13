@@ -9,7 +9,10 @@ export const loadSheet = async (): Promise<GoogleSpreadsheet> => {
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  const doc = new GoogleSpreadsheet(String(process.env.SPREAD_SHEET_ID), auth);
+  const spreadSheetId = process.env.SPREAD_SHEET_ID;
+  if (typeof spreadSheetId !== 'string') throw new Error('spread sheet id is invalid type');
+
+  const doc = new GoogleSpreadsheet(spreadSheetId, auth);
   await doc.loadInfo();
 
   return doc;
