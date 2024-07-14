@@ -1,3 +1,4 @@
+import { schema } from '@/constants/schema';
 import { TSchema } from '@/types/schema';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
@@ -6,6 +7,11 @@ import { NextRequest, NextResponse } from 'next/server';
 export const POST = async (req: NextRequest) => {
   const body: TSchema = await req.json();
   const docs = await loadSheet();
+  const parse = schema.safeParse(body);
+  if (parse.error) {
+    return NextResponse.json({ message: parse.error.message }, { status: 400 });
+  }
+
   const sheet = await addRows(docs, body);
   return NextResponse.json(await sheet.json(), { status: sheet.status });
 };
