@@ -54,5 +54,5 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
         .join(', ') ?? '',
     createdAt: now.toLocaleDateString(),
   });
-  return NextResponse.json(result, { status: 201 });
+  return NextResponse.json(result.toObject(), { status: 201 });
 };
