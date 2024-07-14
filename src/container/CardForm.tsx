@@ -38,14 +38,6 @@ const CardForm = () => {
     remove();
   };
 
-  const test = async () => {
-    return await new Promise<void>((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 1000);
-    });
-  };
-
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
     return await fetch('/api/guest', {
       method: 'POST',
