@@ -6,54 +6,12 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
-import { ATTENDANCE_STATUS } from '@/constants/form';
-import {
-  isAccompaniedSchema,
-  kanaNameSchema,
-  noneEmptyStringSchema,
-  unionSchema,
-} from '@/constants/schema';
+import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
+import { schema } from '@/constants/schema';
+import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
-import { z } from 'zod';
-
-const attendanceStatuses = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];
-
-const nameSchema = z.object({
-  firstName: noneEmptyStringSchema,
-  lastName: noneEmptyStringSchema,
-  firstNameKana: kanaNameSchema,
-  lastNameKana: kanaNameSchema,
-});
-
-const baseSchema = z
-  .object({
-    attendanceStatus: unionSchema(attendanceStatuses),
-    email: noneEmptyStringSchema.email({ message: '有効なメールアドレスを入力してください。' }),
-    tel: noneEmptyStringSchema
-      .min(9, '有効な電話番号を入力してください。')
-      .regex(/^(\+81[-.\s]?|0)[1-9]\d{0,3}[-.\s]?\d{1,4}[-.\s]?\d{4}$/, {
-        message: '有効な電話番号を入力してください。',
-      }),
-    zipCode: noneEmptyStringSchema
-      .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
-      .nullish(),
-    address1: noneEmptyStringSchema.nullish(),
-    address2: z.string().nullish(),
-    memo: z.string().nullish(),
-    companionInfo: z.array(nameSchema).nullish(),
-  })
-  .merge(nameSchema);
-
-const accompaniedSchema = z.discriminatedUnion('isAccompanied', [
-  isAccompaniedSchema(true).merge(z.object({ companionInfo: z.array(nameSchema).min(1) })),
-  isAccompaniedSchema(false),
-]);
-
-const schema = z.intersection(baseSchema, accompaniedSchema);
-
-export type TSchema = z.infer<typeof schema>;
 
 const CardForm = () => {
   const {
@@ -104,7 +62,7 @@ const CardForm = () => {
       <fieldset className="p-4">
         <Label text="ご出欠" isRequired />
         <Radio
-          values={attendanceStatuses}
+          values={ATTENDANCE_STATUSES}
           labels={{ [ATTENDANCE_STATUS.PRESENT]: 'ご出席', [ATTENDANCE_STATUS.ABSENT]: 'ご欠席' }}
           register={register}
           name="attendanceStatus"

@@ -1,4 +1,4 @@
-import { TSchema } from '@/container/CardForm';
+import { TSchema } from '@/types/schema';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { NextRequest, NextResponse } from 'next/server';

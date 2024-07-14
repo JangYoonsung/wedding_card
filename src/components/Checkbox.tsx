@@ -1,5 +1,5 @@
-import { TSchema } from '@/container/CardForm';
 import '@/style/checkbox.css';
+import { TSchema } from '@/types/schema';
 import React from 'react';
 import { Control, Controller, FieldErrors, Path } from 'react-hook-form';
 

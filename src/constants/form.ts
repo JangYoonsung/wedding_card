@@ -1,1 +1,3 @@
 export const ATTENDANCE_STATUS = { PRESENT: 'attendance', ABSENT: 'absent' } as const;
+
+export const ATTENDANCE_STATUSES = [ATTENDANCE_STATUS.PRESENT, ATTENDANCE_STATUS.ABSENT];

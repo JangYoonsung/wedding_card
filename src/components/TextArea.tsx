@@ -1,5 +1,5 @@
 import { BORDER_COLOR } from '@/constants/common';
-import { TSchema } from '@/container/CardForm';
+import { TSchema } from '@/types/schema';
 import { useEffect, useRef } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 

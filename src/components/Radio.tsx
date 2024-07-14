@@ -1,5 +1,5 @@
-import { TSchema } from '@/container/CardForm';
 import '@/style/radio.css';
+import { TSchema } from '@/types/schema';
 import { Fragment } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 

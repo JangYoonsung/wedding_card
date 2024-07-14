@@ -1,6 +1,6 @@
 import { BORDER_COLOR } from '@/constants/common';
-import { TSchema } from '@/container/CardForm';
 import '@/style/common.css';
+import { TSchema } from '@/types/schema';
 import { HTMLInputTypeAttribute } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 
