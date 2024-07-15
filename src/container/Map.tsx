@@ -15,7 +15,7 @@ const Map = () => {
   if (!isLoaded) return <></>;
 
   return (
-    <div>
+    <div className="my-4">
       <GoogleMap
         zoom={15}
         center={position}
