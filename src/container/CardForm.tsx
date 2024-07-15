@@ -32,9 +32,13 @@ const CardForm = () => {
 
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
 
+  const appendCompanion = () => {
+    append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
+  };
+
   const handleOnChecked = (isChecked: boolean): void => {
     if (isChecked) {
-      append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
+      appendCompanion();
       return;
     }
     remove();
@@ -241,9 +245,7 @@ const CardForm = () => {
                 variant="outline"
                 isLoading={isSubmitting}
                 disabled={isSubmitting}
-                onClick={() =>
-                  append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' })
-                }>
+                onClick={appendCompanion}>
                 <AddIcon fill="var(--primary)" width={12} height={12} />
                 追加する
               </Button>
