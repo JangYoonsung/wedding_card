@@ -9,6 +9,7 @@ import TextArea from '@/components/TextArea';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
+import { TZipCloud } from '@/types/prefacture';
 import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { Fragment } from 'react';
@@ -50,9 +51,9 @@ const CardForm = () => {
     const zipCode = event.target.value;
     const res = await fetch(`${ZIP_CLOUD_ENDPOINT}${zipCode}`);
 
-    const zipRes = await res.json();
-    if (zipRes.results?.[0]) {
-      const prefecture = zipRes.results?.[0];
+    const zipRes: TZipCloud = await res.json();
+    if (zipRes.results) {
+      const prefecture = zipRes.results[0];
       setValue('address1', prefecture.address1 + prefecture.address2 + prefecture.address3);
     }
   };
