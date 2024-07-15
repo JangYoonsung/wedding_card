@@ -8,7 +8,7 @@ const Button = ({
   variant = 'contained',
   type = 'button',
   disabled,
-  isLoading,
+  isLoading = false,
   classes,
   children,
   onClick,

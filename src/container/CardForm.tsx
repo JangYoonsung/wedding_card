@@ -258,7 +258,6 @@ const CardForm = () => {
               <Button
                 type="button"
                 variant="outline"
-                isLoading={isSubmitting}
                 disabled={isSubmitting}
                 onClick={appendCompanion}>
                 <AddIcon fill="var(--primary)" width={12} height={12} />
@@ -268,7 +267,6 @@ const CardForm = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  isLoading={isSubmitting}
                   disabled={isSubmitting}
                   onClick={() => remove(index)}>
                   <RemoveIcon fill="var(--primary)" width={12} height={12} />
