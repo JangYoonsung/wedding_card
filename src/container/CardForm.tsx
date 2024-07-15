@@ -6,6 +6,7 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
+import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
 import { TSchema } from '@/types/schema';
@@ -47,7 +48,7 @@ const CardForm = () => {
 
   const searchZipCode = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const zipCode = event.target.value;
-    const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipCode}`);
+    const res = await fetch(`${ZIP_CLOUD_ENDPOINT}${zipCode}`);
 
     const zipRes = await res.json();
     if (zipRes.results?.[0]) {
@@ -57,7 +58,7 @@ const CardForm = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
-    return await fetch('/api/guest', {
+    return await fetch(ADD_GUEST_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'applicatioin/json',
