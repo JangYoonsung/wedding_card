@@ -4,7 +4,7 @@ import Map from '@/container/Map';
 
 const Home = () => {
   return (
-    <main className="m-4 h-svh">
+    <main className="h-svh bg-primary">
       <section className="my-4 text-center">
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
