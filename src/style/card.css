@@ -1,0 +1,22 @@
+:root {
+  --size: 1rem;
+}
+
+.root {
+  margin: var(--size);
+  padding: var(--size);
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+.root[data-color='primary'] {
+  background-color: var(--primary);
+}
+
+.root[data-color='error'] {
+  background-color: var(--error);
+}
+
+.root[data-color='white'] {
+  background-color: #fff;
+}

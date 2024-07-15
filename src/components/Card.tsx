@@ -1,4 +1,5 @@
 import { BORDER_COLOR } from '@/constants/common';
+import '@/style/card.css';
 import React from 'react';
 
 const Card = ({
@@ -11,7 +12,7 @@ const Card = ({
   color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white';
 }) => {
   return (
-    <div className={`m-4 p-4  text-center rounded ${classes}`} data-color={color}>
+    <div className={`root ${classes}`} data-color={color}>
       {children}
     </div>
   );
