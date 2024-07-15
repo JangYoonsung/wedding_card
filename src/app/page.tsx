@@ -30,7 +30,19 @@ const Home = () => {
         <Map />
       </Card>
 
-      <LinkButton href="/reply-form">招待状に回答する</LinkButton>
+      <Card color="primary">
+        <h2 className="text-white font-bold text-lg">RSVP</h2>
+        <Divider classes="my-2" />
+        <div className="whitespace-pre">
+          <p className="text-sm text-white py-4">{`ご出欠のご返信は郵送に変わり
+下記ボタンよりフォームへアクセスいただき
+ご返信をお願い申し上げます`}</p>
+        </div>
+        <Divider classes="my-2" />
+        <LinkButton href="/reply-form" variant="outline">
+          招待状に回答する
+        </LinkButton>
+      </Card>
     </main>
   );
 };
