@@ -12,6 +12,8 @@ import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
+import AddIcon from '../../public/icon/add.svg';
+import RemoveIcon from '../../public/icon/remove.svg';
 
 const CardForm = () => {
   const {
@@ -242,7 +244,7 @@ const CardForm = () => {
                 onClick={() =>
                   append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' })
                 }>
-                <img src="/icon/add.svg" alt="" />
+                <AddIcon fill="var(--primary)" width={12} height={12} />
                 追加する
               </Button>
               {index !== 0 && (
@@ -252,7 +254,7 @@ const CardForm = () => {
                   isLoading={isSubmitting}
                   disabled={isSubmitting}
                   onClick={() => remove(index)}>
-                  <img src="/icon/remove.svg" alt="" />
+                  <RemoveIcon fill="var(--primary)" width={12} height={12} />
                   削除する
                 </Button>
               )}
@@ -260,9 +262,11 @@ const CardForm = () => {
           </Fragment>
         ))}
 
-      <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>
-        回答を送信する
-      </Button>
+      <div className="p-4">
+        <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>
+          回答を送信する
+        </Button>
+      </div>
     </form>
   );
 };
