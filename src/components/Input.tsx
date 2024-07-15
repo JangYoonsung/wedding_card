@@ -11,6 +11,7 @@ const Input = ({
   type = 'text',
   placeholder,
   classes,
+  onchange,
 }: {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
@@ -18,11 +19,14 @@ const Input = ({
   type?: HTMLInputTypeAttribute;
   placeholder?: string;
   classes?: string;
+  onchange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<unknown> | unknown;
 }) => {
   const [errorKey, index, _name] = name.split('.');
   const errorMessage = Array.isArray(errors?.[errorKey])
     ? errors?.[errorKey]?.[Number(index)]?.[_name]?.message
     : errors?.[name]?.message;
+
+  const inputRegister = register(name);
 
   return (
     <div className="text-xs">
@@ -31,7 +35,11 @@ const Input = ({
         data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         type={type}
         placeholder={placeholder}
-        {...register(name)}
+        {...inputRegister}
+        onChange={(event) => {
+          inputRegister.onChange(event);
+          onchange?.(event);
+        }}
       />
       {errorMessage && (
         <div className="pt-1">

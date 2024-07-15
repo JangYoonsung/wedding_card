@@ -10,7 +10,7 @@ import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
 import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import AddIcon from '../../public/icon/add.svg';
 import RemoveIcon from '../../public/icon/remove.svg';
@@ -20,6 +20,7 @@ const CardForm = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     control,
     formState: { errors, isSubmitting },
   } = useForm<TSchema>({
@@ -42,6 +43,17 @@ const CardForm = () => {
       return;
     }
     remove();
+  };
+
+  const searchZipCode = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const zipCode = event.target.value;
+    const res = await fetch(`https://zipcloud.ibsnet.co.jp/api/search?zipcode=${zipCode}`);
+
+    const zipRes = await res.json();
+    if (zipRes.results?.[0]) {
+      const prefecture = zipRes.results?.[0];
+      setValue('address1', prefecture.address1 + prefecture.address2 + prefecture.address3);
+    }
   };
 
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
@@ -145,6 +157,7 @@ const CardForm = () => {
           errors={errors}
           classes="w-full"
           placeholder="1230012"
+          onchange={searchZipCode}
         />
       </fieldset>
       <Divider classes="mx-4" />
