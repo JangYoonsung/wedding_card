@@ -1,5 +1,7 @@
+import { ATTENDANCE_STATUS, FIELD_NAMES } from '@/constants/form';
 import { schema } from '@/constants/schema';
 import { TSchema } from '@/types/schema';
+import dayjs from 'dayjs';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { NextRequest, NextResponse } from 'next/server';
@@ -43,22 +45,42 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
     return NextResponse.json({ message: `${body.email} is already exist` }, { status: 409 });
   }
 
-  const now = new Date();
-  const result = await sheet.addRow({
-    attendanceStatus: body.attendanceStatus === 'attendance' ? '出席' : '欠席',
-    name: body.firstName + body.lastName,
-    kanaName: body.firstNameKana + body.lastNameKana,
-    tel: body.tel,
-    email: body.email,
-    zipCode: body?.zipCode ?? '',
-    address: body?.address1 ?? '' + body?.address2 ?? '',
-    memo: body.memo ?? '',
-    isAccompanied: body.isAccompanied ? 'あり' : 'なし',
-    companionInfo:
-      body.companionInfo
-        ?.map((v) => `[${v.firstName + v.lastName}, ${v.firstNameKana + v.lastNameKana}]`)
-        .join(', ') ?? '',
-    createdAt: now.toLocaleDateString(),
-  });
+  const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
   return NextResponse.json(result.toObject(), { status: 201 });
+};
+
+const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
+  const rowData: Record<string, any> = {};
+  Object.keys(fields).map((key) => {
+    const field = fields[key];
+    switch (key) {
+      case 'attendanceStatus':
+        rowData[field] = data.attendanceStatus === ATTENDANCE_STATUS.PRESENT ? '出席' : '欠席';
+        break;
+      case 'firstName':
+        rowData[field] = `${data.firstName}${data.lastName}`;
+        break;
+      case 'firstNameKana':
+        rowData[field] = `${data.firstNameKana}${data.lastNameKana}`;
+        break;
+
+      case 'isAccompanied':
+        rowData[field] = data.isAccompanied ? 'あり' : 'なし';
+        break;
+      case 'companionInfo':
+        rowData[field] =
+          data.companionInfo
+            ?.map(
+              (val) => `[${val.firstName}${val.lastName}, ${val.firstNameKana}${val.lastNameKana}]`,
+            )
+            .join('、') ?? '';
+        break;
+      case 'createdAt':
+        rowData[field] = dayjs().format('YYYY-MM-DD HH:mm:ss');
+        break;
+      default:
+        rowData[field] = data[key as keyof TSchema] ?? '';
+    }
+  });
+  return rowData;
 };

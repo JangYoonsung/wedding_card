@@ -42,10 +42,10 @@ const baseSchema = z
       .regex(/^(\+81[-.\s]?|0)[1-9]\d{0,3}[-.\s]?\d{1,4}[-.\s]?\d{4}$/, {
         message: '有効な電話番号を入力してください。',
       }),
-    zipCode: noneEmptyStringSchema
-      .regex(/^([0-9]{3}-?[0-9]{4})?$/, { message: '有効な郵便番号を入力してください。' })
-      .nullish(),
-    address1: noneEmptyStringSchema.nullish(),
+    zipCode: noneEmptyStringSchema.regex(/^([0-9]{3}-?[0-9]{4})?$/, {
+      message: '有効な郵便番号を入力してください。',
+    }),
+    address1: noneEmptyStringSchema,
     address2: z.string().nullish(),
     memo: z.string().nullish(),
     companionInfo: z.array(nameSchema).nullish(),
