@@ -232,6 +232,31 @@ const CardForm = () => {
                 />
               </div>
             </fieldset>
+
+            <div className="p-4 flex gap-2 text-xs">
+              <Button
+                type="button"
+                variant="outline"
+                isLoading={isSubmitting}
+                disabled={isSubmitting}
+                onClick={() =>
+                  append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' })
+                }>
+                <img src="/icon/add.svg" alt="" />
+                追加する
+              </Button>
+              {index !== 0 && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  isLoading={isSubmitting}
+                  disabled={isSubmitting}
+                  onClick={() => remove(index)}>
+                  <img src="/icon/remove.svg" alt="" />
+                  削除する
+                </Button>
+              )}
+            </div>
           </Fragment>
         ))}
 
