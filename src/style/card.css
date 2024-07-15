@@ -1,22 +1,18 @@
-:root {
-  --size: 1rem;
-}
-
-.root {
-  margin: var(--size);
-  padding: var(--size);
+.root-card {
+  margin: 1rem;
+  padding: 1rem;
   text-align: center;
   border-radius: 0.25rem;
 }
 
-.root[data-color='primary'] {
+.root-card[data-color='primary'] {
   background-color: var(--primary);
 }
 
-.root[data-color='error'] {
+.root-card[data-color='error'] {
   background-color: var(--error);
 }
 
-.root[data-color='white'] {
+.root-card[data-color='white'] {
   background-color: #fff;
 }

@@ -12,7 +12,7 @@ const Card = ({
   color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white';
 }) => {
   return (
-    <div className={`root ${classes}`} data-color={color}>
+    <div className={`root-card ${classes}`} data-color={color}>
       {children}
     </div>
   );

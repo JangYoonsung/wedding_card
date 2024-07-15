@@ -1,3 +1,4 @@
+import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
 import Map from '@/container/Map';
@@ -5,7 +6,7 @@ import Map from '@/container/Map';
 const Home = () => {
   return (
     <main className="h-svh bg-primary">
-      <section className="my-4 text-center">
+      <Card>
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
@@ -27,7 +28,7 @@ const Home = () => {
         </div>
         <Divider classes="my-2" />
         <Map />
-      </section>
+      </Card>
 
       <LinkButton href="/reply-form">招待状に回答する</LinkButton>
     </main>
