@@ -10,7 +10,7 @@ const Home = () => {
 ご一報いただけますと幸いです
   `;
   return (
-    <div className="m-4">
+    <main className="m-4">
       <h1 className="text-center text-primary font-bold">Wedding Invitation</h1>
       <h2 className="text-center">Yoonsung & Juan</h2>
 
@@ -18,7 +18,7 @@ const Home = () => {
 
       <p className="font-bold text-gray text-center">2024年8月9日（金）</p>
       <CardForm />
-    </div>
+    </main>
   );
 };
 
