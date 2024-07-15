@@ -15,7 +15,7 @@ const Map = () => {
   if (!isLoaded) return <></>;
 
   return (
-    <div className="my-4">
+    <>
       <GoogleMap
         zoom={15}
         center={position}
@@ -35,7 +35,7 @@ const Map = () => {
         </div>
         <MarkerF position={position} />
       </GoogleMap>
-    </div>
+    </>
   );
 };
 
