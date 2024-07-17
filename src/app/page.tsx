@@ -6,8 +6,8 @@ import Map from '@/container/Map';
 
 const Home = () => {
   return (
-    <main className="h-svh bg-primary">
-      <Card useAnimation showShadow>
+    <main className="h-full bg-primary">
+      <Card useAnimation showShadow classes="info">
         <div className="font-bold text-lg text-primary">
           <h2>WEDDING INFORMATION</h2>
           <h2>挙式・披露宴</h2>
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
       </Card>
 
-      <Card useAnimation showShadow>
+      <Card classes="map" useAnimation showShadow>
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
@@ -64,7 +64,7 @@ const Home = () => {
         <Map />
       </Card>
 
-      <Card color="primary" useAnimation>
+      <Card color="primary" classes="form" useAnimation>
         <h2 className="text-white font-bold text-lg">RSVP</h2>
         <Divider classes="my-2" />
         <div className="whitespace-pre">
