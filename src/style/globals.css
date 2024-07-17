@@ -47,6 +47,7 @@ body {
   white-space: nowrap;
   overflow: hidden;
   border-right: 0.15em solid orange;
+  width: fit-content;
   animation:
     typing 3.5s steps(40, end),
     blink-caret 0.75s step-end infinite;
@@ -69,4 +70,8 @@ body {
   50% {
     border-color: orange;
   }
+}
+
+.shadow {
+  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
 }

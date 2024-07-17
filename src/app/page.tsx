@@ -9,10 +9,17 @@ const Home = () => {
   return (
     <main className="h-full bg-primary grid gap-6">
       <Card classes="top">
-        <div className="inline-grid justify-center items-center">
-          <Title text="YOONSUNG & JUAN" classes="text-3xl text-center ta" color="white" />
-          <p className="text-white text-left mt-4 text-lg font-bold">WE'RE GETTING MARRIED</p>
-          <p className="text-white text-left text-lg font-bold">2024. 09. 06. FRI PM12:30</p>
+        <div className="z-10">
+          <Title text="YOONSUNG & JUAN" classes="text-4xl text-center ta" color="white" />
+          <p className="text-white text-left mt-4 text-lg font-bold t-shadow ta">
+            WE'RE GETTING MARRIED
+          </p>
+          <p className="text-white text-left text-lg font-bold t-shadow ta">
+            PLEASE US TO CELEBRATION
+          </p>
+          <p className="text-white text-left text-lg font-bold t-shadow mt-4 ta">
+            2024. 09. 06. FRI PM12:30
+          </p>
         </div>
       </Card>
 
