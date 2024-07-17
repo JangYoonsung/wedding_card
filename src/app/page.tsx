@@ -9,6 +9,37 @@ const Home = () => {
     <main className="h-svh bg-primary">
       <Card useAnimation showShadow>
         <div className="font-bold text-lg text-primary">
+          <h2>WEDDING INFORMATION</h2>
+          <h2>挙式・披露宴</h2>
+        </div>
+        <Divider classes="my-2" />
+
+        <div>
+          <h2 className="text-lg font-bold text-primary">日付</h2>
+          <p className="text-lg text-gray">2024年09月06日（金）</p>
+        </div>
+        <Divider classes="my-2" />
+
+        <div>
+          <h2 className="text-lg font-bold text-primary">挙式</h2>
+          <p className="text-lg text-gray">午後12:30</p>
+        </div>
+        <Divider classes="my-2" />
+
+        <div>
+          <h2 className="text-lg font-bold text-primary">披露宴</h2>
+          <p className="text-lg text-gray">午後13:30</p>
+        </div>
+        <Divider classes="my-2" />
+
+        <div className="break-words whitespace-pre-wrap">
+          <p className="text-gray">{`※ご多用中恐縮に存じますが挙式にもご列席を賜りたく
+開式の30分前までにお越しくださいますようお願い申し上げます`}</p>
+        </div>
+      </Card>
+
+      <Card useAnimation showShadow>
+        <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
         </div>
@@ -18,6 +49,8 @@ const Home = () => {
 
 東京都新宿区市谷仲之町3-5 
 アプローズスクエア東京迎賓館 内
+
+都営新宿線曙橋駅A3出口から徒歩5分
 
 03-6402-7256`}</p>
           <a
