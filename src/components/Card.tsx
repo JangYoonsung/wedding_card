@@ -28,7 +28,6 @@ const Card = ({
     .filter(Boolean)
     .join(' ');
 
-  console.log(isVisible, color);
   return (
     <div ref={divRef} className={cardClasses} data-color={color} data-shadow={showShadow}>
       {children}
