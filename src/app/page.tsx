@@ -3,17 +3,11 @@ import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
 import Map from '@/container/Map';
-import { useVisible } from '@/hooks/useVisible';
-import '@/style/animation.css';
-import { useRef } from 'react';
 
 const Home = () => {
-  const ref = useRef(null);
-  const isVisible = useVisible(ref);
-
   return (
     <main className="h-svh bg-primary">
-      <Card ref={ref} classes={`ease-in duration-700 fade-in  ${isVisible ? 'visible' : ''}`}>
+      <Card useAnimation showShadow>
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
@@ -37,7 +31,7 @@ const Home = () => {
         <Map />
       </Card>
 
-      <Card color="primary">
+      <Card color="primary" useAnimation>
         <h2 className="text-white font-bold text-lg">RSVP</h2>
         <Divider classes="my-2" />
         <div className="whitespace-pre">

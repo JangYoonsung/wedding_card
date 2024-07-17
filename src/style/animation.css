@@ -1,15 +1,16 @@
 .fade-in {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(-50%);
   transition:
-    opacity 1s ease-out,
-    transform 1s ease-out;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+    opacity 2s ease-out,
+    transform 2.5s ease-out;
 }
 
-.fade-in.visible {
+.fade-in.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0%);
+}
+
+.fade-in[data-shadow='true'] {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
