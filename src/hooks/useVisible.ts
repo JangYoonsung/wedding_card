@@ -7,15 +7,9 @@ export const useVisible = (ref: RefObject<HTMLElement>): boolean => {
   useEffect(() => {
     if (!ref.current) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        console.log(entry);
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        threshold: THRESHOLD,
-      },
-    );
+    const observer = new IntersectionObserver(([entry]) => setIntersecting(entry.isIntersecting), {
+      threshold: THRESHOLD,
+    });
     observer.observe(ref.current);
 
     return () => observer.disconnect();

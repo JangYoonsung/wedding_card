@@ -7,7 +7,7 @@ import Map from '@/container/Map';
 const Home = () => {
   return (
     <main className="h-full bg-primary">
-      <Card useAnimation showShadow classes="info">
+      <Card useAnimation showShadow classes="m-4">
         <div className="font-bold text-lg text-primary">
           <h2>WEDDING INFORMATION</h2>
           <h2>挙式・披露宴</h2>
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
       </Card>
 
-      <Card classes="map" useAnimation showShadow>
+      <Card classes="m-4" useAnimation showShadow>
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
@@ -64,7 +64,7 @@ const Home = () => {
         <Map />
       </Card>
 
-      <Card color="primary" classes="form" useAnimation>
+      <Card color="primary" classes="form mt-8 mb-[15rem]" useAnimation>
         <h2 className="text-white font-bold text-lg">RSVP</h2>
         <Divider classes="my-2" />
         <div className="whitespace-pre">
