@@ -2,20 +2,20 @@ import { BORDER_COLOR } from '@/constants/common';
 import '@/style/card.css';
 import React from 'react';
 
-const Card = ({
-  children,
-  classes,
-  color = 'white',
-}: {
+export type CardProps = {
   children?: React.ReactNode;
   classes?: string;
   color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white';
-}) => {
-  return (
-    <div className={`root-card ${classes}`} data-color={color}>
-      {children}
-    </div>
-  );
 };
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ children, classes, color = 'white' }: CardProps, ref) => {
+    return (
+      <div ref={ref} className={`root-card ${classes}`} data-color={color}>
+        {children}
+      </div>
+    );
+  },
+);
 
 export default Card;

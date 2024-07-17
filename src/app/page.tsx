@@ -9,35 +9,34 @@ import { useRef } from 'react';
 const Home = () => {
   const ref = useRef(null);
   const isVisible = useVisible(ref);
+  console.log(isVisible);
   return (
     <main className="h-svh bg-primary">
-      <div
+      <Card
         ref={ref}
-        className={`ease-in duration-700 ${isVisible ? 'opacity-100 scale-95' : 'opacity-25 scale-100'}`}>
-        <Card>
-          <div className="font-bold text-lg text-primary">
-            <h2>LOCATION INFO</h2>
-            <h2>アクセス</h2>
-          </div>
-          <Divider classes="my-2" />
-          <div className="whitespace-pre">
-            <p className="text-sm text-gray pb-4">{`セントアクアチャペル市ヶ谷
+        classes={`ease-in duration-700 ${isVisible ? 'opacity-100 scale-95' : 'opacity-25 scale-100'}`}>
+        <div className="font-bold text-lg text-primary">
+          <h2>LOCATION INFO</h2>
+          <h2>アクセス</h2>
+        </div>
+        <Divider classes="my-2" />
+        <div className="whitespace-pre">
+          <p className="text-sm text-gray pb-4">{`セントアクアチャペル市ヶ谷
 
 東京都新宿区市谷仲之町3-5 
 アプローズスクエア東京迎賓館 内
 
 03-6402-7256`}</p>
-            <a
-              href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
-              target="_blank"
-              className="text-sm text-gray underline">
-              www.saint-acqua-chapel.jp/place/ichigaya/
-            </a>
-          </div>
-          <Divider classes="my-2" />
-          <Map />
-        </Card>
-      </div>
+          <a
+            href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
+            target="_blank"
+            className="text-sm text-gray underline">
+            www.saint-acqua-chapel.jp/place/ichigaya/
+          </a>
+        </div>
+        <Divider classes="my-2" />
+        <Map />
+      </Card>
 
       <Card color="primary">
         <h2 className="text-white font-bold text-lg">RSVP</h2>
