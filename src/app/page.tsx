@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <main className="h-full bg-primary grid gap-6">
       <Card useAnimation showShadow classes="text-primary mt-4 mx-4">
-        <h2 className="font-bold text-xl ">WEDDING INFORMATION</h2>
+        <h2 className="font-bold text-xl">WEDDING INFORMATION</h2>
         <Divider classes="my-2" />
 
         <div>
