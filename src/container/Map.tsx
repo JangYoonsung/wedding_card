@@ -4,7 +4,6 @@ import { GoogleMap, MarkerF, useLoadScript } from '@react-google-maps/api';
 const Map = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY as string,
-    libraries: ['places'],
   });
 
   const position = {
