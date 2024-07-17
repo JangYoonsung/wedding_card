@@ -70,7 +70,9 @@ const CardForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="border my-4 rounded border-light_gray">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="border my-4 rounded border-light_gray bg-white shadow-md">
       <fieldset className="p-4">
         <Label text="ご出欠" isRequired />
         <Radio
