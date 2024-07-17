@@ -4,17 +4,16 @@ import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
 import Map from '@/container/Map';
 import { useVisible } from '@/hooks/useVisible';
+import '@/style/animation.css';
 import { useRef } from 'react';
 
 const Home = () => {
   const ref = useRef(null);
   const isVisible = useVisible(ref);
-  console.log(isVisible);
+
   return (
     <main className="h-svh bg-primary">
-      <Card
-        ref={ref}
-        classes={`ease-in duration-700 ${isVisible ? 'opacity-100 scale-95' : 'opacity-25 scale-100'}`}>
+      <Card ref={ref} classes={`ease-in duration-700 fade-in  ${isVisible ? 'visible' : ''}`}>
         <div className="font-bold text-lg text-primary">
           <h2>LOCATION INFO</h2>
           <h2>アクセス</h2>
