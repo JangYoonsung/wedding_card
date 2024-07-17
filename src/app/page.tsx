@@ -32,8 +32,8 @@ const Home = () => {
         </div>
         <Divider classes="my-2" />
 
-        <div className="break-words whitespace-pre-wrap">
-          <p className="text-gray">{`※ご多用中恐縮に存じますが挙式にもご列席を賜りたく
+        <div className="break-words whitespace-pre-wrap py-2">
+          <p className="text-gray text-sm">{`※ご多用中恐縮に存じますが挙式にもご列席を賜りたく
 開式の30分前までにお越しくださいますようお願い申し上げます`}</p>
         </div>
       </Card>
