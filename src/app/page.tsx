@@ -11,13 +11,13 @@ const Home = () => {
       <Card classes="top">
         <div className="z-10">
           <Title text="YOONSUNG & JUAN" classes="text-4xl text-center ta" color="white" />
-          <p className="text-white text-left mt-4 text-lg font-bold t-shadow ta">
+          <p className="text-white text-left mt-4 text-lg font-bold t-shadow">
             WE'RE GETTING MARRIED
           </p>
-          <p className="text-white text-left text-lg font-bold t-shadow ta">
+          <p className="text-white text-left text-lg font-bold t-shadow">
             PLEASE US TO CELEBRATION
           </p>
-          <p className="text-white text-left text-lg font-bold t-shadow mt-4 ta">
+          <p className="text-white text-left text-lg font-bold t-shadow mt-4">
             2024. 09. 06. FRI PM12:30
           </p>
         </div>
