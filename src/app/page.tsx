@@ -2,29 +2,30 @@
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
+import Title from '@/components/Title';
 import Map from '@/container/Map';
 
 const Home = () => {
   return (
     <main className="h-full bg-primary grid gap-6">
-      <Card useAnimation showShadow classes="text-primary mt-4 mx-4">
-        <h2 className="font-bold text-xl">WEDDING INFORMATION</h2>
+      <Card useAnimation showShadow classes="mt-4 mx-4">
+        <Title text="WEDDING INFORMATION" color="primary" />
         <Divider classes="my-2" />
 
         <div>
-          <h2 className="text-lg font-bold">日付</h2>
+          <Title text="日付" color="primary" fontSize="lg" />
           <p className="text-lg text-gray">2024年09月06日（金）</p>
         </div>
         <Divider classes="my-2" />
 
         <div>
-          <h2 className="text-lg font-bold">挙式</h2>
+          <Title text="挙式" color="primary" fontSize="lg" />
           <p className="text-lg text-gray">午後12:30</p>
         </div>
         <Divider classes="my-2" />
 
         <div>
-          <h2 className="text-lg font-bold">披露宴</h2>
+          <Title text="披露宴" color="primary" fontSize="lg" />
           <p className="text-lg text-gray">午後13:30</p>
         </div>
         <Divider classes="my-2" />
@@ -36,7 +37,7 @@ const Home = () => {
       </Card>
 
       <Card classes="mx-4" useAnimation showShadow>
-        <h2 className="font-bold text-xl text-primary">LOCATION INFO</h2>
+        <Title text="LOCATION INFO" color="primary" />
         <Divider classes="my-2" />
 
         <div className="whitespace-pre">
@@ -60,8 +61,9 @@ const Home = () => {
       </Card>
 
       <Card color="primary" classes="text-white mb-[15rem]" useAnimation>
-        <h2 className="font-bold text-xl">RSVP</h2>
+        <Title text="RSVP" color="white" />
         <Divider classes="my-2" />
+
         <div className="whitespace-pre">
           <p className="text-sm py-4">{`ご出欠のご返信は郵送に変わり
 下記ボタンよりフォームへアクセスいただき

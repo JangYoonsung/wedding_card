@@ -12,10 +12,10 @@ const Title = ({
   text: string;
   classes?: string;
   color?: (typeof COLOR)[keyof typeof COLOR];
-  fontSize: (typeof FONT_SIZE)[keyof typeof FONT_SIZE];
+  fontSize?: (typeof FONT_SIZE)[keyof typeof FONT_SIZE];
 }) => {
   const style: CSSProperties = {
-    ['--color' as string]: color,
+    ['--color' as string]: `var(--${color})`,
   };
   return (
     <h1 className={`root-title text-${fontSize} ${classes}`} style={style}>
