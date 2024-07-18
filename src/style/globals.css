@@ -55,6 +55,9 @@
     &[data-color='primary'] {
       @apply bg-bg_primary;
     }
+    &[data-color='none'] {
+      @apply bg-[''];
+    }
     &[data-color='error'] {
       @apply bg-error;
     }

@@ -15,8 +15,8 @@ const WelcomeNote = () => {
   
 謹白`;
   return (
-    <Card color="primary" classes="py-10" useAnimation>
-      <p className="text-white text-center whitespace-pre-wrap break-words text-shadow">
+    <Card color="none" classes="py-10" useAnimation>
+      <p className="text-white text-center text-lg whitespace-pre-wrap break-words text-shadow">
         {greetingText}
       </p>
     </Card>

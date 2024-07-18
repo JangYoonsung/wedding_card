@@ -12,7 +12,7 @@ const Card = ({
 }: {
   children?: React.ReactNode;
   classes?: string;
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white';
+  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white' | 'none';
   useAnimation?: boolean;
   showShadow?: boolean;
 }) => {
