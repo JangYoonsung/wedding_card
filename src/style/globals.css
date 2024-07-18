@@ -53,7 +53,7 @@
     @apply p-4 text-center rounded;
 
     &[data-color='primary'] {
-      @apply bg-primary;
+      @apply bg-bg_primary;
     }
     &[data-color='error'] {
       @apply bg-error;
@@ -88,7 +88,8 @@
 }
 
 :root {
-  --primary: #dfbf9f33;
+  --primary: #dfbf9f;
+  --bg-primary: #dfbf9f33;
   --secondary: #ecd9c6;
   --light-gray: #e6e6e6;
   --gray: #8c8c8c;
