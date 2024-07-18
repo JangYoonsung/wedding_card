@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+  }
+
+  h1,
+  h2 {
+    font-family: 'Courier New', Courier, monospace !important;
+  }
+}
+
 :root {
   --primary: #dfbf9f33;
   --secondary: #ecd9c6;
@@ -18,9 +31,5 @@
 
 body {
   background-color: var(--primary);
-  font-family: 'Courier New', Courier, monospace !important;
-}
-
-.t-shadow {
-  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
+  font-family: 'Noto Sans JP', sans-serif;
 }
