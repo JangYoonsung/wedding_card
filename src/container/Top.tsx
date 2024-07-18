@@ -4,8 +4,6 @@ import '@/style/animation.css';
 import '@/style/top.css';
 
 const Top = () => {
-  const textStyle = 'text-white text-left text-lg text-shadow';
-
   return (
     <Card classes="top-container">
       <div className="z-10 font-bold">

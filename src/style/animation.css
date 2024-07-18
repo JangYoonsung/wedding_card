@@ -1,25 +1,27 @@
-.fade-in {
-  opacity: 0;
-  transform: translateY(-50%);
-  transition:
-    opacity 2s ease-out,
-    transform 2.5s ease-out;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0%);
-}
+@layer components {
+  .fade-in {
+    @apply opacity-0 -translate-y-2/4;
+    transition:
+      opacity 2s ease-out,
+      transform 2.5s ease-out;
+  }
 
-.fade-in[data-shadow='true'] {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+  .fade-in.show {
+    @apply opacity-100 translate-y-0;
+  }
 
-/* @layer components {
+  .fade-in[data-shadow='true'] {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
   .typing {
-    @apply text-4xl text-center whitespace-nowrap hidden border-r border-orange-100 w-fit;
+    @apply text-4xl text-center whitespace-nowrap overflow-hidden border-r border-orange-100 w-fit;
     animation:
-      typing 3.5s steps(40, end),
+      typing 3s steps(40, end),
       blink-caret 0.75s step-end infinite;
   }
 
@@ -41,4 +43,4 @@
       border-color: orange;
     }
   }
-} */
+}
