@@ -1,5 +1,4 @@
 import { BORDER_COLOR, VARIANT } from '@/constants/common';
-import '@/style/button.css';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
 
@@ -24,7 +23,7 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`w-full button-root items-center ${classes}`}
+      className={`w-full root-button ${classes}`}
       type={type}
       data-color={color}
       data-variant={variant}

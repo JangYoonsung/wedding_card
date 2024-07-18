@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --max-percent: 100%;
   --size: 1rem;
@@ -5,52 +9,46 @@
   --icon-url: url('/icon/check.svg');
 }
 
-.checkbox {
-  width: var(--size);
-  height: var(--size);
-  border: 1px solid var(--primary);
-  transition: all 0.2s;
+@layer utilities {
+  .wh-border-size {
+    @apply w-[var(--border-size)] h-[var(--border-size)];
+  }
+  .absolute-top-left-half {
+    @apply absolute top-2/4 left-2/4;
+  }
+  .form-scale-down {
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.2s;
+    content: '';
+  }
 }
 
-.checkbox::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--border-size);
-  height: var(--border-size);
-  transform: translate(-50%, -50%) scale(0);
-  transition: all 0.2s;
-}
+@layer components {
+  .checkbox {
+    @apply w-[var(--size)] h-[var(--size)] border border-primary;
+    transition: all 0.2s;
 
-.checkbox::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: var(--border-size);
-  height: var(--border-size);
-  transform: translate(-50%, -50%) scale(0);
-  transition: all 0.2s;
+    &:before {
+      @apply absolute-top-left-half wh-border-size form-scale-down;
+    }
+    &:after {
+      @apply absolute-top-left-half wh-border-size form-scale-down;
+      mask: var(--icon-url) no-repeat center;
+      mask-size: contain;
+    }
+  }
 
-  mask: var(--icon-url) no-repeat center;
-  mask-size: contain;
-}
-
-input[type='checkbox']:checked + .checkbox::before {
-  transform: translate(-50%, -50%) scale(1);
-  width: var(--max-percent);
-  height: var(--max-percent);
-  background-color: var(--primary);
-}
-
-input[type='checkbox']:checked + .checkbox::after {
-  transform: translate(-50%, -50%) scale(1);
-  width: var(--max-percent);
-  height: var(--max-percent);
-  background-color: #fff;
-}
-
-input[type='checkbox']:checked + .checkbox {
-  border-color: var(--primary);
+  input[type='checkbox']:checked {
+    + .checkbox:before {
+      @apply w-full h-full bg-primary;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    + .checkbox:after {
+      @apply w-full h-full bg-white;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    + .checkbox {
+      @apply border-primary;
+    }
+  }
 }

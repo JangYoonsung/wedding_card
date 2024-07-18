@@ -1,38 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --size: 1rem;
   --before-size: 0.5rem;
 }
 
-.radio {
-  appearance: none;
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50%;
-  border: 2px solid var(--light-gray);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition:
-    border-color 0.2s ease-in-out,
-    background-color 0.2s ease-in-out;
-  position: relative;
-  cursor: pointer;
-}
+@layer components {
+  .radio {
+    @apply w-[var(--size)] h-[var(--size)] rounded-[50%] border-2 border-light_gray flex items-center justify-center relative cursor-pointer appearance-none;
+    transition:
+      border-color 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
 
-.radio::before {
-  content: '';
-  width: var(--before-size);
-  height: var(--before-size);
-  border-radius: 50%;
-  background-color: var(--primary);
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
-}
-
-.radio:checked {
-  border: 2px solid var(--primary);
-}
-
-.radio:checked::before {
-  opacity: 1;
+    &:before {
+      @apply w-[var(--before-size)] h-[var(--before-size)] rounded-[50%] bg-primary opacity-0;
+      content: '';
+      transition: opacity 0.2s ease-in-out;
+    }
+    &:checked {
+      @apply border-2 border-primary;
+      &:before {
+        @apply opacity-100;
+      }
+    }
+  }
 }

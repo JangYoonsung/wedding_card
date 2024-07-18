@@ -9,9 +9,81 @@
     text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.4);
   }
 
+  .disabled {
+    @apply bg-secondary border-secondary;
+  }
+
   h1,
   h2 {
     font-family: 'Courier New', Courier, monospace !important;
+  }
+}
+
+@layer components {
+  input {
+    &[data-border='primary'] {
+      @apply border-light_gray;
+    }
+    &[data-border='error'] {
+      @apply border-error;
+    }
+  }
+
+  textarea {
+    &[data-border='primary'] {
+      @apply border-light_gray;
+    }
+    &[data-border='error'] {
+      @apply border-error;
+    }
+  }
+
+  .root-divider {
+    @apply bg-[var(--color)];
+
+    &[data-orientation='horizontal'] {
+      @apply h-[var(--thickness)];
+    }
+    &[data-orientation='vertical'] {
+      @apply w-[var(--thickness)] h-full;
+    }
+  }
+
+  .root-card {
+    @apply p-4 text-center rounded;
+
+    &[data-color='primary'] {
+      @apply bg-primary;
+    }
+    &[data-color='error'] {
+      @apply bg-error;
+    }
+    &[data-color='white'] {
+      @apply bg-white;
+    }
+  }
+
+  .root-button {
+    @apply p-2 inline-flex justify-center items-center gap-2 border rounded font-bold;
+
+    &[data-variant='contained'][data-color='primary'] {
+      @apply bg-primary border-primary text-white;
+    }
+    &[data-variant='contained'][data-color='primary']:disabled {
+      @apply disabled;
+    }
+    &[data-variant='outline'][data-color='primary'] {
+      @apply bg-white border-primary text-primary;
+    }
+    &[data-variant='outline'][data-color='primary']:disabled {
+      @apply disabled;
+    }
+    &[data-variant='text'][data-color='primary'] {
+      @apply text-primary border-0;
+    }
+    &[data-variant='text'][data-color='primary']:disabled {
+      @apply text-secondary border-0;
+    }
   }
 }
 

@@ -1,5 +1,4 @@
 import { ORIENTATION } from '@/constants/divider';
-import '@/style/divider.css';
 import { CSSProperties } from 'react';
 
 const Divider = ({
@@ -18,7 +17,7 @@ const Divider = ({
     ['--color' as string]: color,
   };
 
-  return <div data-orientation={orientation} style={style} className={`root ${classes}`} />;
+  return <div data-orientation={orientation} style={style} className={`root-divider ${classes}`} />;
 };
 
 export default Divider;

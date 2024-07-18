@@ -1,7 +1,6 @@
 import { BORDER_COLOR } from '@/constants/common';
 import { useVisible } from '@/hooks/useVisible';
 import '@/style/animation.css';
-import '@/style/card.css';
 import { useRef } from 'react';
 
 const Card = ({

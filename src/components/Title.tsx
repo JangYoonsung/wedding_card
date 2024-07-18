@@ -1,6 +1,5 @@
 import { COLOR } from '@/constants/common';
 import { FONT_SIZE } from '@/constants/title';
-import '@/style/title.css';
 import { CSSProperties } from 'react';
 
 const Title = ({
@@ -18,7 +17,7 @@ const Title = ({
     ['--color' as string]: `var(--${color})`,
   };
   return (
-    <h1 className={`root-title text-${fontSize} ${classes}`} style={style}>
+    <h1 className={`text-[var(--color)] font-bold text-${fontSize} ${classes}`} style={style}>
       {text}
     </h1>
   );

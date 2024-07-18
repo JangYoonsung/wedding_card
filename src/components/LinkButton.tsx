@@ -1,5 +1,4 @@
 import { BORDER_COLOR, VARIANT } from '@/constants/common';
-import '@/style/button.css';
 import Link from 'next/link';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
@@ -23,7 +22,7 @@ const LinkButton = ({
 }) => {
   return (
     <Link
-      className={`w-full button-root  ${classes}`}
+      className={`w-full root-button  ${classes}`}
       href={href}
       aria-disabled={disabled || isLoading}
       data-color={color}
