@@ -6,11 +6,14 @@ import Title from '@/components/Title';
 import Information from '@/container/Information';
 import LocationInfo from '@/container/LocationInfo';
 import Top from '@/container/Top';
+import WelcomeNote from '@/container/WelcomeNote';
 
 const Home = () => {
   return (
     <main className="h-full bg-bg_primary grid gap-6">
       <Top />
+
+      <WelcomeNote />
 
       <Information />
 
