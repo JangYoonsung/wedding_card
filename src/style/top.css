@@ -4,7 +4,7 @@
 
 @layer components {
   .top-container {
-    @apply h-screen flex items-center justify-center !bg-cover before:content-[''] before:w-full before:h-full before:min-h-[30rem] before:absolute before:top-0 before:left-0 before:bg-primary;
+    @apply h-screen flex items-center justify-center !bg-cover before:content-[''] before:w-full before:h-full before:min-h-[30rem] before:absolute before:top-0 before:left-0 before:bg-bg_primary;
     background-position: 50%;
     background: var(--main_pic) no-repeat left 40% center;
   }

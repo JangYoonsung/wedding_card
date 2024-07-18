@@ -8,7 +8,7 @@ import Top from '@/container/Top';
 
 const Home = () => {
   return (
-    <main className="h-full bg-primary grid gap-6">
+    <main className="h-full bg-bg_primary grid gap-6">
       <Top />
 
       <Card useAnimation showShadow classes="mt-4 mx-4">

@@ -103,6 +103,6 @@
 }
 
 body {
-  background-color: var(--primary);
+  background-color: var(--bg-primary);
   font-family: 'Noto Sans JP', sans-serif;
 }
