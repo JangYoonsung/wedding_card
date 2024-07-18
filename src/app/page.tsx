@@ -4,24 +4,12 @@ import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
 import Title from '@/components/Title';
 import Map from '@/container/Map';
+import Top from '@/container/Top';
 
 const Home = () => {
   return (
     <main className="h-full bg-primary grid gap-6">
-      <Card classes="top">
-        <div className="z-10">
-          <Title text="YOONSUNG & JUAN" classes="text-4xl text-center ta" color="white" />
-          <p className="text-white text-left mt-4 text-lg font-bold t-shadow">
-            WE'RE GETTING MARRIED
-          </p>
-          <p className="text-white text-left text-lg font-bold t-shadow">
-            PLEASE US TO CELEBRATION
-          </p>
-          <p className="text-white text-left text-lg font-bold t-shadow mt-4">
-            2024. 09. 06. FRI PM12:30
-          </p>
-        </div>
-      </Card>
+      <Top />
 
       <Card useAnimation showShadow classes="mt-4 mx-4">
         <Title text="WEDDING INFORMATION" color="primary" />
