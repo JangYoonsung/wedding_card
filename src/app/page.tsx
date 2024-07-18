@@ -2,9 +2,9 @@
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
-import Map from '@/components/Map';
 import Title from '@/components/Title';
 import Information from '@/container/Information';
+import LocationInfo from '@/container/LocationInfo';
 import Top from '@/container/Top';
 
 const Home = () => {
@@ -14,29 +14,7 @@ const Home = () => {
 
       <Information />
 
-      <Card classes="mx-4" useAnimation showShadow>
-        <Title text="LOCATION INFO" color="primary" fontSize="2xl" />
-        <Divider classes="my-2" />
-
-        <div className="whitespace-pre">
-          <p className="text-sm text-gray pb-4">{`セントアクアチャペル市ヶ谷
-
-東京都新宿区市谷仲之町3-5 
-アプローズスクエア東京迎賓館 内
-
-都営新宿線曙橋駅A3出口から徒歩5分
-
-03-6402-7256`}</p>
-          <a
-            href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
-            target="_blank"
-            className="text-sm text-gray underline">
-            www.saint-acqua-chapel.jp/place/ichigaya/
-          </a>
-        </div>
-        <Divider classes="my-2" />
-        <Map />
-      </Card>
+      <LocationInfo />
 
       <Card color="primary" classes="text-white mb-[15rem]" useAnimation>
         <Title text="RSVP" color="white" fontSize="2xl" />
