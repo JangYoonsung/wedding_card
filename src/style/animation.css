@@ -14,3 +14,31 @@
 .fade-in[data-shadow='true'] {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* @layer components {
+  .typing {
+    @apply text-4xl text-center whitespace-nowrap hidden border-r border-orange-100 w-fit;
+    animation:
+      typing 3.5s steps(40, end),
+      blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      max-width: 0;
+    }
+    to {
+      max-width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: orange;
+    }
+  }
+} */
