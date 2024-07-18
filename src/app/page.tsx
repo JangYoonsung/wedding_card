@@ -2,9 +2,9 @@
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
+import Map from '@/components/Map';
 import Title from '@/components/Title';
 import Information from '@/container/Information';
-import Map from '@/container/Map';
 import Top from '@/container/Top';
 
 const Home = () => {
