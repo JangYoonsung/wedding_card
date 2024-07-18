@@ -4,4 +4,6 @@ export const FONT_SIZE = {
   BASE: 'base',
   LG: 'lg',
   XL: 'xl',
+  ['2XL']: '2xl',
+  ['3XL']: '3xl',
 };

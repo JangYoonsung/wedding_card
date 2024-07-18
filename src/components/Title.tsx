@@ -16,8 +16,11 @@ const Title = ({
   const style: CSSProperties = {
     ['--color' as string]: `var(--${color})`,
   };
+  const textSize = `text-${fontSize}`;
+  console.log(textSize);
+
   return (
-    <h1 className={`text-[var(--color)] font-bold text-${fontSize} ${classes}`} style={style}>
+    <h1 className={`root-title ${textSize} ${classes}`} style={style}>
       {text}
     </h1>
   );

@@ -13,10 +13,10 @@
     @apply bg-secondary border-secondary;
   }
 
-  h1,
+  /* h1,
   h2 {
     font-family: 'Courier New', Courier, monospace !important;
-  }
+  } */
 }
 
 @layer components {
@@ -84,6 +84,11 @@
     &[data-variant='text'][data-color='primary']:disabled {
       @apply text-secondary border-0;
     }
+  }
+
+  .root-title {
+    @apply text-[var(--color)] font-bold;
+    font-family: 'Courier New', Courier, monospace !important;
   }
 }
 

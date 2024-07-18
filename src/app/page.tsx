@@ -12,7 +12,7 @@ const Home = () => {
       <Top />
 
       <Card useAnimation showShadow classes="mt-4 mx-4">
-        <Title text="WEDDING INFORMATION" color="primary" />
+        <Title text="WEDDING INFORMATION" color="primary" fontSize="2xl" />
         <Divider classes="my-2" />
 
         <div>
@@ -40,7 +40,7 @@ const Home = () => {
       </Card>
 
       <Card classes="mx-4" useAnimation showShadow>
-        <Title text="LOCATION INFO" color="primary" />
+        <Title text="LOCATION INFO" color="primary" fontSize="2xl" />
         <Divider classes="my-2" />
 
         <div className="whitespace-pre">
@@ -64,7 +64,7 @@ const Home = () => {
       </Card>
 
       <Card color="primary" classes="text-white mb-[15rem]" useAnimation>
-        <Title text="RSVP" color="white" />
+        <Title text="RSVP" color="white" fontSize="2xl" />
         <Divider classes="my-2" />
 
         <div className="whitespace-pre">
