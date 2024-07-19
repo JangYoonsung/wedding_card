@@ -1,28 +1,11 @@
-<<<<<<< HEAD
+import { COLOR, VARIANT } from '@/constants/common';
 import { ButtonProps } from '@/types/button';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
 
-=======
-import { COLOR, VARIANT } from '@/constants/common';
-import React from 'react';
-import { MoonLoader } from 'react-spinners';
-
-type ButtonProps = {
-  color?: (typeof COLOR)[keyof typeof COLOR];
-  variant?: (typeof VARIANT)[keyof typeof VARIANT];
-  type?: HTMLButtonElement['type'];
-  disabled?: boolean;
-  isLoading?: boolean;
-  classes?: string;
-  children?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-};
-
->>>>>>> main
 const Button: React.FC<ButtonProps> = ({
-  color = 'primary',
-  variant = 'contained',
+  color = COLOR.PRIMARY,
+  variant = VARIANT.CONTAINED,
   type = 'button',
   disabled,
   isLoading = false,
