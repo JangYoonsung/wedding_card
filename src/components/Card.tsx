@@ -1,20 +1,14 @@
-import { BORDER_COLOR } from '@/constants/common';
 import { useVisible } from '@/hooks/useVisible';
 import '@/style/animation.css';
-import { useRef } from 'react';
+import { CardProps } from '@/types/card';
+import React, { useRef } from 'react';
 
-const Card = ({
+const Card: React.FC<CardProps> = ({
   children,
   classes = '',
   color = 'white',
   useAnimation = false,
   showShadow = false,
-}: {
-  children?: React.ReactNode;
-  classes?: string;
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR] | 'white' | 'none';
-  useAnimation?: boolean;
-  showShadow?: boolean;
 }) => {
   const divRef = useAnimation ? useRef(null) : undefined;
   const isVisible = divRef ? useVisible(divRef) : true;
