@@ -29,7 +29,8 @@
     "react-hooks/rules-of-hooks": "warn",
     "jsx-a11y/aria-role": "off",
     "no-useless-computed-key": "off",
-    "import/no-absolute-path": "off"
+    "import/no-absolute-path": "off",
+    "react/prop-types": "off"
   },
   "plugins": ["@typescript-eslint", "react"],
   "env": {
