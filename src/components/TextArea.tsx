@@ -1,21 +1,8 @@
 import { BORDER_COLOR } from '@/constants/common';
-import { TSchema } from '@/types/schema';
-import { useEffect, useRef } from 'react';
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
+import { TextAreaProps } from '@/types/input';
+import React, { useEffect, useRef } from 'react';
 
-const TextArea = ({
-  name,
-  register,
-  errors,
-  placeholder,
-  classes,
-}: {
-  name: Path<TSchema>;
-  register: UseFormRegister<TSchema>;
-  errors: FieldErrors;
-  placeholder?: string;
-  classes?: string;
-}) => {
+const TextArea: React.FC<TextAreaProps> = ({ name, register, errors, placeholder, classes }) => {
   const errorMessage = errors?.[name]?.message;
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const { ref, ...rest } = register(name);

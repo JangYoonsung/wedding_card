@@ -7,3 +7,5 @@ export type InputProps = SchemaProps & {
   classes?: string;
   onchange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<unknown> | unknown;
 };
+
+export type TextAreaProps = Omit<InputProps, 'type'>;
