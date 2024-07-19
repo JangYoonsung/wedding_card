@@ -1,4 +1,4 @@
-import { BORDER_COLOR, VARIANT } from '@/constants/common';
+import { BORDER_COLOR, COLOR, VARIANT } from '@/constants/common';
 import Link from 'next/link';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
@@ -17,7 +17,7 @@ const LinkButton = ({
   isLoading?: boolean;
   classes?: string;
   children?: React.ReactNode;
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR];
+  color?: (typeof COLOR)[keyof typeof COLOR];
   variant?: (typeof VARIANT)[keyof typeof VARIANT];
 }) => {
   return (

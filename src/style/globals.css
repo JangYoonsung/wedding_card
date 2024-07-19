@@ -11,7 +11,7 @@
   }
 
   .disabled {
-    @apply bg-secondary border-secondary;
+    @apply bg-bg_primary border-bg_primary;
   }
 
   .font-play-fair {
@@ -78,10 +78,22 @@
     &[data-variant='contained'][data-color='primary']:disabled {
       @apply disabled;
     }
+    &[data-variant='contained'][data-color='secondary'] {
+      @apply bg-secondary border-secondary text-white;
+    }
+    &[data-variant='contained'][data-color='secondary']:disabled {
+      @apply disabled;
+    }
     &[data-variant='outline'][data-color='primary'] {
       @apply bg-white border-primary text-primary;
     }
     &[data-variant='outline'][data-color='primary']:disabled {
+      @apply disabled;
+    }
+    &[data-variant='outline'][data-color='secondary'] {
+      @apply bg-white border-secondary text-secondary;
+    }
+    &[data-variant='outline'][data-color='secondary']:disabled {
       @apply disabled;
     }
     &[data-variant='text'][data-color='primary'] {

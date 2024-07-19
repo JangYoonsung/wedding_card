@@ -28,7 +28,7 @@ const Home = () => {
 ご返信をお願い申し上げます`}</p>
         </div>
         <Divider classes="my-4" color="var(--secondary)" />
-        <LinkButton href="/reply-form" variant="outline">
+        <LinkButton href="/reply-form" variant="outline" color="secondary">
           招待状に回答する
         </LinkButton>
       </Card>

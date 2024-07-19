@@ -1,9 +1,9 @@
-import { BORDER_COLOR, VARIANT } from '@/constants/common';
+import { COLOR, VARIANT } from '@/constants/common';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
 
 type ButtonProps = {
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR];
+  color?: (typeof COLOR)[keyof typeof COLOR];
   variant?: (typeof VARIANT)[keyof typeof VARIANT];
   type?: HTMLButtonElement['type'];
   disabled?: boolean;
