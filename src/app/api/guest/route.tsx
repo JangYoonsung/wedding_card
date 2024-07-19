@@ -6,18 +6,6 @@ import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { NextRequest, NextResponse } from 'next/server';
 
-export const POST = async (req: NextRequest) => {
-  const body: TSchema = await req.json();
-  const docs = await loadSheet();
-  const parse = schema.safeParse(body);
-  if (parse.error) {
-    return NextResponse.json({ message: parse.error.message }, { status: 400 });
-  }
-
-  const sheet = await addRows(docs, body);
-  return NextResponse.json(await sheet.json(), { status: sheet.status });
-};
-
 const loadSheet = async () => {
   const auth = new JWT({
     email: process.env.SERVICE_ACCOUNT_EMAIL,
@@ -34,19 +22,6 @@ const loadSheet = async () => {
   await doc.loadInfo();
 
   return doc;
-};
-
-const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
-  const sheet = doc.sheetsById[0];
-  const rows = await sheet.getRows();
-  const isRegistered = rows.some((row) => row.get('email') === body.email);
-
-  if (isRegistered) {
-    return NextResponse.json({ message: `${body.email} is already exist` }, { status: 409 });
-  }
-
-  const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
-  return NextResponse.json(result.toObject(), { status: 201 });
 };
 
 const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
@@ -83,4 +58,29 @@ const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
     }
   });
   return rowData;
+};
+
+const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
+  const sheet = doc.sheetsById[0];
+  const rows = await sheet.getRows();
+  const isRegistered = rows.some((row) => row.get('email') === body.email);
+
+  if (isRegistered) {
+    return NextResponse.json({ message: `${body.email} is already exist` }, { status: 409 });
+  }
+
+  const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
+  return NextResponse.json(result.toObject(), { status: 201 });
+};
+
+export const POST = async (req: NextRequest) => {
+  const body: TSchema = await req.json();
+  const docs = await loadSheet();
+  const parse = schema.safeParse(body);
+  if (parse.error) {
+    return NextResponse.json({ message: parse.error.message }, { status: 400 });
+  }
+
+  const sheet = await addRows(docs, body);
+  return NextResponse.json(await sheet.json(), { status: sheet.status });
 };
