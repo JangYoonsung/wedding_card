@@ -1,4 +1,7 @@
-const Label = ({ text, isRequired }: { text: string; isRequired?: boolean }) => {
+import { LabelProps } from '@/types/label';
+import React from 'react';
+
+const Label: React.FC<LabelProps> = ({ text, isRequired }) => {
   return (
     <div className="flex gap-2 pb-2">
       <label>{text}</label>

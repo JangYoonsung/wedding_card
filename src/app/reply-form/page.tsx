@@ -1,6 +1,7 @@
 import CardForm from '@/container/CardForm';
+import React from 'react';
 
-const Home = () => {
+const Home: React.FC = () => {
   const description = `お手数ではございますが
 下記お日にち迄に
 出欠のご回答をくださいますよう

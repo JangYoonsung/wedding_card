@@ -1,17 +1,13 @@
 import { COLOR } from '@/constants/common';
 import { FONT_SIZE } from '@/constants/title';
-import { CSSProperties } from 'react';
+import { TitleProps } from '@/types/title';
+import React, { CSSProperties } from 'react';
 
-const Title = ({
+const Title: React.FC<TitleProps> = ({
   text,
   classes = '',
   color = COLOR.BLACK,
   fontSize = FONT_SIZE.XL,
-}: {
-  text: string;
-  classes?: string;
-  color?: (typeof COLOR)[keyof typeof COLOR];
-  fontSize?: (typeof FONT_SIZE)[keyof typeof FONT_SIZE];
 }) => {
   const style: CSSProperties = {
     ['--color' as string]: `var(--${color})`,

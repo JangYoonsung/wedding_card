@@ -2,8 +2,9 @@ import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import Map from '@/components/Map';
 import Title from '@/components/Title';
+import React from 'react';
 
-const LocationInfo = () => {
+const LocationInfo: React.FC = () => {
   const locationInformationText = `セントアクアチャペル市ヶ谷
 
 東京都新宿区市谷仲之町3-5 

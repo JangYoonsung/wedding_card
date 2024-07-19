@@ -1,7 +1,6 @@
 import '@/style/radio.css';
-import { TSchema } from '@/types/schema';
+import { RadioProps } from '@/types/radio';
 import React, { Fragment } from 'react';
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 
 const Radio = <T extends string>({
   values,
@@ -9,15 +8,8 @@ const Radio = <T extends string>({
   errors,
   register,
   labels,
-  classes,
-}: {
-  values: readonly T[];
-  name: Path<TSchema>;
-  errors: FieldErrors;
-  register: UseFormRegister<TSchema>;
-  labels?: Record<T, string>;
-  classes?: string;
-}) => {
+  classes = '',
+}: RadioProps<T>): React.ReactElement => {
   const radioRegister = register(name);
 
   return (

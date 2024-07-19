@@ -1,24 +1,15 @@
 import { BORDER_COLOR } from '@/constants/common';
-import { TSchema } from '@/types/schema';
-import { HTMLInputTypeAttribute } from 'react';
-import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
+import { InputProps } from '@/types/input';
+import React from 'react';
 
-const Input = ({
+const Input: React.FC<InputProps> = ({
   name,
   register,
   errors,
-  type = 'text',
   placeholder,
-  classes,
+  type = 'text',
+  classes = '',
   onchange,
-}: {
-  name: Path<TSchema>;
-  register: UseFormRegister<TSchema>;
-  errors?: FieldErrors;
-  type?: HTMLInputTypeAttribute;
-  placeholder?: string;
-  classes?: string;
-  onchange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<unknown> | unknown;
 }) => {
   const inputRegister = register(name);
   const [errorKey, index, nameKey] = name.split('.');

@@ -18,7 +18,7 @@ import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import AddIcon from '/public/icon/add.svg';
 import RemoveIcon from '/public/icon/remove.svg';
 
-const CardForm = () => {
+const CardForm: React.FC = () => {
   const {
     register,
     handleSubmit,
