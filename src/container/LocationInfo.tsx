@@ -15,7 +15,7 @@ const LocationInfo = () => {
 
   return (
     <Card classes="mx-4" useAnimation showShadow>
-      <Title text="LOCATION INFO" color="primary" fontSize="2xl" />
+      <Title text="LOCATION INFO" color="primary" fontSize="2xl" classes="font-play-fair" />
       <Divider classes="my-2" />
 
       <div className="whitespace-pre">

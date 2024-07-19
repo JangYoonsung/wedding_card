@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 @layer utilities {
   .text-shadow {
@@ -13,10 +14,9 @@
     @apply bg-secondary border-secondary;
   }
 
-  /* h1,
-  h2 {
-    font-family: 'Courier New', Courier, monospace !important;
-  } */
+  .font-play-fair {
+    font-family: 'Playfair Display', serif;
+  }
 }
 
 @layer components {
@@ -91,7 +91,6 @@
 
   .root-title {
     @apply text-[var(--color)] font-bold;
-    font-family: 'Courier New', Courier, monospace !important;
   }
 }
 

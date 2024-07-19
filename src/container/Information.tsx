@@ -8,7 +8,7 @@ const Information = () => {
 
   return (
     <Card useAnimation showShadow classes="mt-4 mx-4">
-      <Title text="WEDDING INFORMATION" color="primary" fontSize="2xl" />
+      <Title text="WEDDING INFORMATION" color="primary" fontSize="2xl" classes="font-play-fair" />
       <Divider classes="my-2" />
 
       <div>
