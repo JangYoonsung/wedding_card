@@ -15,8 +15,8 @@ import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React, { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
-import AddIcon from '../../public/icon/add.svg';
-import RemoveIcon from '../../public/icon/remove.svg';
+import AddIcon from '/public/icon/add.svg';
+import RemoveIcon from '/public/icon/remove.svg';
 
 const CardForm = () => {
   const {
