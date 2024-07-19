@@ -2,8 +2,9 @@ import Card from '@/components/Card';
 import Title from '@/components/Title';
 import '@/style/animation.css';
 import '@/style/top.css';
+import React from 'react';
 
-const Top = () => {
+const Top: React.FC = () => {
   return (
     <Card classes="top-container text-shadow">
       <div className="z-10 font-bold">

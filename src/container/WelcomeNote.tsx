@@ -1,6 +1,7 @@
 import Card from '@/components/Card';
+import React from 'react';
 
-const WelcomeNote = () => {
+const WelcomeNote: React.FC = () => {
   const greetingText = `謹啓
 
 皆様におかれましては

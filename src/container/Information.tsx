@@ -1,8 +1,9 @@
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import Title from '@/components/Title';
+import React from 'react';
 
-const Information = () => {
+const Information: React.FC = () => {
   const description = `※ご多用中恐縮に存じますが挙式にもご列席を賜りたく
 開式の30分前までにお越しくださいますようお願い申し上げます`;
 
