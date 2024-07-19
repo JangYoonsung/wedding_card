@@ -50,10 +50,13 @@
   }
 
   .root-card {
-    @apply p-4 text-center rounded;
+    @apply p-4 text-center;
 
     &[data-color='primary'] {
       @apply bg-bg_primary;
+    }
+    &[data-color='secondary'] {
+      @apply bg-secondary;
     }
     &[data-color='none'] {
       @apply bg-[''];
@@ -97,7 +100,7 @@
 :root {
   --primary: #dfbf9f;
   --bg-primary: #dfbf9f15;
-  --secondary: #6e4f30;
+  --secondary: #6e4f3090;
   --light-gray: #e6e6e6;
   --gray: #8c8c8c;
   --error: #cc0000;

@@ -19,11 +19,11 @@ const WelcomeNote = () => {
 謹白`;
   return (
     <Card color="none" useAnimation>
-      <Divider classes="my-4" color="var(--white)" thickness="2px" />
-      <p className="text-primary text-center text-base font-bold whitespace-pre-wrap break-words">
+      <Divider classes="my-4" thickness="2px" />
+      <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
         {greetingText}
       </p>
-      <Divider classes="my-4" color="var(--white)" thickness="2px" />
+      <Divider classes="my-4" thickness="2px" />
     </Card>
   );
 };
