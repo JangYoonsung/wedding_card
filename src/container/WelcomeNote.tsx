@@ -1,4 +1,5 @@
 import Card from '@/components/Card';
+import Divider from '@/components/Divider';
 import React from 'react';
 
 const WelcomeNote: React.FC = () => {
@@ -18,10 +19,12 @@ const WelcomeNote: React.FC = () => {
   
 謹白`;
   return (
-    <Card color="none" classes="py-10" useAnimation>
-      <p className="text-white text-center text-base whitespace-pre-wrap break-words text-shadow">
+    <Card color="none" useAnimation>
+      <Divider classes="my-4" thickness="2px" />
+      <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
         {greetingText}
       </p>
+      <Divider classes="my-4" thickness="2px" />
     </Card>
   );
 };

@@ -15,21 +15,21 @@ const LocationInfo: React.FC = () => {
 03-6402-7256`;
 
   return (
-    <Card classes="mx-4" useAnimation showShadow>
-      <Title text="LOCATION INFO" color="primary" fontSize="2xl" />
-      <Divider classes="my-2" />
+    <Card color="none" useAnimation>
+      <Title text="Location Info" color="gray" fontSize="2xl" classes="font-play-fair" />
+      <Divider classes="my-4" thickness="2px" />
 
-      <div className="whitespace-pre">
-        <p className="text-sm text-gray pb-4">{locationInformationText}</p>
+      <div className="text-[#7a7a7a] text-sm whitespace-pre">
+        <p className="pb-4">{locationInformationText}</p>
         <a
           href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-gray underline">
+          className="underline">
           www.saint-acqua-chapel.jp/place/ichigaya/
         </a>
       </div>
-      <Divider classes="my-2" />
+      <Divider classes="my-4" thickness="2px" />
       <Map />
     </Card>
   );
