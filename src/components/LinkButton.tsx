@@ -1,28 +1,21 @@
-import { BORDER_COLOR, VARIANT } from '@/constants/common';
+import { COLOR, VARIANT } from '@/constants/common';
+import { LinkButtonProps } from '@/types/button';
 import Link from 'next/link';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
 
-const LinkButton = ({
+const LinkButton: React.FC<LinkButtonProps> = ({
   href,
   disabled,
-  classes,
   children,
+  classes = '',
   isLoading = false,
-  color = BORDER_COLOR.PRIMARY,
+  color = COLOR.PRIMARY,
   variant = VARIANT.CONTAINED,
-}: {
-  href: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  classes?: string;
-  children?: React.ReactNode;
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR];
-  variant?: (typeof VARIANT)[keyof typeof VARIANT];
 }) => {
   return (
     <Link
-      className={`w-full root-button  ${classes}`}
+      className={`w-full root-button ${classes}`}
       href={href}
       aria-disabled={disabled || isLoading}
       data-color={color}

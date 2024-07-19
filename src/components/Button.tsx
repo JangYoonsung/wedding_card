@@ -1,17 +1,6 @@
-import { BORDER_COLOR, VARIANT } from '@/constants/common';
+import { ButtonProps } from '@/types/button';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
-
-type ButtonProps = {
-  color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR];
-  variant?: (typeof VARIANT)[keyof typeof VARIANT];
-  type?: HTMLButtonElement['type'];
-  disabled?: boolean;
-  isLoading?: boolean;
-  classes?: string;
-  children?: React.ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
-};
 
 const Button: React.FC<ButtonProps> = ({
   color = 'primary',
