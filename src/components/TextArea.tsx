@@ -2,7 +2,13 @@ import { BORDER_COLOR } from '@/constants/common';
 import { TextAreaProps } from '@/types/input';
 import React, { useEffect, useRef } from 'react';
 
-const TextArea: React.FC<TextAreaProps> = ({ name, register, errors, placeholder, classes }) => {
+const TextArea: React.FC<TextAreaProps> = ({
+  name,
+  register,
+  errors,
+  placeholder,
+  classes = '',
+}) => {
   const errorMessage = errors?.[name]?.message;
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const { ref, ...rest } = register(name);

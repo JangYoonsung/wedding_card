@@ -8,7 +8,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   errors,
   control,
   children,
-  classes,
+  classes = '',
   onChangeHandler = undefined,
 }) => {
   return (

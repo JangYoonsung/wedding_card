@@ -8,7 +8,7 @@ const Radio = <T extends string>({
   errors,
   register,
   labels,
-  classes,
+  classes = '',
 }: RadioProps<T>): React.ReactElement => {
   const radioRegister = register(name);
 

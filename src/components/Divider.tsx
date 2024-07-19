@@ -6,7 +6,7 @@ const Divider: React.FC<DividerProps> = ({
   orientation = ORIENTATION.HORIZONTAL,
   thickness = '1px',
   color = 'var(--light-gray)',
-  classes,
+  classes = '',
 }) => {
   const style: CSSProperties = {
     ['--thickness' as string]: thickness,

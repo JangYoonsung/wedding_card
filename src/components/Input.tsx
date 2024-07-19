@@ -6,9 +6,9 @@ const Input: React.FC<InputProps> = ({
   name,
   register,
   errors,
-  type = 'text',
   placeholder,
-  classes,
+  type = 'text',
+  classes = '',
   onchange,
 }) => {
   const inputRegister = register(name);
