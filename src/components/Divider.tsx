@@ -1,16 +1,12 @@
 import { ORIENTATION } from '@/constants/divider';
+import { DividerProps } from '@/types/divider';
 import { CSSProperties } from 'react';
 
-const Divider = ({
+const Divider: React.FC<DividerProps> = ({
   orientation = ORIENTATION.HORIZONTAL,
   thickness = '1px',
   color = 'var(--light-gray)',
   classes,
-}: {
-  orientation?: (typeof ORIENTATION)[keyof typeof ORIENTATION];
-  thickness?: string;
-  color?: string;
-  classes?: string;
 }) => {
   const style: CSSProperties = {
     ['--thickness' as string]: thickness,
