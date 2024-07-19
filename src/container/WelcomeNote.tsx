@@ -1,4 +1,5 @@
 import Card from '@/components/Card';
+import Divider from '@/components/Divider';
 
 const WelcomeNote = () => {
   const greetingText = `謹啓
@@ -17,10 +18,12 @@ const WelcomeNote = () => {
   
 謹白`;
   return (
-    <Card color="none" classes="py-10" useAnimation>
-      <p className="text-white text-center text-base whitespace-pre-wrap break-words text-shadow">
+    <Card color="none" useAnimation>
+      <Divider classes="my-4" color="var(--white)" thickness="2px" />
+      <p className="text-primary text-center text-base font-bold whitespace-pre-wrap break-words">
         {greetingText}
       </p>
+      <Divider classes="my-4" color="var(--white)" thickness="2px" />
     </Card>
   );
 };
