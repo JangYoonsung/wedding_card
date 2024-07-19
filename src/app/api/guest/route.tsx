@@ -9,14 +9,11 @@ import { NextRequest, NextResponse } from 'next/server';
 const loadSheet = async () => {
   const auth = new JWT({
     email: process.env.SERVICE_ACCOUNT_EMAIL,
-    key: process.env.SERVICE_ACCOUNT_KEY,
+    key: (process.env.SERVICE_ACCOUNT_KEY as string).replace(/\\n/g, '\n'),
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
   });
 
-  const spreadSheetId = process.env.SPREAD_SHEET_ID;
-  if (typeof spreadSheetId !== 'string') {
-    throw new Error('');
-  }
+  const spreadSheetId = process.env.SPREAD_SHEET_ID as string;
 
   const doc = new GoogleSpreadsheet(spreadSheetId, auth);
   await doc.loadInfo();
