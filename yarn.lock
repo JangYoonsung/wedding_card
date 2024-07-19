@@ -3464,6 +3464,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-config-airbnb@npm:19.0.4":
+  version: 19.0.4
+  resolution: "eslint-config-airbnb@npm:19.0.4"
+  dependencies:
+    eslint-config-airbnb-base: "npm:^15.0.0"
+    object.assign: "npm:^4.1.2"
+    object.entries: "npm:^1.1.5"
+  peerDependencies:
+    eslint: ^7.32.0 || ^8.2.0
+    eslint-plugin-import: ^2.25.3
+    eslint-plugin-jsx-a11y: ^6.5.1
+    eslint-plugin-react: ^7.28.0
+    eslint-plugin-react-hooks: ^4.3.0
+  checksum: 10c0/867feeda45c4b480b1b8eff8fabc1bb107e837da8b48e5039e0c175ae6ad34af383b1924fc163bbfcef24a324e6651b1515e5bd12cbcbb19535a8838e2544a02
+  languageName: node
+  linkType: hard
+
 "eslint-config-next@npm:13.5.6":
   version: 13.5.6
   resolution: "eslint-config-next@npm:13.5.6"
@@ -6782,6 +6799,7 @@ __metadata:
     autoprefixer: "npm:^10"
     dayjs: "npm:1.11.11"
     eslint: "npm:^8"
+    eslint-config-airbnb: "npm:19.0.4"
     eslint-config-airbnb-typescript: "npm:18.0.0"
     eslint-config-next: "npm:13.5.6"
     eslint-config-prettier: "npm:9.1.0"
