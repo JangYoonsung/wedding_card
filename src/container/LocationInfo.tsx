@@ -23,6 +23,7 @@ const LocationInfo = () => {
         <a
           href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
           target="_blank"
+          rel="noopener noreferrer"
           className="text-sm text-gray underline">
           www.saint-acqua-chapel.jp/place/ichigaya/
         </a>

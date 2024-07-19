@@ -1,6 +1,6 @@
 import '@/style/radio.css';
 import { TSchema } from '@/types/schema';
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { FieldErrors, Path, UseFormRegister } from 'react-hook-form';
 
 const Radio = <T extends string>({
@@ -18,19 +18,24 @@ const Radio = <T extends string>({
   labels?: Record<T, string>;
   classes?: string;
 }) => {
+  const radioRegister = register(name);
+
   return (
-    <>
+    <React.Fragment>
       <div role="radioGroup" className={`flex gap-2 relative text-sm ${classes}`}>
-        {values.map((value, index) => {
+        {values.map((value) => {
           return (
-            <Fragment key={index}>
+            <Fragment key={value}>
               <label htmlFor={value} className="flex items-center gap-1">
                 <input
+                  name={radioRegister.name}
+                  ref={radioRegister.ref}
+                  onChange={radioRegister.onChange}
+                  onBlur={radioRegister.onBlur}
                   id={value}
+                  value={value}
                   className="radio"
                   type="radio"
-                  value={value}
-                  {...register(name)}
                 />
                 {labels?.[value] ?? value}
               </label>
@@ -43,7 +48,7 @@ const Radio = <T extends string>({
           <p className="text-error">{errors[name].message.toString()}</p>
         </div>
       )}
-    </>
+    </React.Fragment>
   );
 };
 

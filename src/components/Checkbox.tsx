@@ -31,7 +31,9 @@ const Checkbox = ({
               type="checkbox"
               className="hidden"
               id={name}
-              {...field}
+              ref={field.ref}
+              onBlur={field.onBlur}
+              name={field.name}
               value={String(field.value)}
               onChange={(event) => {
                 field.onChange(event);

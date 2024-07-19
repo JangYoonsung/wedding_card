@@ -18,7 +18,17 @@
     "import/prefer-default-export": "off",
     "array-callback-return": "off",
     "react/function-component-definition": [2, { "namedComponents": "arrow-function" }],
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "react/require-default-props": "off",
+    "react/button-has-type": "warn",
+    "consistent-return": "off",
+    "sx-a11y/aria-props": "off",
+    "react/jsx-fragments": "off",
+    "react/no-unknown-property": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "react-hooks/rules-of-hooks": "warn",
+    "jsx-a11y/aria-role": "off",
+    "no-useless-computed-key": "off"
   },
   "plugins": ["@typescript-eslint", "react"],
   "env": {

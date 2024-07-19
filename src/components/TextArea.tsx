@@ -49,10 +49,12 @@ const TextArea = ({
     <div className="text-xs relative">
       <textarea
         ref={setRef}
+        name={rest.name}
+        onChange={rest.onChange}
+        onBlur={rest.onBlur}
         className={`box-border whitespace-pre-wrap border p-2 resize-none rounded overflow-hidden ${classes}`}
         data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         placeholder={placeholder}
-        {...rest}
       />
       {errorMessage && (
         <div className="pt-1">

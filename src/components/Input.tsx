@@ -20,12 +20,11 @@ const Input = ({
   classes?: string;
   onchange?: (event: React.ChangeEvent<HTMLInputElement>) => Promise<unknown> | unknown;
 }) => {
-  const [errorKey, index, _name] = name.split('.');
-  const errorMessage = Array.isArray(errors?.[errorKey])
-    ? errors?.[errorKey]?.[Number(index)]?.[_name]?.message
-    : errors?.[name]?.message;
-
   const inputRegister = register(name);
+  const [errorKey, index, nameKey] = name.split('.');
+  const errorMessage = Array.isArray(errors?.[errorKey])
+    ? errors?.[errorKey]?.[Number(index)]?.[nameKey]?.message
+    : errors?.[name]?.message;
 
   return (
     <div className="text-xs">
@@ -34,7 +33,10 @@ const Input = ({
         data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
         type={type}
         placeholder={placeholder}
-        {...inputRegister}
+        disabled={inputRegister.disabled}
+        name={inputRegister.name}
+        ref={inputRegister.ref}
+        onBlur={inputRegister.onBlur}
         onChange={(event) => {
           inputRegister.onChange(event);
           onchange?.(event);

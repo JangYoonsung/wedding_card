@@ -2,16 +2,7 @@ import { BORDER_COLOR, VARIANT } from '@/constants/common';
 import React from 'react';
 import { MoonLoader } from 'react-spinners';
 
-const Button = ({
-  color = 'primary',
-  variant = 'contained',
-  type = 'button',
-  disabled,
-  isLoading = false,
-  classes,
-  children,
-  onClick,
-}: {
+type ButtonProps = {
   color?: (typeof BORDER_COLOR)[keyof typeof BORDER_COLOR];
   variant?: (typeof VARIANT)[keyof typeof VARIANT];
   type?: HTMLButtonElement['type'];
@@ -20,6 +11,17 @@ const Button = ({
   classes?: string;
   children?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
+};
+
+const Button: React.FC<ButtonProps> = ({
+  color = 'primary',
+  variant = 'contained',
+  type = 'button',
+  disabled,
+  isLoading = false,
+  classes,
+  children,
+  onClick,
 }) => {
   return (
     <button

@@ -1,4 +1,5 @@
 'use client';
+
 import Button from '@/components/Button';
 import Checkbox from '@/components/Checkbox';
 import Divider from '@/components/Divider';
@@ -59,7 +60,7 @@ const CardForm = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
-    return await fetch(ADD_GUEST_ENDPOINT, {
+    await fetch(ADD_GUEST_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'applicatioin/json',

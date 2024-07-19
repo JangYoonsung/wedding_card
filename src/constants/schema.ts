@@ -15,6 +15,7 @@ const noneEmptyStringSchema = z
   .min(1, { message: '必ず入力してください。' });
 
 const kanaNameSchema = noneEmptyStringSchema.regex(
+  // eslint-disable-next-line no-irregular-whitespace
   /^([\u30A0-\u30FF]*|[\u30A0-\u30FF]+[ 　][\u30A0-\u30FF]+)$/,
   { message: 'カタカナで入力してください' },
 );
@@ -45,7 +46,7 @@ const baseSchema = z
     zipCode: noneEmptyStringSchema.regex(/^([0-9]{3}-?[0-9]{4})?$/, {
       message: '有効な郵便番号を入力してください。',
     }),
-    address1: noneEmptyStringSchema,
+    address1: noneEmptyStringSchema.nullish(),
     address2: z.string().nullish(),
     memo: z.string().nullish(),
     companionInfo: z.array(nameSchema).nullish(),
