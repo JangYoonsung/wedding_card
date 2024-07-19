@@ -1,22 +1,15 @@
 import '@/style/checkbox.css';
-import { TSchema } from '@/types/schema';
+import { CheckboxProps } from '@/types/checkbox';
 import React from 'react';
-import { Control, Controller, FieldErrors, Path } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 
-const Checkbox = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   name,
   errors,
   control,
   children,
   classes,
   onChangeHandler = undefined,
-}: {
-  name: Path<TSchema>;
-  errors: FieldErrors;
-  control: Control<TSchema>;
-  children?: React.ReactNode;
-  classes?: string;
-  onChangeHandler?: (isChecked: boolean) => void | undefined;
 }) => {
   return (
     <>
