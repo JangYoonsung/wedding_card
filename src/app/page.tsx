@@ -2,6 +2,7 @@
 
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
+import ImageSlider from '@/components/ImageSlider';
 import LinkButton from '@/components/LinkButton';
 import Information from '@/container/Information';
 import LocationInfo from '@/container/LocationInfo';
@@ -15,6 +16,10 @@ const Home: React.FC = () => {
       <Top />
 
       <WelcomeNote />
+
+      <div>
+        <ImageSlider />
+      </div>
 
       <Information />
 
