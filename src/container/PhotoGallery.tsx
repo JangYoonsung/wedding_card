@@ -16,7 +16,7 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <Card color="none" useAnimation>
-      <Title text="Photo Gallery" color="gray" classes="font-play-fair" />
+      <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" />
 
       <div className="grid grid-cols-3 gap-2">
         {images.map((image) => (
