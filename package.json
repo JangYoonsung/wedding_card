@@ -13,7 +13,6 @@
     "@react-google-maps/api": "2.19.3",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "dayjs": "1.11.11",
-    "embla-carousel-react": "8.1.7",
     "google-auth-library": "9.11.0",
     "google-spreadsheet": "4.1.2",
     "next": "^14.2.4",
