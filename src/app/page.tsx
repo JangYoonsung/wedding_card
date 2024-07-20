@@ -2,7 +2,6 @@
 
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
-import ImageSlider from '@/components/ImageSlider';
 import LinkButton from '@/components/LinkButton';
 import Title from '@/components/Title';
 import Information from '@/container/Information';
@@ -20,7 +19,6 @@ const Home: React.FC = () => {
 
       <Card color="none" useAnimation>
         <Title text="Gallery" color="gray" />
-        <ImageSlider />
       </Card>
 
       <Information />
