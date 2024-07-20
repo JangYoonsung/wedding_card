@@ -5,6 +5,7 @@ import Divider from '@/components/Divider';
 import LinkButton from '@/components/LinkButton';
 import Information from '@/container/Information';
 import LocationInfo from '@/container/LocationInfo';
+import PhotoGallery from '@/container/PhotoGallery';
 import Top from '@/container/Top';
 import WelcomeNote from '@/container/WelcomeNote';
 import React from 'react';
@@ -15,6 +16,8 @@ const Home: React.FC = () => {
       <Top />
 
       <WelcomeNote />
+
+      <PhotoGallery />
 
       <Information />
 

@@ -128,3 +128,7 @@ body {
   background-color: var(--bg-primary);
   font-family: 'Noto Sans JP', sans-serif;
 }
+
+.image-slider-container {
+  width: 400px;
+}

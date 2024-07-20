@@ -11,6 +11,7 @@
   "dependencies": {
     "@hookform/resolvers": "3.9.0",
     "@react-google-maps/api": "2.19.3",
+    "@tailwindcss/aspect-ratio": "0.4.2",
     "dayjs": "1.11.11",
     "google-auth-library": "9.11.0",
     "google-spreadsheet": "4.1.2",
@@ -18,7 +19,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "7.52.1",
+    "react-slick": "0.30.2",
     "react-spinners": "0.14.1",
+    "slick-carousel": "1.8.1",
     "zod": "3.23.8"
   },
   "devDependencies": {
@@ -26,6 +29,8 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-slick": "^0",
+    "@types/slick-carousel": "^1",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "autoprefixer": "^10",
