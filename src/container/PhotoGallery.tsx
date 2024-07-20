@@ -29,6 +29,7 @@ const PhotoGallery: React.FC = () => {
     slidesToScroll: 1,
     adaptiveHeight: true,
     autoplay: true,
+    pauseOnHover: true,
   };
 
   return (
@@ -44,15 +45,11 @@ const PhotoGallery: React.FC = () => {
         autoplay={settings.autoplay}
         speed={settings.speed}
         slidesToShow={settings.slidesToShow}
-        slidesToScroll={settings.slidesToScroll}>
+        slidesToScroll={settings.slidesToScroll}
+        pauseOnHover={settings.pauseOnHover}>
         {images.map((image) => (
           <div className="aspect-w-1 aspect-h-1" key={image.id}>
-            <Image
-              src={image.value}
-              alt={`${image.id}-${image.value}`}
-              className="object-cover"
-              fill
-            />
+            <Image src={image.value} alt={`${image.id}-${image.value}`} objectFit="cover" fill />
           </div>
         ))}
       </Slider>
