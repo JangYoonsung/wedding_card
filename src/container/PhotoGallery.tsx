@@ -16,24 +16,22 @@ const PhotoGallery: React.FC = () => {
   ];
 
   return (
-    <>
-      <Card color="none" useAnimation>
-        <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" fontSize="2xl" />
+    <Card color="none" useAnimation>
+      <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" fontSize="2xl" />
 
-        <div className="grid grid-cols-3 gap-2">
-          {images.map((image) => (
-            <div key={image.id} className="aspect-w-1 aspect-h-1">
-              <Image
-                src={image.value}
-                alt={`${image.id}-${image.value}`}
-                className="object-cover w-full h-full"
-                fill
-              />
-            </div>
-          ))}
-        </div>
-      </Card>
-    </>
+      <div className="grid grid-cols-3 gap-2">
+        {images.map((image) => (
+          <div key={image.id} className="aspect-w-1 aspect-h-1">
+            <Image
+              src={image.value}
+              alt={`${image.id}-${image.value}`}
+              className="object-cover w-full h-full"
+              fill
+            />
+          </div>
+        ))}
+      </div>
+    </Card>
   );
 };
 
