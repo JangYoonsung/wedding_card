@@ -1,5 +1,6 @@
 'use client';
 
+import AnimationWrapper from '@/components/AnimationWrapper';
 import Card from '@/components/Card';
 import Title from '@/components/Title';
 import Image from 'next/image';
@@ -33,27 +34,29 @@ const PhotoGallery: React.FC = () => {
   };
 
   return (
-    <Card color="none">
-      <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" fontSize="2xl" />
+    <AnimationWrapper>
+      <Card color="none">
+        <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" fontSize="2xl" />
 
-      <Slider
-        className="aspect-w-1 aspect-h-1"
-        dots={settings.dots}
-        arrows={settings.arrows}
-        infinite={settings.infinite}
-        adaptiveHeight={settings.adaptiveHeight}
-        autoplay={settings.autoplay}
-        speed={settings.speed}
-        slidesToShow={settings.slidesToShow}
-        slidesToScroll={settings.slidesToScroll}
-        pauseOnHover={settings.pauseOnHover}>
-        {images.map((image) => (
-          <div className="aspect-w-1 aspect-h-1" key={image.id}>
-            <Image src={image.value} alt={`${image.id}-${image.value}`} objectFit="cover" fill />
-          </div>
-        ))}
-      </Slider>
-    </Card>
+        <Slider
+          className="aspect-w-1 aspect-h-1"
+          dots={settings.dots}
+          arrows={settings.arrows}
+          infinite={settings.infinite}
+          adaptiveHeight={settings.adaptiveHeight}
+          autoplay={settings.autoplay}
+          speed={settings.speed}
+          slidesToShow={settings.slidesToShow}
+          slidesToScroll={settings.slidesToScroll}
+          pauseOnHover={settings.pauseOnHover}>
+          {images.map((image) => (
+            <div className="aspect-w-1 aspect-h-1" key={image.id}>
+              <Image src={image.value} alt={`${image.id}-${image.value}`} objectFit="cover" fill />
+            </div>
+          ))}
+        </Slider>
+      </Card>
+    </AnimationWrapper>
   );
 };
 
