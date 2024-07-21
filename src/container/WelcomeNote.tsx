@@ -19,7 +19,7 @@ const WelcomeNote: React.FC = () => {
   
 謹白`;
   return (
-    <Card color="none" useAnimation>
+    <Card color="none">
       <Divider classes="my-4" thickness="2px" />
       <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
         {greetingText}

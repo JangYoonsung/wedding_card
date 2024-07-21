@@ -33,7 +33,7 @@ const PhotoGallery: React.FC = () => {
   };
 
   return (
-    <Card color="none" useAnimation>
+    <Card color="none">
       <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-2" fontSize="2xl" />
 
       <Slider

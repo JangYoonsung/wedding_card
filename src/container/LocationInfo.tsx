@@ -15,7 +15,7 @@ const LocationInfo: React.FC = () => {
 03-6402-7256`;
 
   return (
-    <Card color="none" useAnimation>
+    <Card color="none">
       <Title text="Location Info" color="gray" fontSize="2xl" classes="font-play-fair" />
       <Divider classes="my-4" thickness="2px" />
 

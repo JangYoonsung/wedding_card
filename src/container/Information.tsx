@@ -8,7 +8,7 @@ const Information: React.FC = () => {
 開式の30分前までにお越しくださいますようお願い申し上げます`;
 
   return (
-    <Card color="secondary" useAnimation>
+    <Card color="secondary">
       <Title text="Wedding Information" color="white" fontSize="2xl" classes="font-play-fair" />
       <Divider classes="my-4" color="var(--secondary)" />
 
