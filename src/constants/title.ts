@@ -9,11 +9,11 @@ export const FONT_SIZE = {
 } as const;
 
 export const MATCHED_SIZE = {
-  xs: 'text-xs',
-  sm: 'text-sm',
-  base: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
-  '2xl': 'text-2xl',
-  '3xl': 'text-3xl',
+  xs: '12px',
+  sm: '14px',
+  base: '16px',
+  lg: '18px',
+  xl: '20px',
+  '2xl': '22px',
+  '3xl': '24px',
 } as const;
