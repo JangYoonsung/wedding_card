@@ -60,7 +60,7 @@ const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
 const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   const sheet = doc.sheetsById[0];
   const rows = await sheet.getRows();
-  const isRegistered = rows.some((row) => row.get('email') === body.email);
+  const isRegistered = rows.some((row) => row.get('メールアドレス') === body.email);
 
   if (isRegistered) {
     return NextResponse.json({ message: `${body.email} is already exist` }, { status: 409 });

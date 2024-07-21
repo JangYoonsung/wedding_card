@@ -50,7 +50,7 @@
   }
 
   .root-card {
-    @apply p-4 text-center;
+    @apply py-4 text-center;
 
     &[data-color='primary'] {
       @apply bg-bg_primary;
@@ -125,6 +125,8 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--bg-primary);
   font-family: 'Noto Sans JP', sans-serif;
 }
