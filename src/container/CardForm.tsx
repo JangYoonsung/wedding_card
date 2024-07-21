@@ -13,6 +13,7 @@ import { schema } from '@/constants/schema';
 import { TZipCloud } from '@/types/prefacture';
 import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 import React, { Fragment } from 'react';
 import { SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import AddIcon from '/public/icon/add.svg';
@@ -35,6 +36,8 @@ const CardForm: React.FC = () => {
   });
 
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
+
+  const router = useRouter();
 
   const appendCompanion = () => {
     append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
@@ -60,7 +63,7 @@ const CardForm: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<TSchema> = async (data) => {
-    await fetch(ADD_GUEST_ENDPOINT, {
+    const res = await fetch(ADD_GUEST_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'applicatioin/json',
@@ -68,6 +71,11 @@ const CardForm: React.FC = () => {
       mode: 'cors',
       body: JSON.stringify(data),
     });
+
+    if (!res.ok) {
+      return null;
+    }
+    router.push('/thanks');
   };
 
   return (
