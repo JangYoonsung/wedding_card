@@ -103,10 +103,6 @@
       @apply text-secondary border-0;
     }
   }
-
-  .root-title {
-    @apply text-[var(--color)] font-bold;
-  }
 }
 
 :root {
