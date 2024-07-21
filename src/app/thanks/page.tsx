@@ -1,14 +1,17 @@
 import LinkButton from '@/components/LinkButton';
 import Title from '@/components/Title';
+import ThanksIcon from '/public/icon/thanks.svg';
 
 const Home: React.FC = () => {
   return (
     <main className="bg-bg_primary">
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
-          <Title text="thank you!" color="gray" classes="font-play-fair" />
+          <Title text="Thank you!" color="gray" classes="font-play-fair" />
 
-          <div className="mt-4 text-gray">
+          <ThanksIcon width={100} height={100} fill="var(--gray)" className="mx-auto my-10" />
+
+          <div className="mt-4 text-gray text-sm">
             <p>回答のご協力ありがとうございました。</p>
             <LinkButton href="../" color="gray" variant="text">
               TOP画面に戻る
