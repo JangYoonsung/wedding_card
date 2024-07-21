@@ -8,7 +8,7 @@ import React, { CSSProperties } from 'react';
 const Title: React.FC<TitleProps> = ({ text, fontSize, classes = '', color = COLOR.BLACK }) => {
   const style: CSSProperties = {
     ['--color' as string]: `var(--${color})`,
-    ...(fontSize && { fontSize: MATCHED_SIZE[fontSize] }),
+    ...(fontSize && { ...MATCHED_SIZE[fontSize] }),
   };
 
   return (
