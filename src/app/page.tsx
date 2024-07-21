@@ -23,7 +23,7 @@ const Home: React.FC = () => {
 
       <LocationInfo />
 
-      <Card color="secondary" classes="text-white mb-[15rem]" useAnimation>
+      <Card color="secondary" classes="text-white mb-[15rem]">
         <Divider classes="my-4" color="var(--secondary)" />
 
         <div className="whitespace-pre">

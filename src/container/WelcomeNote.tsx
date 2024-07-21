@@ -1,3 +1,4 @@
+import AnimationWrapper from '@/components/AnimationWrapper';
 import Card from '@/components/Card';
 import Divider from '@/components/Divider';
 import React from 'react';
@@ -19,13 +20,15 @@ const WelcomeNote: React.FC = () => {
   
 謹白`;
   return (
-    <Card color="none" useAnimation>
-      <Divider classes="my-4" thickness="2px" />
-      <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
-        {greetingText}
-      </p>
-      <Divider classes="my-4" thickness="2px" />
-    </Card>
+    <AnimationWrapper>
+      <Card color="none">
+        <Divider classes="my-4" thickness="2px" />
+        <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
+          {greetingText}
+        </p>
+        <Divider classes="my-4" thickness="2px" />
+      </Card>
+    </AnimationWrapper>
   );
 };
 
