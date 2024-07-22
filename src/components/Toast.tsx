@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import CloseIcon from '/public/icon/close.svg';
 
 const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
   const [visible, setVisible] = useState(true);
@@ -14,13 +15,17 @@ const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, on
     return () => clearTimeout(timer);
   }, [onClose]);
 
+  const classes = [
+    'fixed p-4 rounded bg-error bottom-5 right-5 text-white font-bold flex gap-2 transition-opacity duration-500',
+    visible ? 'opacity-100' : 'opacity-0',
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
-    <div
-      className={`fixed p-4 rounded bg-error bottom-5 right-5 text-white font-bold transition-opacity duration-500 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={classes}>
       {message}
-      <button type="button" onClick={onClose}>
-        X
-      </button>
+      <CloseIcon onClick={onClose} />
     </div>
   );
 };
