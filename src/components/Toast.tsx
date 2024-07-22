@@ -8,11 +8,14 @@ import ErrorIcon from '/public/icon/error.svg';
 const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
   const [visible, setVisible] = useState(true);
 
+  const timeout = 3500;
+  const animationTimeout = 500;
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-      setTimeout(onClose, 500);
-    }, 3000);
+      setTimeout(onClose, animationTimeout);
+    }, timeout);
 
     return () => clearTimeout(timer);
   }, [onClose]);
