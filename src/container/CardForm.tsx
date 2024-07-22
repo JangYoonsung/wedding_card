@@ -8,7 +8,6 @@ import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
 import Toast from '@/components/Toast';
-import { ICON_SIZE } from '@/constants/common';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
@@ -37,12 +36,11 @@ const CardForm: React.FC = () => {
     },
     resolver: zodResolver(schema),
   });
-
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
-
   const { toasts, addToast, removeToast } = useToast();
-
   const router = useRouter();
+
+  const buttonIconSize = 12;
 
   const appendCompanion = () => {
     append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
@@ -78,8 +76,7 @@ const CardForm: React.FC = () => {
     });
 
     if (!res.ok) {
-      const body = await res.json();
-      addToast(body?.message);
+      addToast((await res.json())?.message);
       return null;
     }
     router.push('/thanks');
@@ -281,7 +278,7 @@ const CardForm: React.FC = () => {
                 variant="outline"
                 disabled={isSubmitting}
                 onClick={appendCompanion}>
-                <AddIcon fill="var(--primary)" width={ICON_SIZE.WIDTH} height={ICON_SIZE.HEIGHT} />
+                <AddIcon fill="var(--primary)" width={buttonIconSize} height={buttonIconSize} />
                 追加する
               </Button>
               {index !== 0 && (
@@ -292,8 +289,8 @@ const CardForm: React.FC = () => {
                   onClick={() => remove(index)}>
                   <RemoveIcon
                     fill="var(--primary)"
-                    width={ICON_SIZE.WIDTH}
-                    height={ICON_SIZE.HEIGHT}
+                    width={buttonIconSize}
+                    height={buttonIconSize}
                   />
                   削除する
                 </Button>
