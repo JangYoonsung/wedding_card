@@ -1,10 +1,11 @@
 'use client';
 
+import { ToastProps } from '@/types/toast';
 import { useEffect, useState } from 'react';
 import CloseIcon from '/public/icon/close.svg';
 import ErrorIcon from '/public/icon/error.svg';
 
-const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
+const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
