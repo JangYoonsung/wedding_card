@@ -1,5 +1,3 @@
-'use client';
-
 import FormLink from '@/container/FormLink';
 import Information from '@/container/Information';
 import LocationInfo from '@/container/LocationInfo';

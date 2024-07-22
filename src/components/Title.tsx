@@ -1,5 +1,3 @@
-'use client';
-
 import { COLOR } from '@/constants/common';
 import { MATCHED_SIZE } from '@/constants/title';
 import { TitleProps } from '@/types/title';

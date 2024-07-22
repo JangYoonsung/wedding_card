@@ -7,5 +7,5 @@ export type TSchema = z.infer<typeof schema>;
 export type SchemaProps = {
   name: Path<TSchema>;
   register: UseFormRegister<TSchema>;
-  errors: FieldErrors;
+  errors?: FieldErrors;
 };

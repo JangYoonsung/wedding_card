@@ -10,6 +10,7 @@ import TextArea from '@/components/TextArea';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
+import useToast from '@/hooks/useToast';
 import { TZipCloud } from '@/types/prefacture';
 import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,7 +27,7 @@ const CardForm: React.FC = () => {
     watch,
     setValue,
     control,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<TSchema>({
     defaultValues: {
       attendanceStatus: ATTENDANCE_STATUS.PRESENT,
@@ -34,10 +35,11 @@ const CardForm: React.FC = () => {
     },
     resolver: zodResolver(schema),
   });
-
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
-
+  const { addToast } = useToast();
   const router = useRouter();
+
+  const buttonIconSize = 12;
 
   const appendCompanion = () => {
     append({ firstName: '', lastName: '', firstNameKana: '', lastNameKana: '' });
@@ -73,6 +75,7 @@ const CardForm: React.FC = () => {
     });
 
     if (!res.ok) {
+      addToast((await res.json())?.message);
       return null;
     }
     router.push('/thanks');
@@ -181,18 +184,21 @@ const CardForm: React.FC = () => {
           <Input
             name="address1"
             register={register}
-            errors={errors}
-            classes="w-full"
+            classes={`w-full ${errors.address1?.message ? '!border-error' : ''}`}
             placeholder="東京都目黒区中目黒x-x-x"
           />
           <Input
             name="address2"
             register={register}
-            errors={errors}
-            classes="w-full"
+            classes={`w-full ${errors.address2?.message ? '!border-error' : ''}`}
             placeholder="目黒のどこかの建物"
           />
         </div>
+        {(errors.address1?.message || errors.address2?.message) && (
+          <div className="text-error text-xs pt-1">
+            <p>{errors.address1?.message || errors.address2?.message}</p>
+          </div>
+        )}
       </fieldset>
       <Divider classes="mx-4" />
 
@@ -215,7 +221,7 @@ const CardForm: React.FC = () => {
           errors={errors}
           control={control}
           onChangeHandler={handleOnChecked}>
-          お疲れ様を追加する
+          お連れ様を追加する
         </Checkbox>
       </fieldset>
 
@@ -271,7 +277,7 @@ const CardForm: React.FC = () => {
                 variant="outline"
                 disabled={isSubmitting}
                 onClick={appendCompanion}>
-                <AddIcon fill="var(--primary)" width={12} height={12} />
+                <AddIcon fill="var(--primary)" width={buttonIconSize} height={buttonIconSize} />
                 追加する
               </Button>
               {index !== 0 && (
@@ -280,7 +286,11 @@ const CardForm: React.FC = () => {
                   variant="outline"
                   disabled={isSubmitting}
                   onClick={() => remove(index)}>
-                  <RemoveIcon fill="var(--primary)" width={12} height={12} />
+                  <RemoveIcon
+                    fill="var(--primary)"
+                    width={buttonIconSize}
+                    height={buttonIconSize}
+                  />
                   削除する
                 </Button>
               )}
@@ -289,7 +299,11 @@ const CardForm: React.FC = () => {
         ))}
 
       <div className="p-4">
-        <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>
+        <Button
+          type="submit"
+          color="secondary"
+          isLoading={isSubmitting}
+          disabled={isSubmitting || !isValid}>
           回答を送信する
         </Button>
       </div>

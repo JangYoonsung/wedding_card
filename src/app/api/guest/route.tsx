@@ -63,7 +63,12 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   const isRegistered = rows.some((row) => row.get('メールアドレス') === body.email);
 
   if (isRegistered) {
-    return NextResponse.json({ message: `${body.email} is already exist` }, { status: 409 });
+    // eslint-disable-next-line no-console
+    console.error(`${body.email} is already exist`);
+    return NextResponse.json(
+      { message: `すでに登録されているメールアドレスです。` },
+      { status: 409 },
+    );
   }
 
   const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));

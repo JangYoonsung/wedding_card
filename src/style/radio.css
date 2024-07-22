@@ -19,11 +19,13 @@
       content: '';
       transition: opacity 0.2s ease-in-out;
     }
-    &:checked {
-      @apply border-2 border-primary;
-      &:before {
-        @apply opacity-100;
-      }
-    }
+  }
+
+  .radio:checked {
+    @apply border-2 border-primary;
+  }
+
+  .radio:checked::before {
+    @apply opacity-100;
   }
 }

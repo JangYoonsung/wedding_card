@@ -46,8 +46,8 @@ const baseSchema = z
     zipCode: noneEmptyStringSchema.regex(/^([0-9]{3}-?[0-9]{4})?$/, {
       message: '有効な郵便番号を入力してください。',
     }),
-    address1: noneEmptyStringSchema.nullish(),
-    address2: z.string().nullish(),
+    address1: noneEmptyStringSchema,
+    address2: noneEmptyStringSchema,
     memo: z.string().nullish(),
     companionInfo: z.array(nameSchema).nullish(),
   })

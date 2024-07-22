@@ -1,6 +1,8 @@
+import ToastContainer from '@/container/ToastContainer';
 import '@/style/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import RecoilProvider from './RecoilProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,10 +25,17 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }: RootLayoutProps) => (
-  <html lang="en">
-    <body className={inter.className}>{children}</body>
-  </html>
-);
+const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <RecoilProvider>
+          {children}
+          <ToastContainer />
+        </RecoilProvider>
+      </body>
+    </html>
+  );
+};
 
 export default RootLayout;
