@@ -1,8 +1,9 @@
+import { Toast, TOAST_STATE } from '@/constants/atoms';
 import dayjs from 'dayjs';
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 const useToast = () => {
-  const [toasts, setToasts] = useState<{ id: number; message: string }[]>([]);
+  const [toasts, setToasts] = useRecoilState<Toast[]>(TOAST_STATE);
 
   const addToast = (message: string) => {
     setToasts([...toasts, { id: dayjs().unix(), message }]);
