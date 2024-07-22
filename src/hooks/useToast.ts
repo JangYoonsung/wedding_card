@@ -1,5 +1,3 @@
-'use client';
-
 import { TOAST_STATE } from '@/constants/atoms';
 import dayjs from 'dayjs';
 import { useRecoilState } from 'recoil';

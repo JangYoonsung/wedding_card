@@ -1,3 +1,5 @@
+'use client';
+
 import { useVisible } from '@/hooks/useVisible';
 import { CommonProps } from '@/types/common';
 import React, { useRef } from 'react';

@@ -1,5 +1,3 @@
-'use client';
-
 import { ToastProps } from '@/types/toast';
 import { useEffect, useState } from 'react';
 import CloseIcon from '/public/icon/close.svg';
