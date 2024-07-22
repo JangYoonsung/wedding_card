@@ -1,4 +1,5 @@
-import { Toast, TOAST_STATE } from '@/constants/atoms';
+import { TOAST_STATE } from '@/constants/atoms';
+import { Toast } from '@/types/toast';
 import dayjs from 'dayjs';
 import { useRecoilState } from 'recoil';
 
