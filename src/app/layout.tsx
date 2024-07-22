@@ -28,10 +28,12 @@ type RootLayoutProps = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <RecoilProvider>
-        <body className={inter.className}>{children}</body>
-        <ToastContainer />
-      </RecoilProvider>
+      <body className={inter.className}>
+        <RecoilProvider>
+          {children}
+          <ToastContainer />
+        </RecoilProvider>
+      </body>
     </html>
   );
 };
