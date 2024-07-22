@@ -7,10 +7,12 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
+import Toast from '@/components/Toast';
 import { ICON_SIZE } from '@/constants/common';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
+import useToast from '@/hooks/useToast';
 import { TZipCloud } from '@/types/prefacture';
 import { TSchema } from '@/types/schema';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -37,6 +39,8 @@ const CardForm: React.FC = () => {
   });
 
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
+
+  const { toasts, addToast, removeToast } = useToast();
 
   const router = useRouter();
 
@@ -74,6 +78,8 @@ const CardForm: React.FC = () => {
     });
 
     if (!res.ok) {
+      const body = await res.json();
+      addToast(body?.message);
       return null;
     }
     router.push('/thanks');
@@ -305,6 +311,10 @@ const CardForm: React.FC = () => {
           回答を送信する
         </Button>
       </div>
+
+      {toasts.map((toast) => (
+        <Toast key={toast.id} message={toast.message} onClose={() => removeToast(toast.id)} />
+      ))}
     </form>
   );
 };
