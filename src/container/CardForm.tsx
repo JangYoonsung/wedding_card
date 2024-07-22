@@ -219,7 +219,7 @@ const CardForm: React.FC = () => {
           errors={errors}
           control={control}
           onChangeHandler={handleOnChecked}>
-          お疲れ様を追加する
+          お連れ様を追加する
         </Checkbox>
       </fieldset>
 
