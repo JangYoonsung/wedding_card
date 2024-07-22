@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import CloseIcon from '/public/icon/close.svg';
+import ErrorIcon from '/public/icon/error.svg';
 
 const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
   const [visible, setVisible] = useState(true);
@@ -17,18 +18,25 @@ const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, on
 
   const classes = [
     'fixed p-4 rounded bg-error bottom-5 right-5 text-white text-sm font-bold transition-opacity duration-500',
-    'flex items-center justify-center gap-2',
+    'flex items-start justify-center gap-2',
     visible ? 'opacity-100' : 'opacity-0',
   ]
     .filter(Boolean)
     .join(' ');
 
-  const iconSize = 20;
+  const closeIconSize = 20;
+  const errorIconSize = 30;
 
   return (
     <div className={classes}>
-      {message}
-      <CloseIcon onClick={onClose} width={iconSize} height={iconSize} />
+      <div className="flex items-center justify-center gap-4 ">
+        <ErrorIcon width={errorIconSize} height={errorIconSize} />
+        <div>
+          <p className="text-base">失敗しました。</p>
+          {message}
+        </div>
+      </div>
+      <CloseIcon onClick={onClose} width={closeIconSize} height={closeIconSize} />
     </div>
   );
 };
