@@ -25,7 +25,7 @@ const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, on
     .join(' ');
 
   const closeIconSize = 20;
-  const errorIconSize = 30;
+  const errorIconSize = 34;
 
   return (
     <div className={classes}>
