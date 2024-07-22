@@ -181,18 +181,21 @@ const CardForm: React.FC = () => {
           <Input
             name="address1"
             register={register}
-            errors={errors}
-            classes="w-full"
+            classes={`w-full ${errors.address1?.message ? '!border-error' : ''}`}
             placeholder="東京都目黒区中目黒x-x-x"
           />
           <Input
             name="address2"
             register={register}
-            errors={errors}
-            classes="w-full"
+            classes={`w-full ${errors.address2?.message ? '!border-error' : ''}`}
             placeholder="目黒のどこかの建物"
           />
         </div>
+        {(errors.address1?.message || errors.address2?.message) && (
+          <div className="text-error text-xs pt-1">
+            <p>{errors.address1?.message || errors.address2?.message}</p>
+          </div>
+        )}
       </fieldset>
       <Divider classes="mx-4" />
 
