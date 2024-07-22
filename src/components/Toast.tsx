@@ -16,16 +16,19 @@ const Toast: React.FC<{ message: string; onClose: () => void }> = ({ message, on
   }, [onClose]);
 
   const classes = [
-    'fixed p-4 rounded bg-error bottom-5 right-5 text-white font-bold flex gap-2 transition-opacity duration-500',
+    'fixed p-4 rounded bg-error bottom-5 right-5 text-white text-sm font-bold transition-opacity duration-500',
+    'flex items-center justify-center gap-2',
     visible ? 'opacity-100' : 'opacity-0',
   ]
     .filter(Boolean)
     .join(' ');
 
+  const iconSize = 20;
+
   return (
     <div className={classes}>
       {message}
-      <CloseIcon onClick={onClose} />
+      <CloseIcon onClick={onClose} width={iconSize} height={iconSize} />
     </div>
   );
 };
