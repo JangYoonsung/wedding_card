@@ -76,6 +76,11 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
 };
 
 export const POST = async (req: NextRequest) => {
+  const today = dayjs();
+  if (today.isAfter('2024-08-09', 'day')) {
+    return NextResponse.json({ message: '回答期限がすぎました。' }, { status: 400 });
+  }
+
   const body: TSchema = await req.json();
   const docs = await loadSheet();
   const parse = schema.safeParse(body);
