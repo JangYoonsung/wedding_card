@@ -9,3 +9,8 @@ export const COLOR = {
 } as const;
 
 export const VARIANT = { TEXT: 'text', OUTLINE: 'outline', CONTAINED: 'contained' } as const;
+
+export const ICON_SIZE = {
+  WIDTH: 12,
+  HEIGHT: 12,
+} as const;

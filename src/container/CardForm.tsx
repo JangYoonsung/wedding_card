@@ -7,6 +7,7 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
+import { ICON_SIZE } from '@/constants/common';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
@@ -274,7 +275,7 @@ const CardForm: React.FC = () => {
                 variant="outline"
                 disabled={isSubmitting}
                 onClick={appendCompanion}>
-                <AddIcon fill="var(--primary)" width={12} height={12} />
+                <AddIcon fill="var(--primary)" width={ICON_SIZE.WIDTH} height={ICON_SIZE.HEIGHT} />
                 追加する
               </Button>
               {index !== 0 && (
@@ -283,7 +284,11 @@ const CardForm: React.FC = () => {
                   variant="outline"
                   disabled={isSubmitting}
                   onClick={() => remove(index)}>
-                  <RemoveIcon fill="var(--primary)" width={12} height={12} />
+                  <RemoveIcon
+                    fill="var(--primary)"
+                    width={ICON_SIZE.WIDTH}
+                    height={ICON_SIZE.HEIGHT}
+                  />
                   削除する
                 </Button>
               )}
