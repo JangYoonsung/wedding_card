@@ -27,7 +27,7 @@ const CardForm: React.FC = () => {
     watch,
     setValue,
     control,
-    formState: { errors, isSubmitting },
+    formState: { errors, isSubmitting, isValid },
   } = useForm<TSchema>({
     defaultValues: {
       attendanceStatus: ATTENDANCE_STATUS.PRESENT,
@@ -297,7 +297,11 @@ const CardForm: React.FC = () => {
         ))}
 
       <div className="p-4">
-        <Button type="submit" isLoading={isSubmitting} disabled={isSubmitting}>
+        <Button
+          type="submit"
+          color="secondary"
+          isLoading={isSubmitting}
+          disabled={isSubmitting || !isValid}>
           回答を送信する
         </Button>
       </div>
