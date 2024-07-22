@@ -21,7 +21,7 @@
     }
     &:checked {
       @apply border-2 border-primary;
-      &:before {
+      &::before {
         @apply opacity-100;
       }
     }

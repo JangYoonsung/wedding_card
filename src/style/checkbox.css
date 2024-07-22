@@ -38,15 +38,17 @@
     }
   }
 
-  input[type='checkbox']:checked + .checkbox:before {
-    @apply w-full h-full bg-primary;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  input[type='checkbox']:checked + .checkbox:after {
-    @apply w-full h-full bg-white;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  input[type='checkbox']:checked + .checkbox {
-    @apply border-primary;
+  input[type='checkbox']:checked {
+    + .checkbox:before {
+      @apply w-full h-full bg-primary;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    + .checkbox:after {
+      @apply w-full h-full bg-white;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    + .checkbox {
+      @apply border-primary;
+    }
   }
 }
