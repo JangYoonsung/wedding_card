@@ -1,8 +1,17 @@
+'use client';
+
 import Title from '@/components/Title';
+import Toast from '@/components/Toast';
+import { TOAST_STATE } from '@/constants/atoms';
 import CardForm from '@/container/CardForm';
+import useToast from '@/hooks/useToast';
 import React from 'react';
+import { useRecoilValue } from 'recoil';
 
 const ReplyForm: React.FC = () => {
+  const { removeToast } = useToast();
+  const toasts = useRecoilValue(TOAST_STATE);
+
   const description = `お手数ではございますが
 下記お日にち迄に
 出欠のご回答をくださいますよう
@@ -29,6 +38,9 @@ const ReplyForm: React.FC = () => {
       <div className="mx-4">
         <CardForm />
       </div>
+      {toasts.map((toast) => (
+        <Toast key={toast.id} message={toast.message} onClose={() => removeToast(toast.id)} />
+      ))}
     </main>
   );
 };

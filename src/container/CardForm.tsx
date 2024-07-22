@@ -7,7 +7,6 @@ import Input from '@/components/Input';
 import Label from '@/components/Label';
 import Radio from '@/components/Radio';
 import TextArea from '@/components/TextArea';
-import Toast from '@/components/Toast';
 import { ADD_GUEST_ENDPOINT, ZIP_CLOUD_ENDPOINT } from '@/constants/endpoin';
 import { ATTENDANCE_STATUS, ATTENDANCE_STATUSES } from '@/constants/form';
 import { schema } from '@/constants/schema';
@@ -37,7 +36,7 @@ const CardForm: React.FC = () => {
     resolver: zodResolver(schema),
   });
   const { fields, append, remove } = useFieldArray<TSchema>({ control, name: 'companionInfo' });
-  const { toasts, addToast, removeToast } = useToast();
+  const { addToast } = useToast();
   const router = useRouter();
 
   const buttonIconSize = 12;
@@ -308,10 +307,6 @@ const CardForm: React.FC = () => {
           回答を送信する
         </Button>
       </div>
-
-      {toasts.map((toast) => (
-        <Toast key={toast.id} message={toast.message} onClose={() => removeToast(toast.id)} />
-      ))}
     </form>
   );
 };

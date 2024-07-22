@@ -1,6 +1,7 @@
 import '@/style/globals.css';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import RecoilProvider from './RecoilProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,7 +26,9 @@ type RootLayoutProps = {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }: RootLayoutProps) => (
   <html lang="en">
-    <body className={inter.className}>{children}</body>
+    <RecoilProvider>
+      <body className={inter.className}>{children}</body>
+    </RecoilProvider>
   </html>
 );
 

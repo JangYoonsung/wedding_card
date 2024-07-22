@@ -1,10 +1,11 @@
+'use client';
+
 import { TOAST_STATE } from '@/constants/atoms';
-import { Toast } from '@/types/toast';
 import dayjs from 'dayjs';
 import { useRecoilState } from 'recoil';
 
 const useToast = () => {
-  const [toasts, setToasts] = useRecoilState<Toast[]>(TOAST_STATE);
+  const [toasts, setToasts] = useRecoilState(TOAST_STATE);
 
   const addToast = (message: string) => {
     setToasts([...toasts, { id: dayjs().unix(), message }]);
