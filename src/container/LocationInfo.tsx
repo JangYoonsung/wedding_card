@@ -18,10 +18,15 @@ const LocationInfo: React.FC = () => {
   return (
     <AnimationWrapper>
       <Card color="none">
-        <Title text="Location Info" color="gray" fontSize="2xl" classes="font-play-fair" />
+        <Title
+          text="Location Info"
+          color="gray"
+          fontSize="2xl"
+          classes="font-play-fair text-left pl-4"
+        />
         <Divider classes="my-4" thickness="2px" />
 
-        <div className="text-[#7a7a7a] text-sm whitespace-pre">
+        <div className="text-[#7a7a7a] text-sm text-right p-4 whitespace-pre">
           <p className="pb-4">{locationInformationText}</p>
           <a
             href="https://www.saint-acqua-chapel.jp/place/ichigaya/"
@@ -31,7 +36,7 @@ const LocationInfo: React.FC = () => {
             www.saint-acqua-chapel.jp/place/ichigaya/
           </a>
         </div>
-        <Divider classes="my-4" thickness="2px" />
+        {/* <Divider classes="my-4" thickness="2px" /> */}
         <Map />
       </Card>
     </AnimationWrapper>

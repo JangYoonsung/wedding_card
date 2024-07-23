@@ -22,11 +22,11 @@ const WelcomeNote: React.FC = () => {
   return (
     <AnimationWrapper>
       <Card color="none">
-        <Divider classes="my-4" thickness="2px" />
+        <Divider classes="mb-4" thickness="2px" />
         <p className="text-gray text-center text-base font-bold whitespace-pre-wrap break-words">
           {greetingText}
         </p>
-        <Divider classes="my-4" thickness="2px" />
+        <Divider classes="mt-4" thickness="2px" />
       </Card>
     </AnimationWrapper>
   );
