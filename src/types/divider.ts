@@ -1,8 +1,9 @@
-import { COLOR, ORIENTATION } from '@/constants/common';
+import { ORIENTATION } from '@/constants/common';
+import { Color } from './common';
 
 export type DividerProps = {
   orientation?: (typeof ORIENTATION)[keyof typeof ORIENTATION];
-  color?: (typeof COLOR)[keyof typeof COLOR];
+  color?: Color;
   thickness?: string;
   classes?: string;
 };
