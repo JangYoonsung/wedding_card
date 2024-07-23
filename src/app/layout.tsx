@@ -1,5 +1,6 @@
 import ToastContainer from '@/container/ToastContainer';
 import '@/style/globals.css';
+import { CommonProps } from '@/types/common';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import RecoilProvider from './RecoilProvider';
@@ -21,11 +22,7 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
-type RootLayoutProps = {
-  children: React.ReactNode;
-};
-
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: React.FC<CommonProps> = ({ children }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
