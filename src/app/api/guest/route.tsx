@@ -23,7 +23,7 @@ const loadSheet = async () => {
 
 const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
   const rowData: Record<string, any> = {};
-  Object.keys(fields).map((key) => {
+  Object.keys(fields).forEach((key) => {
     const field = fields[key];
     switch (key) {
       case 'attendanceStatus':
@@ -35,17 +35,19 @@ const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
       case 'firstNameKana':
         rowData[field] = `${data.firstNameKana}${data.lastNameKana}`;
         break;
-
       case 'isAccompanied':
         rowData[field] = data.isAccompanied ? 'あり' : 'なし';
         break;
       case 'companionInfo':
-        rowData[field] =
-          data.companionInfo
-            ?.map(
-              (val) => `[${val.firstName}${val.lastName}, ${val.firstNameKana}${val.lastNameKana}]`,
-            )
-            .join('、') ?? '';
+        if (!data.companionInfo || data.companionInfo?.length === 0) break;
+        rowData[field] = data.companionInfo
+          .map((val, index) => {
+            const name = `${val.firstName}${val.lastName}`;
+            const kanaName = `${val.firstNameKana}${val.lastNameKana}`;
+
+            return `${index + 1}人目: ${name}(${kanaName})`;
+          })
+          .join('\n');
         break;
       case 'createdAt':
         rowData[field] = dayjs().format('YYYY-MM-DD HH:mm:ss');
