@@ -59,3 +59,5 @@ const accompaniedSchema = z.discriminatedUnion('isAccompanied', [
 ]);
 
 export const schema = z.intersection(baseSchema, accompaniedSchema);
+
+export const ZIP_CODE_LENGTH = 7;
