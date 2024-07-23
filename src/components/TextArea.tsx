@@ -1,4 +1,4 @@
-import { BORDER_COLOR } from '@/constants/common';
+import { COLOR } from '@/constants/common';
 import { TextAreaProps } from '@/types/input';
 import React, { useEffect, useRef } from 'react';
 
@@ -46,7 +46,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         onChange={rest.onChange}
         onBlur={rest.onBlur}
         className={`box-border whitespace-pre-wrap border p-2 resize-none rounded overflow-hidden ${classes}`}
-        data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
+        data-border={errorMessage ? COLOR.ERROR : COLOR.PRIMARY}
         placeholder={placeholder}
       />
       {errorMessage && (

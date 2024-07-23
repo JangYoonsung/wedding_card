@@ -1,7 +1,6 @@
-export const BORDER_COLOR = { PRIMARY: 'primary', ERROR: 'error' } as const;
-
 export const COLOR = {
-  ...BORDER_COLOR,
+  PRIMARY: 'primary',
+  ERROR: 'error',
   SECONDARY: 'secondary',
   GRAY: 'gray',
   WHITE: 'white',

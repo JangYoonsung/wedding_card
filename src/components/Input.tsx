@@ -1,4 +1,4 @@
-import { BORDER_COLOR } from '@/constants/common';
+import { COLOR } from '@/constants/common';
 import { InputProps } from '@/types/input';
 import React from 'react';
 
@@ -21,7 +21,7 @@ const Input: React.FC<InputProps> = ({
     <div className="text-xs">
       <input
         className={`border rounded p-2 relative focus:outline-none focus:border-primary ${classes}`}
-        data-border={errorMessage ? BORDER_COLOR.ERROR : BORDER_COLOR.PRIMARY}
+        data-border={errorMessage ? COLOR.ERROR : COLOR.PRIMARY}
         type={type}
         placeholder={placeholder}
         disabled={inputRegister.disabled}
