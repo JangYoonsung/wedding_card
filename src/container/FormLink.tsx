@@ -6,7 +6,7 @@ import LinkButton from '@/components/LinkButton';
 const FormLink: React.FC = () => {
   return (
     <AnimationWrapper>
-      <Card color="secondary" classes="text-white mb-[15rem]">
+      <Card color="primary" classes="text-white mb-[15rem]">
         <Divider classes="my-4" color="var(--primary)" />
 
         <div className="whitespace-pre">

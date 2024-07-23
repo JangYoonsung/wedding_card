@@ -10,7 +10,7 @@ const Information: React.FC = () => {
 
   return (
     <AnimationWrapper>
-      <Card color="secondary">
+      <Card color="primary">
         <Title text="Wedding Information" color="white" fontSize="2xl" classes="font-play-fair" />
         <Divider classes="my-4" color="var(--primary)" />
 
