@@ -306,7 +306,7 @@ const CardForm: React.FC = () => {
       <div className="p-4">
         <Button
           type="submit"
-          color="secondary"
+          color="primary"
           isLoading={isSubmitting}
           disabled={isSubmitting || !isValid}>
           回答を送信する
