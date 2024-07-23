@@ -11,7 +11,7 @@
   }
 
   .disabled {
-    @apply bg-bg_primary border-bg_primary;
+    @apply bg-secondary border-secondary;
   }
 
   .font-play-fair {
@@ -74,9 +74,9 @@
 
     &[data-variant='contained'][data-color='primary'] {
       @apply bg-primary border-primary text-white;
-    }
-    &[data-variant='contained'][data-color='primary']:disabled {
-      @apply disabled;
+      &:disabled {
+        @apply disabled;
+      }
     }
     &[data-variant='contained'][data-color='secondary'] {
       @apply bg-secondary border-secondary text-white;
@@ -106,16 +106,23 @@
 }
 
 :root {
-  --primary: #dfbf9f;
-  --bg-primary: #dfbf9f15;
-  --secondary: #6e4f3090;
-  --light-gray: #e6e6e6;
+  --primary: #6e4f3090;
+  --primary-ligth: #6e4f3050;
+  --secondary: #dfbf9f90;
+  --secondary-ligth: #dfbf9f50;
+
+  --error: #f44336;
+  --error-dark: #d32f2f;
+  --error-light: #e57373;
+
   --gray: #8c8c8c;
-  --error: #cc0000;
-  --error-dark: #b30000;
-  --error-light: #ff9999;
+  --light-gray: #e6e6e6;
+  --dark-gray: #424242;
+
   --white: #fff;
   --black: #000;
+
+  --bg-primary: #dfbf9f15;
 
   --main_pic: url('/image/main.jpg');
 }
