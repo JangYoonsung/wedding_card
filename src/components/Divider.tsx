@@ -1,4 +1,4 @@
-import { ORIENTATION } from '@/constants/divider';
+import { ORIENTATION } from '@/constants/common';
 import { DividerProps } from '@/types/divider';
 import { CSSProperties } from 'react';
 

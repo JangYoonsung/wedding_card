@@ -1,4 +1,4 @@
-import { ORIENTATION } from '@/constants/divider';
+import { ORIENTATION } from '@/constants/common';
 
 export type DividerProps = {
   orientation?: (typeof ORIENTATION)[keyof typeof ORIENTATION];
