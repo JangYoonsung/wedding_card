@@ -3,6 +3,7 @@ export const COLOR = {
   ERROR: 'error',
   SECONDARY: 'secondary',
   GRAY: 'gray',
+  LIGHT_GRAY: 'light_gray',
   WHITE: 'white',
   BLACK: 'black',
 } as const;
