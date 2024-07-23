@@ -9,7 +9,6 @@ export type ButtonProps = {
   type?: HTMLButtonElement['type'];
   disabled?: boolean;
   isLoading?: boolean;
-  classes?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined;
 } & Partial<CommonProps>;
 

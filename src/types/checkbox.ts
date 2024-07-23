@@ -4,6 +4,5 @@ import { SchemaProps, TSchema } from './schema';
 
 export type CheckboxProps = Omit<SchemaProps, 'register'> & {
   control: Control<TSchema>;
-  classes?: string;
   onChangeHandler?: (isChecked: boolean) => void | undefined;
 } & Partial<CommonProps>;
