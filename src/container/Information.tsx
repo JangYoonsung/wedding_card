@@ -12,7 +12,7 @@ const Information: React.FC = () => {
     <AnimationWrapper>
       <Card color="secondary">
         <Title text="Wedding Information" color="white" fontSize="2xl" classes="font-play-fair" />
-        <Divider classes="my-4" color="var(--secondary)" />
+        <Divider classes="my-4" color="var(--primary)" />
 
         <div className="grid gap-2">
           <div>
@@ -30,7 +30,7 @@ const Information: React.FC = () => {
             <p className="text-lg text-white">午後13:30</p>
           </div>
         </div>
-        <Divider classes="my-4" color="var(--secondary)" />
+        <Divider classes="my-4" color="var(--primary)" />
 
         <div className="whitespace-pre-wrap">
           <p className="text-white">{description}</p>
