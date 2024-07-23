@@ -13,6 +13,7 @@ import { schema } from '@/constants/schema';
 import useToast from '@/hooks/useToast';
 import { TZipCloud } from '@/types/prefacture';
 import { TSchema } from '@/types/schema';
+import { formatWithHyphens } from '@/utils/string';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 import React, { Fragment } from 'react';
@@ -71,7 +72,11 @@ const CardForm: React.FC = () => {
         'Content-Type': 'applicatioin/json',
       },
       mode: 'cors',
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        ...data,
+        tel: formatWithHyphens(data.tel),
+        zipCode: formatWithHyphens(data.zipCode),
+      }),
     });
 
     if (!res.ok) {
