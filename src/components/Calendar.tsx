@@ -11,10 +11,12 @@ const Calendar: React.FC = () => {
     const calendar = [];
 
     let week = new Array(firstDayOfMonth).fill(null);
+    const lastDayInWeek = 7;
+
     for (let day = 1; day <= daysInMonth; day += 1) {
       week.push({ day, key: `${year}-${month + 1}-${day}` });
 
-      if (week.length === 7) {
+      if (week.length === lastDayInWeek) {
         calendar.push(week);
         week = [];
       }
