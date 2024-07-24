@@ -139,7 +139,7 @@ body {
 }
 
 @media screen and (min-width: 1024px) {
-  body {
+  main {
     margin: 0 auto !important;
     max-width: 36rem;
   }
