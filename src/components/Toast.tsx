@@ -19,7 +19,7 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
   }, [onClose]);
 
   const classes = [
-    'fixed p-4 rounded bg-error bottom-5 right-5 text-white text-sm font-bold transition-opacity duration-500',
+    'fixed p-4 rounded bg-error bottom-4 right-4 text-white text-sm font-bold transition-opacity duration-500',
     'flex items-start justify-center gap-2',
     visible ? 'opacity-100' : 'opacity-0',
   ]

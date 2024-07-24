@@ -36,12 +36,7 @@ const PhotoGallery: React.FC = () => {
   return (
     <AnimationWrapper>
       <Card color="none">
-        <Title
-          text="Photo Gallery"
-          color="gray"
-          classes="font-play-fair mb-4 pl-4 text-left"
-          fontSize="2xl"
-        />
+        <Title text="Photo Gallery" color="gray" classes="font-play-fair mb-4" fontSize="2xl" />
 
         <Slider
           className="aspect-w-1 aspect-h-1"
