@@ -26,6 +26,7 @@ const calculateDay = (targetDate: string) => {
 
 const Counter: React.FC = () => {
   const targetDate: string = '2024-09-06';
+  const interval = 1000;
 
   const [timeLeft, setTimeLeft] = useState(calculateDay(targetDate));
   const [isClient, setIsClient] = useState(false);
@@ -37,7 +38,7 @@ const Counter: React.FC = () => {
 
     const intervalId = setInterval(() => {
       setTimeLeft(calculateDay(targetDate));
-    }, 1000);
+    }, interval);
 
     return () => clearInterval(intervalId);
   }, [isClient, targetDate]);
