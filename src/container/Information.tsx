@@ -1,5 +1,6 @@
 import AnimationWrapper from '@/components/AnimationWrapper';
 import Card from '@/components/Card';
+import Counter from '@/components/Counter';
 import Divider from '@/components/Divider';
 import Title from '@/components/Title';
 import React from 'react';
@@ -31,8 +32,12 @@ const Information: React.FC = () => {
         </div>
         <Divider classes="my-4" color="primary" />
 
-        <div className="whitespace-pre-wrap text-sm px-4">
-          <p>{description}</p>
+        <div className="whitespace-pre-wrap text-sm px-4">{description}</div>
+        <Divider classes="my-4" color="primary" />
+
+        <div>
+          <Title text="2024.09.06 まで" color="white" fontSize="lg" classes="pb-2" />
+          <Counter />
         </div>
       </Card>
     </AnimationWrapper>
