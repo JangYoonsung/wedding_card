@@ -1,6 +1,7 @@
 import { ATTENDANCE_STATUS, FIELD_NAMES } from '@/constants/form';
 import { schema } from '@/constants/schema';
 import { TSchema } from '@/types/schema';
+import { messagingApi, OAuth } from '@line/bot-sdk';
 import dayjs from 'dayjs';
 import { JWT } from 'google-auth-library';
 import { GoogleSpreadsheet } from 'google-spreadsheet';
@@ -19,6 +20,21 @@ const loadSheet = async () => {
   await doc.loadInfo();
 
   return doc;
+};
+
+const sendLineMessage = async (message: string) => {
+  const credential = await new OAuth().issueAccessToken(
+    process.env.CHANNEL_ID as string,
+    process.env.CHANNEL_SECRET as string,
+  );
+  const lineBot = new messagingApi.MessagingApiClient({
+    channelAccessToken: credential.access_token,
+  });
+
+  return lineBot.pushMessage({
+    to: process.env.LINE_ID as string,
+    messages: [{ type: 'text', text: message }],
+  });
 };
 
 const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
@@ -74,6 +90,12 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   }
 
   const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
+
+  const message = `답변이 도착했습니다
+이름: ${result.get('お名前')}
+출결여부: ${result.get('出欠席')}`;
+  await sendLineMessage(message);
+
   return NextResponse.json(result.toObject(), { status: 201 });
 };
 
