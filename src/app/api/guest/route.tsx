@@ -4,7 +4,7 @@ import { TSchema } from '@/types/schema';
 import { messagingApi, OAuth } from '@line/bot-sdk';
 import dayjs from 'dayjs';
 import { JWT } from 'google-auth-library';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { GoogleSpreadsheet, GoogleSpreadsheetWorksheet } from 'google-spreadsheet';
 import { NextRequest, NextResponse } from 'next/server';
 
 const loadSheet = async () => {
@@ -22,13 +22,33 @@ const loadSheet = async () => {
   return doc;
 };
 
-const sendLineMessage = async (message: string) => {
-  const credential = await new OAuth().issueAccessToken(
-    process.env.CHANNEL_ID as string,
-    process.env.CHANNEL_SECRET as string,
-  );
+const getLineAccessToken = async (sheet: GoogleSpreadsheetWorksheet) => {
+  const rows = await sheet.getRows();
+  const accessToken: string = rows[0]?.get('accessToken');
+
+  if (!accessToken || dayjs().isAfter(rows[1]?.get('tokenExp'))) {
+    const credential = await new OAuth().issueAccessToken(
+      process.env.CHANNEL_ID as string,
+      process.env.CHANNEL_SECRET as string,
+    );
+
+    await sheet.clearRows();
+    await sheet.addRow({
+      accessToken: credential.access_token,
+      tokenExp: dayjs().add(credential.expires_in, 'second').toDate(),
+    });
+
+    return credential.access_token;
+  }
+  return accessToken;
+};
+
+const sendLineMessage = async (doc: GoogleSpreadsheet, message: string) => {
+  const sheet = await doc.sheetsByIndex[1];
+  const accessToken = await getLineAccessToken(sheet);
+
   const lineBot = new messagingApi.MessagingApiClient({
-    channelAccessToken: credential.access_token,
+    channelAccessToken: accessToken,
   });
 
   return lineBot.pushMessage({
@@ -94,7 +114,7 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   const message = `답변이 도착했습니다
 이름: ${result.get('お名前')}
 출결여부: ${result.get('出欠席')}(${result.get('ふりがな')})`;
-  await sendLineMessage(message);
+  await sendLineMessage(doc, message);
 
   return NextResponse.json(result.toObject(), { status: 201 });
 };
