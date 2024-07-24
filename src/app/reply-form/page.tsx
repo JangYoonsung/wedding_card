@@ -13,7 +13,7 @@ const ReplyForm: React.FC = () => {
   `;
   return (
     <main>
-      <div className="text-center my-4 font-bold">
+      <div className="text-center my-4">
         <Title text="Wedding Invitation" classes="font-play-fair" fontSize="2xl" color="primary" />
         <Title text="Yoonsung & Juan" classes="font-play-fair" color="primary" fontSize="xl" />
       </div>
