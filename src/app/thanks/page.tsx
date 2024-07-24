@@ -21,7 +21,7 @@ const Home: React.FC = () => {
           <div className="mt-4 text-gray text-sm">
             <p>回答のご協力ありがとうございました。</p>
             <LinkButton href="../" color="gray" variant="text">
-              TOP画面に戻る
+              TOPへ戻る
             </LinkButton>
           </div>
         </div>
