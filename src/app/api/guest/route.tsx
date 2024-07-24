@@ -112,8 +112,8 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
   const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
 
   const message = `답변이 도착했습니다
-이름: ${result.get('お名前')}
-출결여부: ${result.get('出欠席')}(${result.get('ふりがな')})`;
+이름: ${result.get('お名前')}(${result.get('フリガナ')})
+출결여부: ${result.get('出欠席')}`;
   await sendLineMessage(doc, message);
 
   return NextResponse.json(result.toObject(), { status: 201 });
