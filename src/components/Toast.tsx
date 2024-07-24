@@ -19,8 +19,8 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
   }, [onClose]);
 
   const classes = [
-    'fixed p-4 rounded bg-error bottom-4 right-4 text-white text-sm font-bold transition-opacity duration-500',
-    'flex items-start justify-center gap-2',
+    'fixed py-4 px-2 rounded bg-error bottom-2 right-2 text-white text-sm font-bold transition-opacity duration-500',
+    'grid grid-flow-col items-start justify-center gap-2',
     visible ? 'opacity-100' : 'opacity-0',
   ]
     .filter(Boolean)
@@ -31,7 +31,7 @@ const Toast: React.FC<ToastProps> = ({ message, onClose }) => {
 
   return (
     <div className={classes}>
-      <div className="flex items-center justify-center gap-4 ">
+      <div className="flex items-center justify-center gap-4">
         <ErrorIcon width={errorIconSize} height={errorIconSize} />
         <div>
           <p className="text-base">失敗しました。</p>
