@@ -137,3 +137,10 @@ body {
 .image-slider-container {
   width: 400px;
 }
+
+@media screen and (min-width: 1024px) {
+  main {
+    margin: 0 auto !important;
+    max-width: 36rem;
+  }
+}
