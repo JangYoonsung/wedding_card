@@ -7,7 +7,7 @@ import RecoilProvider from './RecoilProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'web招待状',
+  title: 'Yoonsung&Juan',
   description: 'ユンソン・じゅあんの結婚式に招待します。',
   icons: {
     icon: '/image/icon.png',

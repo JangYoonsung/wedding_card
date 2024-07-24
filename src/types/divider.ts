@@ -1,8 +1,8 @@
-import { ORIENTATION } from '@/constants/divider';
+import { ORIENTATION } from '@/constants/common';
+import { Color, CommonProps } from './common';
 
 export type DividerProps = {
   orientation?: (typeof ORIENTATION)[keyof typeof ORIENTATION];
+  color?: Color;
   thickness?: string;
-  color?: string;
-  classes?: string;
-};
+} & Pick<CommonProps, 'classes'>;

@@ -10,30 +10,29 @@ const Information: React.FC = () => {
 
   return (
     <AnimationWrapper>
-      <Card color="secondary">
+      <Card color="primary" classes="text-white">
         <Title text="Wedding Information" color="white" fontSize="2xl" classes="font-play-fair" />
-        <Divider classes="my-4" color="var(--secondary)" />
+        <Divider classes="my-4" color="primary" />
 
-        <div className="grid gap-2">
-          <div>
-            <Title text="日付" color="white" fontSize="lg" />
-            <p className="text-lg text-white">2024年09月06日（金）</p>
-          </div>
+        <div className="grid gap-2 text-center text-lg p-4">
+          <p>2024年09月06日（金）</p>
 
           <div>
-            <Title text="挙式" color="white" fontSize="lg" />
-            <p className="text-lg text-white">午後12:30</p>
-          </div>
+            <div className="flex items-center justify-center gap-2">
+              <Title text="挙式" color="white" fontSize="lg" />
+              <p>午後12:30</p>
+            </div>
 
-          <div>
-            <Title text="披露宴" color="white" fontSize="lg" />
-            <p className="text-lg text-white">午後13:30</p>
+            <div className="flex items-center justify-center gap-2">
+              <Title text="披露宴" color="white" fontSize="lg" />
+              <p>午後13:30</p>
+            </div>
           </div>
         </div>
-        <Divider classes="my-4" color="var(--secondary)" />
+        <Divider classes="my-4" color="primary" />
 
-        <div className="whitespace-pre-wrap">
-          <p className="text-white">{description}</p>
+        <div className="whitespace-pre-wrap text-sm px-4">
+          <p>{description}</p>
         </div>
       </Card>
     </AnimationWrapper>

@@ -11,7 +11,7 @@
   }
 
   .disabled {
-    @apply bg-bg_primary border-bg_primary;
+    @apply bg-secondary border-secondary;
   }
 
   .font-play-fair {
@@ -53,7 +53,7 @@
     @apply py-4 text-center;
 
     &[data-color='primary'] {
-      @apply bg-bg_primary;
+      @apply bg-primary;
     }
     &[data-color='secondary'] {
       @apply bg-secondary;
@@ -74,48 +74,55 @@
 
     &[data-variant='contained'][data-color='primary'] {
       @apply bg-primary border-primary text-white;
-    }
-    &[data-variant='contained'][data-color='primary']:disabled {
-      @apply disabled;
+      &:disabled {
+        @apply bg-primary_light border-primary_light;
+      }
     }
     &[data-variant='contained'][data-color='secondary'] {
       @apply bg-secondary border-secondary text-white;
-    }
-    &[data-variant='contained'][data-color='secondary']:disabled {
-      @apply disabled;
+      &:disabled {
+        @apply bg-secondary_light border-primary_light;
+      }
     }
     &[data-variant='outline'][data-color='primary'] {
       @apply bg-white border-primary text-primary;
-    }
-    &[data-variant='outline'][data-color='primary']:disabled {
-      @apply disabled;
+      &:disabled {
+        @apply text-primary_light border-primary_light;
+      }
     }
     &[data-variant='outline'][data-color='secondary'] {
       @apply bg-white border-secondary text-secondary;
-    }
-    &[data-variant='outline'][data-color='secondary']:disabled {
-      @apply disabled;
+      &:disabled {
+        @apply text-secondary_light border-secondary_light;
+      }
     }
     &[data-variant='text'][data-color='primary'] {
       @apply text-primary border-0;
-    }
-    &[data-variant='text'][data-color='primary']:disabled {
-      @apply text-secondary border-0;
+      &:disabled {
+        @apply text-primary_light border-0;
+      }
     }
   }
 }
 
 :root {
-  --primary: #dfbf9f;
-  --bg-primary: #dfbf9f15;
-  --secondary: #6e4f3090;
-  --light-gray: #e6e6e6;
+  --primary: #6e4f3090;
+  --primary-light: #6e4f3050;
+  --secondary: #dfbf9f90;
+  --secondary-light: #dfbf9f50;
+
+  --error: #f44336;
+  --error-dark: #d32f2f;
+  --error-light: #e57373;
+
   --gray: #8c8c8c;
-  --error: #cc0000;
-  --error-dark: #b30000;
-  --error-light: #ff9999;
+  --light-gray: #e6e6e6;
+  --dark-gray: #424242;
+
   --white: #fff;
   --black: #000;
+
+  --bg-primary: #dfbf9f15;
 
   --main_pic: url('/image/main.jpg');
 }
