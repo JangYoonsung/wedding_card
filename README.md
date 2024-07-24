@@ -25,7 +25,7 @@
 
 > [yoonsung-juan-wedding-card.vercel.app](https://yoonsung-juan-wedding-card.vercel.app)
 
-私の結婚式のために作成したWEB招待状です。
+私の結婚式用に作成したWEB招待状です。
 
 ## ページ項目
 
