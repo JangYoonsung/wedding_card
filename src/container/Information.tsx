@@ -1,4 +1,5 @@
 import AnimationWrapper from '@/components/AnimationWrapper';
+import Calendar from '@/components/Calendar';
 import Card from '@/components/Card';
 import Counter from '@/components/Counter';
 import Divider from '@/components/Divider';
@@ -35,6 +36,7 @@ const Information: React.FC = () => {
         <div className="whitespace-pre-wrap text-sm px-4">{description}</div>
         <Divider classes="my-4" color="primary" />
 
+        <Calendar />
         <div>
           <Title text="2024.09.06 まで" color="white" fontSize="lg" classes="pb-2" />
           <Counter />
