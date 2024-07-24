@@ -1,3 +1,4 @@
+import Footer from '@/container/Footer';
 import ToastContainer from '@/container/ToastContainer';
 import '@/style/globals.css';
 import type { Metadata, Viewport } from 'next';
@@ -31,6 +32,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
       <body className={inter.className}>
         <RecoilProvider>
           {children}
+          <Footer />
           <ToastContainer />
         </RecoilProvider>
       </body>
