@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   const textBoxStyle = 'flex items-center justify-center gap-1';
-  const linkSettings = { target: '_blank', rel: 'noopener noreferrer' };
+  const linkProps = { target: '_blank', rel: 'noopener noreferrer', className: 'underline' };
 
   return (
     <footer className="bg-[#6e4f3099] text-center text-white text-xs py-4">
@@ -12,9 +12,9 @@ const Footer: React.FC = () => {
           <p>Developed And Designed by</p>
           <Link
             href="https://github.com/JangYoonsung"
-            target={linkSettings.target}
-            rel={linkSettings.rel}
-            className="underline">
+            target={linkProps.target}
+            rel={linkProps.rel}
+            className={linkProps.className}>
             @yoonsung.
           </Link>
         </div>
@@ -22,9 +22,9 @@ const Footer: React.FC = () => {
           <p>Powered By</p>
           <Link
             href="https://vercel.com"
-            target={linkSettings.target}
-            rel={linkSettings.rel}
-            className="underline">
+            target={linkProps.target}
+            rel={linkProps.rel}
+            className={linkProps.className}>
             vercel.
           </Link>
         </div>
