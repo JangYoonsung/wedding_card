@@ -46,7 +46,7 @@ const Counter: React.FC = () => {
   if (!isClient) return null;
 
   return (
-    <div className="flex justify-center items-center gap-10">
+    <div className="px-1 grid grid-cols-4 justify-center items-center">
       <div className="grid">
         <Title text={`${timeLeft.days}`} color="white" classes="font-play-fair" fontSize="2xl" />
         <p>日</p>

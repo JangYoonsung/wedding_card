@@ -38,7 +38,7 @@ const Information: React.FC = () => {
 
         <Calendar />
         <div>
-          <Title text="2024.09.06 まで" color="white" fontSize="lg" classes="pb-2" />
+          <Title text="2024.09.06 まで" color="white" fontSize="lg" classes="pb-3" />
           <Counter />
         </div>
       </Card>
