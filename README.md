@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 모바일 청첩장 / WEB招待状
 
-## Getting Started
+<details open>
+<summary>한국어</summary>
 
-First, run the development server:
+> [yoonsung-juan-wedding-card.vercel.app](https://yoonsung-juan-wedding-card.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+저의 결혼식을 위해 만든 모바일 청첩장입니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 페이지 항목
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **메인 페이지**
+  - 메인 화면
+  - 사진 갤러리
+  - 결혼식 정보
+  - 지도
+  - RSVP 폼 링크
+- **RSVP 폼 페이지**
+- **Thanks 페이지**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+</details>
 
-## Learn More
+<details open>
+<summary>日本語</summary>
 
-To learn more about Next.js, take a look at the following resources:
+> [yoonsung-juan-wedding-card.vercel.app](https://yoonsung-juan-wedding-card.vercel.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+私の結婚式のために作成したWEB招待状です。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## ページ項目
 
-## Deploy on Vercel
+- **メインページ**
+  - トップ画面
+  - フォトギャラリー
+  - 結婚式情報
+  - 地図
+  - RSVPフォームリンク
+- **RSVPフォームページ**
+- **Thanksページ**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+</details>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Stack
+
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Recoil**
+- **Vercel**
