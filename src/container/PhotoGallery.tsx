@@ -15,7 +15,7 @@ const PhotoGallery: React.FC = () => {
     { id: 3, value: '/image/three.jpg' },
     { id: 4, value: '/image/four.jpg' },
     { id: 5, value: '/image/five.jpg' },
-    { id: 6, value: '/image/main.jpg' },
+    { id: 6, value: '/image/291846-146.jpg' },
     { id: 7, value: '/image/six.jpg' },
     { id: 8, value: '/image/seven.jpg' },
     { id: 9, value: '/image/eight.jpg' },
