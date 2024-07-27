@@ -51,10 +51,16 @@ const sendLineMessage = async (doc: GoogleSpreadsheet, message: string) => {
     channelAccessToken: accessToken,
   });
 
-  return lineBot.pushMessage({
-    to: process.env.LINE_ID as string,
-    messages: [{ type: 'text', text: message }],
-  });
+  const idSheet = await doc.sheetsByIndex[2];
+  const lineIds = (await idSheet.getRows()).map((row) => row.get('lineId') as string);
+  return Promise.all(
+    lineIds.map((lineId) => {
+      return lineBot.pushMessage({
+        to: lineId,
+        messages: [{ type: 'text', text: message }],
+      });
+    }),
+  );
 };
 
 const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
