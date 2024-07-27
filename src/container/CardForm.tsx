@@ -264,14 +264,14 @@ const CardForm: React.FC = () => {
                   register={register}
                   errors={errors}
                   classes="w-full"
-                  placeholder="山田"
+                  placeholder="ヤマダ"
                 />
                 <Input
                   name={`companionInfo.${index}.lastNameKana`}
                   register={register}
                   errors={errors}
                   classes="w-full"
-                  placeholder="太郎"
+                  placeholder="タロウ"
                 />
               </div>
             </fieldset>

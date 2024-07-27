@@ -13,7 +13,7 @@ const LocationInfo: React.FC = () => {
   
 都営新宿線曙橋駅A3出口から徒歩5分
   
-03-6402-7256`;
+03-6402-7251`;
 
   return (
     <AnimationWrapper>

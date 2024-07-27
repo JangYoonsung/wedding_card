@@ -51,10 +51,16 @@ const sendLineMessage = async (doc: GoogleSpreadsheet, message: string) => {
     channelAccessToken: accessToken,
   });
 
-  return lineBot.pushMessage({
-    to: process.env.LINE_ID as string,
-    messages: [{ type: 'text', text: message }],
-  });
+  const idSheet = await doc.sheetsByIndex[2];
+  const lineIds = (await idSheet.getRows()).map((row) => row.get('lineId') as string);
+  return Promise.all(
+    lineIds.map((lineId) => {
+      return lineBot.pushMessage({
+        to: lineId,
+        messages: [{ type: 'text', text: message }],
+      });
+    }),
+  );
 };
 
 const convertToRowData = (data: TSchema, fields: Record<string, string>) => {
@@ -111,9 +117,9 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
 
   const result = await sheet.addRow(convertToRowData(body, FIELD_NAMES));
 
-  const message = `답변이 도착했습니다
-이름: ${result.get('お名前')}(${result.get('フリガナ')})
-출결여부: ${result.get('出欠席')}`;
+  const message = `招待状の回答が届きました。
+お名前: ${result.get('お名前')}(${result.get('フリガナ')})
+出欠席: ${result.get('出欠席')}`;
   await sendLineMessage(doc, message);
 
   return NextResponse.json(result.toObject(), { status: 201 });
@@ -129,7 +135,10 @@ export const POST = async (req: NextRequest) => {
   const docs = await loadSheet();
   const parse = schema.safeParse(body);
   if (parse.error) {
-    return NextResponse.json({ message: parse.error.message }, { status: 400 });
+    return NextResponse.json(
+      { message: '入力内容に偽りがあるか不備があります。' },
+      { status: 400 },
+    );
   }
 
   const sheet = await addRows(docs, body);
