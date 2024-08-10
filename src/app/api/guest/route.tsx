@@ -127,7 +127,7 @@ const addRows = async (doc: GoogleSpreadsheet, body: TSchema) => {
 
 export const POST = async (req: NextRequest) => {
   const today = dayjs();
-  if (today.isAfter('2024-08-09', 'day')) {
+  if (today.isAfter('2024-08-16', 'day')) {
     return NextResponse.json({ message: '回答期限がすぎました。' }, { status: 400 });
   }
 

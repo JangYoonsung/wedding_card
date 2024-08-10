@@ -20,7 +20,7 @@ const ReplyForm: React.FC = () => {
 
       <div className="text-sm py-2 text-center text-gray whitespace-pre">{description}</div>
 
-      <p className="font-bold text-gray text-center">2024年8月9日（金）</p>
+      <p className="font-bold text-gray text-center">2024年8月16日（金）</p>
       <div className="mx-4">
         <CardForm />
       </div>
